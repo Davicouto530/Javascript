@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        #txtvel {
+            width: 80px;
+        }
+
+        #botao {
+            text-transform: uppercase;
+            font-size: 11px;
+            padding: 8px;
+            margin-left: 8px;
+            border: none;
+            border-radius: 4px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de multas</h1>
+    <form action="#" method="post">
+        <p>Velociade do carro</p>
+        <input type="number" name="txtvel" id="txtvel">Km/h
+        <input id="botao" type="button" value="Verificar" onclick="calcular()">
+        <div id="res"></div>
+    </form>
+
+    <script>
+        function calcular() {
+            var txtv = document.getElementById('txtvel')
+            var res = document.getElementById('res')
+            var vel = Number(txtv.value)
+            res.innerHTML = `Sua velocidade atual é de ${vel}Km/h</br>`
+            if (vel > 60) {
+            res.innerHTML += 'Você está acima da velocidade, MULTADO!</br>'
+            }
+            res.innerHTML += 'Dirija sempre com o cinto de segurança'
+        }
+    </script>
+</body>
+</html>
