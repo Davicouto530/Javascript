@@ -16,14 +16,14 @@
 
     <script>
         function ver() {
-            var pais = document.getElementById('txtpais')
-            var res = document.getElementById('res')
-            res.innerText = `Seu pais é: ${pais}</br>`
+            var pais = window.document.getElementById('txtpais').value
+            var res = window.document.getElementById('res')
+            res.innerHTML = `Seu país é: ${pais} <br>`
 
             if (pais == 'Brasil') {
-                res.innerText += 'Você é Brasileiro'
+                res.innerHTML += 'Você é Brasileiro'
             } else {
-                res.innerText += 'Você é estrangeiro'
+                res.innerHTML += 'Você é estrangeiro'
             }
         }
     </script>
