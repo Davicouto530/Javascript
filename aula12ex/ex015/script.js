@@ -11,8 +11,8 @@ function verificar() {
         var genero = ''
         var img = document.createElement('img')
         img.setAttribute('id', 'foto')
-        img.style.width = '350px'
-        img.style.height = '350px'
+        img.style.width = '200px'
+        img.style.height = '200px'
         img.style.borderRadius = '50%'
         img.style.marginTop = '15px'
         if (fsex[0].checked) {
