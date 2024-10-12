@@ -18,10 +18,45 @@
 
     <p id="texto"></p>
 
+    <div id="soma"></div>
+
+    <form action="#">
+        <p><input type="number" name="txtn1" id="txtn1" placeholder="Digite um número aqui"></p>
+
+        <p><input type="number" name="txtn2" id="txtn2" placeholder="Digite outro número aqui"></p>
+
+        <p><input type="button" value="Somar" onclick="somar()"></p>
+    </form>
+
+    <div id="res"></div>
+
+
     <script>
+        function somar() {
+            let res = document.getElementById('res')
+            let tn1 = document.getElementById('txtn1');
+            let tn2 = document.getElementById('txtn2');
+            let n1 = Number(tn1.value);
+            let n2 = Number(tn2.value);
+            let soma = n1 + n2;
+            res.innerHTML = ''
+            
+            if(n1 === 0 || n2 === 0) {
+                alert(`Valor inválido`)
+                return
+            }
+            res.innerHTML += `O valor de ${n1} + ${n2} deu ${soma}`
+        }
+
         document.getElementById("texto").innerHTML = 'Meu primeiro texto em <strong>JS</strong>';
-        alert('Olá mundo!');
-        document.write('Oi escrito com o "document.write"')
+        
+        document.write('Escrito com o "document.write"')
+
+        let a = 4;
+        let b = 5;
+        let c = a + b;
+        let sm = document.getElementById('soma');
+        sm.innerHTML = `A soma de ${a} mais ${b} deu ${c}`
     </script>
 </body>
 
