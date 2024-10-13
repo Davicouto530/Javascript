@@ -18,6 +18,8 @@
 
     <p id="texto"></p>
 
+    <p id="texto2"></p>
+
     <div id="soma"></div>
 
     <form action="#">
@@ -30,33 +32,77 @@
 
     <div id="res"></div>
 
-
     <script>
         function somar() {
-            let res = document.getElementById('res')
-            let tn1 = document.getElementById('txtn1');
-            let tn2 = document.getElementById('txtn2');
-            let n1 = Number(tn1.value);
-            let n2 = Number(tn2.value);
-            let soma = n1 + n2;
-            res.innerHTML = ''
+            let res = document.getElementById('res')//Pegando a tag do HTML para o JS
+
+            let tn1 = document.getElementById('txtn1');//Pegando a tag do HTML para o JS
+
+            let tn2 = document.getElementById('txtn2');//Pegando a tag do HTML para o JS
+
+            let n1 = Number(tn1.value);//Convertendo o tipo de string para number
+
+            let n2 = Number(tn2.value);//Convertendo o tipo de string para number
+
+            let soma = n1 + n2;//Fazendo a soma do valor da variável "n1" mais(+) o valor da variável "n2"
+
+            res.innerHTML = ''//Serve para quando já tiver digitado e quiser fazer de nov, apagar o que estiver escrito, para não ficar tudo junto
             
-            if(n1 === 0 || n2 === 0) {
-                alert(`Valor inválido`)
-                return
+            if(n1 === 0 || n2 === 0) {//Se o valor colocado dentro de "n1" ou de "n2" for zero(0), vai aparecer uma alerta e falar "Valor inválido"
+                alert(`Valor inválido, o valor zero colocado será redefinido para "1"`)
+                if(n1 === 0) {
+                    n1 = 1;//Se o valor da variável "n1" for zero(0), vai ser redefinido para "1"
+                }
+                if(n2 === 0) {
+                    n2 = 1;//Se o valor da variável "n2" for zero(0), vai ser redefinido para "1"
+                }
+                soma = n1 + n2; //Vai fazer a soma com o "1" passado se alguma das variáveis for zero(0)
             }
-            res.innerHTML += `O valor de ${n1} + ${n2} deu ${soma}`
+            res.innerHTML += `O valor de ${n1} + ${n2} deu ${soma}`//Vai mostrar na div escrito isso na tela
         }
 
-        document.getElementById("texto").innerHTML = 'Meu primeiro texto em <strong>JS</strong>';
+        var nome, sobrenome, nomecompleto;
+
+        nome = "Davi"
+        sobrenome = "Couto"
+        nomecompleto = nome + " " + sobrenome//Vai juntar o que está escrito na variável "nome" como que está escrito na variável "sobrenome" e colocar dentro da variável "nomecompleto"
+
+        document.getElementById('texto2').innerHTML = nomecompleto//Vai escrever na tag com o id "texto2" o que está dentro da variável "nomecompleto"
+
+        document.getElementById("texto").innerHTML = 'Meu primeiro texto em <strong>JS</strong>';//Pegou o tag com o id "texto" e vai escrever dentro dela "innerHTML".
         
-        document.write('Escrito com o "document.write"')
+        document.write('Escrito com o "document.write"')//"document.write" serve para escrever alguma coisa na tela pelo JS
 
         let a = 4;
         let b = 5;
-        let c = a + b;
-        let sm = document.getElementById('soma');
-        sm.innerHTML = `A soma de ${a} mais ${b} deu ${c}`
+        let c = a + b; //Vai somar o valor da variável de "a" mais(+) o valor da variável de "b"
+        let sm = document.getElementById('soma');//Peguei o a div do html pelo id "soma"
+        sm.innerHTML = `A soma de ${a} mais ${b} deu ${c}`//Vou escrever isso dentro da div com o id "soma" 
+
+        const nfixo = 5
+        // a variável "const" nunca vai mudar o valor que estiver dentro dela
+
+        var valor1, valor2, total;
+        valor1 = 5;
+        valor2 = 2;
+
+        total = ++valor1 //uma variável com dois "++" na frente, vai adicionar mais um(1) do valor dela, se tiver dois "--", vai tirar um(1) do valor dela
+        alert('O valor1 ficou: ' + valor1)
+
+        var valor3, valor4, segtotal
+        valor3 = 4
+        valor4 = 7
+        valor3 += valor4 //A variável "valor3" recebe a soma do valor da variável "valor3" mais(+) o valor da variável "valor4", que seria a mesma coisa que "valor3 = valor3 + valor4". E aqui nesse "+=" mais, pode colocar outro sibal da conta que você queira fazer
+        document.write("<br>" + valor3)
+         
+
+        var idade, eleitor, resultado;
+        idade = 18;
+        eleitor = (idade < 18) ? "Não, eleitor" : "Sim, eleitor" //Se a variável "idade" for menor que 18, vai da "Não, eleitor", se for maior que 18, vai da "Sim, eleitor" 
+        document.write('<br>A resposta é: ' + eleitor + ', a idade dele é de: ' + idade)
+
+        resultado = !(idade === 65)//O sinal de "!" é de "não" no JS, então é "idade não é 65", que vai da true(veradadeiro) 
+        document.write('<br>' + resultado)
     </script>
 </body>
 
