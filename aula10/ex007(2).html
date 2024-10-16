@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma</title>
+    <style>
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+
+        #botao {
+            margin: 15px 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aprendendo Javascript</h1>
+    <div id="conta"></div>
+    <br>
+    <button id="botao" onclick="alertaHello()">Clique aqui</button>
+    <br>
+    <script>
+        function soma(valor1, valor2) {
+            return valor1 + valor2
+        } //Criou o parâmetro "valor1" e o "valor2", que vai fazer a soma entre os dois no "return valor1 + valor2"
+
+        document.getElementById('conta').innerHTML = soma(10,35) //Aqui dentro do "soma(10,35)" que é passado o valor do parâmetro de "soma(valor1, valor2)" que vai fazer a soma no "return valor1 + valor2" e vai mostrar na tela.
+
+        function realParaDolar(real, cotacaoDolar) {
+            return real * cotacaoDolar;
+        }
+
+        var valorReal = 1080
+        var cotacao = 5.68
+
+        var total = realParaDolar(valorReal, cotacao)
+
+        document.write("O valor em real é R$ " + valorReal + " o valor em dólar é U$: " + total)
+
+        function alertaHello() { 
+            alert("Olá pessoal!")
+        } //Quando clicar no botao lá em cima no HTML, vai fazer essa função, que é aparecer um alerta na tela
+
+        function paraCelsius(valorFahrenheit) {
+            return (5/9) * (valorFahrenheit - 32)
+        }
+
+        var x = paraCelsius(77) //Aqui passa o valor do "valorFahrenheit" na função que vai fazer a conta
+
+        document.write("<br>A temperatura é de " + x + " graus celsius")//Aqui mostra na tela o resultado
+    </script>
+</body>
+</html>
