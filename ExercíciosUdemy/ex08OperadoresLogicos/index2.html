@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores lógicos JS</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Operadores lógicos</h1>
+
+    <script>
+        /*Operadores lógicos:
+        E (&&) - Verdadeiro se todas as expressões forem verdadeiras.
+
+        OU (||) - Verdadeiro se pelo menos uma das expressões for verdadeira.
+
+        Negação (!) - Inverte o resultado da expressão de comparação.
+        */
+
+        let nota = prompt('Digite a sua nota: ')
+        let faltas = prompt('Digite a quantidade de faltas: ')
+        let media = 7
+        let faltas_maximas = 15
+
+        if(nota >= media && faltas <= faltas_maximas){
+            document.write('Aprovado')
+        } else {
+            document.write('Reprovado')
+        }
+
+        // Operador ternário
+        let resultado = (nota >= media && faltas <= faltas_maximas) ? 'Aprovado' : 'Reprovado'
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faixa etária pela idade JS</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Faixa etária pela idade</h1>
+
+    <script>
+        /*1) Crie uma aplicação capaz de identificar a faixa etária com base na idade informada pelo usuário. Considere os seguintes critérios:
+
+        Se a idade informada for maior ou igual a 0 e menor que 15, exibir a mensagem “Criança”.
+
+        Se a idade informada for maior ou igual a 15 e menor que 30, exibir a mensagem “Jovem”.
+
+        Se a idade informada for maior ou igual a 30 e menor que 60, exibir a mensagem “Adulto”.
+
+        Se a idade informada for maior ou igual a 60, exibir a mensagem “Idoso”. 
+        */
+
+        let nome = prompt('Digite o seu nome: ')
+        let idade = parseInt(prompt('Digite a sua idade para saber a sua faixa etária: '))
+        
+        if(idade >= 0 && idade < 15){
+            document.write(`${nome}, você tem ${idade} anos, e a sua faixa etária é de Criança`)
+        } else if(idade >= 15 && idade < 30){
+            document.write(`${nome}, você tem ${idade} anos, e a sua faixa etária é de Jovem`)
+        } else if(idade >= 30 && idade < 60){
+            document.write(`${nome}, você tem ${idade} anos, e a sua faixa etária é de Adulto`)
+        } else if(idade >= 60 && idade < 130){
+            document.write(`${nome}, você tem ${idade} anos, e a sua faixa etária é de Idoso`)
+        } else {
+            document.write("Sua faixa etária é de morto")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores aritiméticos JS</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Operadores aritiméticos</h1>
+
+    <script>
+        /* Operadores aritiméticos
+        Adição (+) - Soma valores
+        Subtração (-) - Subtrai valores
+        Multiplicação (*) - Multiplica valores
+        Divisão (/) - Divide valores
+        Módulo (%) - Resto da divisão
+        Incremento (++) Adiciona mais 1 
+        Decremento (--) Subtrai mais 1
+        */
+
+        let num1 = 9
+        let num2 = 2
+
+        //Adição
+        document.write(`A soma entre ${num1} e ${num2} é: ` + (num1 + num2) + `<br>`)//O "()" serve para que primeiro seja feita a soma entre "num1" e "num2", e depois junto o resultado da soma a frase.
+
+        //Subtração
+        document.write(`A Subtração entre ${num1} e ${num2} é: ` + (num1 - num2) + `<br>`)
+
+        //Multiplicação
+        document.write(`A Multiplicação entre ${num1} e ${num2} é: ` + (num1 * num2) + `<br>`)
+
+        //Divisão
+        document.write(`A Divisão entre ${num1} e ${num2} é: ` + (num1 / num2) + `<br>`)
+
+        //Resto da divisão
+        document.write(`O Resto da divisão entre ${num1} e ${num2} é: ` + (num1 % num2) + `<br>`)
+
+        //Incremento
+        document.write(`O incremento de ${num1} é: ` + (num1++) + `<br>`)
+
+        //Decremento
+        document.write(`O decremento de ${num1} é: ` + (--num1) + `<br>`)
+
+        //Precedência de contas
+        // 1° Multiplicação e divisão
+        // 2° subtrção e soma
+        // () - Serve para aplicar qual conta vai ser feita primeiro
+        document.write("<br>" + (2 + 5 - 11 * 8) / 4)
+
+        //Atribuição de valores para variáveis
+        document.write("<br><br>Atribuição de variáveis")
+
+        document.write("<br>Atribuição de variáveis em contas")
+        let teste = 10
+        teste += 5 //A variável "teste" tem o valor "10", e seré atribuido e soma do valor "5", ficando "10 + 5", e ja colocando esse valor da soma dentro da variável.
+
+        /*
+        Pode ser feito com os sinal de "+" que soma um valor pra dentro da variável.
+
+        Pode ser feito com o sinal de "-", que subtrai um valor da variável.
+
+        Pode ser feito com o sinal de "*", que multiplica um valor da variável.
+
+        Pode ser feito com o sinal de "/", que divide um valor da variável.
+
+        Pode ser feito com o sinal de "%", que divide um valor da variável.
+        */
+
+        document.write("<br>" + teste)
+
+        //Atribuição
+        document.write("<br><br>Atribuição de variáveis em string")
+
+        let palavra = 'Olá '
+        palavra += 'Davi' //A variável "palavra" tem uma string escrita "Olá ", e com a atribuição "+=", pode colocar mais palavras dentro dessa variável. 
+
+        document.write("<br>" + palavra)
+    </script>
+</body>
+
+</html>
