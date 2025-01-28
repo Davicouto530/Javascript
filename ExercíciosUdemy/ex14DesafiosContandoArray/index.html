@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar a quantidade de números em uma Array</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let contaNum = [2, 4, 6, 7, 4]
+
+        // "array" dentro do parametro da função serve como uma variável para armazenar a array "contaNum", e ser colocada dentro da função
+        function contar(array){
+            let cont = 0
+
+            // o ".length" serve para que faça até acabar os números da array.
+            while(cont < array.length){
+                cont++
+            }
+
+            return cont
+        }
+
+        document.write(`A contagem de números da array é: ${contar(contaNum)}`)
+    </script>
+</body>
+</html>
