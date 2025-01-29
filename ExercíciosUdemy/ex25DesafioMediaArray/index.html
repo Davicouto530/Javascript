@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Array</title>
+</head>
+
+<body>
+
+
+    <script>
+        let n = [7, 8, 5, 24, 56, 32]
+
+        function mediaArray(n) {
+            let p = 0
+            let soma = 0
+            let media
+
+            while (p < n.length) {
+                soma += n[p]
+                media = soma / 6
+                p++
+            }
+
+            return media
+        }
+
+        document.write(`A média dos números de dentro da Array são: ${mediaArray(n)}`)
+    </script>
+</body>
+
+</html>

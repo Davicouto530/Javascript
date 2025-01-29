@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções de callback</title>
+</head>
+<body>
+    <h1>Funções de callback</h1>
+
+    <script>
+
+        function exibirArtigo(id, callbackSucesso, callbackErro){
+            //lógica: recuperação e o id via requisição http
+
+            //Se for verdadeiro, vai ir na variável "callbackSucesso" que tem a função, e colocar essa mensagem de sucesso.
+            if(true){
+                callbackSucesso('Funções de callback em JS', 'Funções de callback são muito utilizadas!')
+            }else {
+                callbackErro('Erro ao recuperar os dados')
+            }//Se for falso, vai ir na variável "callbackErro" que tem a função, e colocar essa mensagem de erro.
+        }
+
+        //Essa função é para caso de verdeiro, se der verdadeiro no "if e else", vai executar essa função lá na função de exibirArtigo.
+        let callbackSucesso = function(titulo, descricao){
+            document.write('<h1>' + titulo + '</h1>')
+            document.write('<hr/>')
+            document.write('<p>' + descricao + '</p>')
+        }
+
+        //Se der erro no "if e else", vai executar essa função de erro lá na função de exibirArtigo.
+        let callbackErro = function(erro){
+            document.write('<p><b>Erro:</b>' + erro + '</p>')
+        }
+
+        //Passagem para os parâmetros de dentro da função "exibirArtigo"
+        exibirArtigo(1, callbackSucesso, callbackErro)
+    </script>
+</body>
+</html>

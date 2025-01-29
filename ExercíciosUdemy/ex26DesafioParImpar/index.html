@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par Impar</title>
+</head>
+<body>
+    
+    <script>
+        let num = parseInt(prompt('Digite o número para saber se ele é PAR ou ÍMPAR: '))
+
+        let conta = num % 2
+
+        if(conta == 0){
+            document.write(`O número ${num} é PAR`)
+        } else if(conta == 1){
+            document.write(`O número ${num} é ÍMPAR`)
+        } else {
+            document.write("Valor inválido.")
+        }
+    </script>
+</body>
+</html>
