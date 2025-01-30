@@ -6,8 +6,13 @@
     <title>Piscar</title>
 </head>
 <body>
-    <img src="img/off.jpg" alt="foto da lampada apagada" id="lamp">
-    <button type="button" onclick="piscar()">Piscar</button>
+    <img src="img/off.jpg" alt="foto da lampada apagada" onclick="quebrar(4)" id="lamp">
+    <br>
+    <button type="button" onclick="piscar(1)">Piscar</button>
+
+    <button type="button" onclick="ligar(2)">Ligar</button>
+
+    <button type="button" onclick="desligar(3)">Desligar</button>
     <!--O atributo "onclick" serve para quando clicar, executar a função, a função é o nome que está dentro do atributo-->
     <script src="app.js"></script>
 </body>
