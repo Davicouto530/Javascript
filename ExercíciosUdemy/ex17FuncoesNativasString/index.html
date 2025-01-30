@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções de callback</title>
+</head>
+<body>
+    <h1>Funções de callback</h1>
+
+    <script>
+        //Propriedade "length", serve para mostrar quantos caracteres tem na frase, começãndo do 0(zero), e contando até os espaços.
+        document.write('Davi do couto'.length)
+
+        document.write('<br>')
+
+        //Propriedade "charAt()", serve para colocar o número da letra que você quer exibir.
+        document.write('Davi do couto'.charAt(8))
+
+        document.write('<br>')
+
+        //Propriedade "indexOf()", serve para você colocar uma letra da frase que é esta dentro da variável para ele indicar o número de posição que essa letra ta. Ele faz diferenciação de letras maiúsculas e minusculas da frase.
+        let nome = 'Davi do couto'
+        document.write(nome.indexOf('d'))
+
+        document.write('<br>')
+
+        //Propriedade "replace", serve para substituir uma palavra ou frase por outra, então a palavra "do" na variável "nome", vai ser substituida por "Alves", ficando "Davi Alves couto".
+        //Outra forma de fazer interagindo com o usuário.
+        let frase = prompt('Digite uma frase:')
+        let substOf = prompt(`Digite a frase que você quer substituir da frase: ${frase}`)
+        document.write(frase.replace(frase, substOf))
+
+        document.write('<br>')
+
+    </script>
+</body>
+</html>
