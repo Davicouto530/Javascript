@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções nativas para data</title>
+</head>
+<body>
+    <h1>Funções nativas para data</h1>
+
+    <script>
+        let data = new Date()//Serve para iniciar as funções de datas.
+
+        //".getDate()" serve para mostrar o dia.
+        //".getMonth()" serve para mostrar o mes, mas como começa a contar do zero, tem que somar ele mais(+) um(1), para ir até o mês 12.
+        document.write(data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear())
+    </script>
+</body>
+</html>

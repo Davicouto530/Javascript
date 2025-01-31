@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funções de callback</title>
+    <title>Funções nativas para manipular Strings</title>
 </head>
 <body>
-    <h1>Funções de callback</h1>
+    <h1>Funções nativas para manipular Strings</h1>
 
     <script>
         //Propriedade "length", serve para mostrar quantos caracteres tem na frase, começãndo do 0(zero), e contando até os espaços.
@@ -33,6 +33,23 @@
 
         document.write('<br>')
 
+        //Propriedade "substr()", serve para pegar uma palavra ou frase, ex: a partir da posição 8 vai pegar até a posição 12.
+        document.write(nome.substr(8,12))
+
+        document.write('<br>')
+
+        //Propriedade "toLowerCase()", serve para deixar todas as letras da string em minusculo.
+        document.write(nome.toLowerCase())
+
+        document.write('<br>')
+
+        //Propriedade "toUpperCase()", serve para deixar todas as letras da string em maiusculo.
+        document.write(nome.toUpperCase())
+
+        document.write('<br>')
+
+        //Propriedade "trim()", serve para tirar os espações que tem do lado.d
+        document.write(`-  ${nome.trim()}  -`)
     </script>
 </body>
 </html>
