@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de mouse</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .botao-onclick{
+            background: #ccc;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos de mouse</h1>
+
+    <p>Esse é o "onclick", que quando clicar no botão, vai executar uma função</p>
+
+    <button type="button" class="botao-onclick" onclick="acao()">Clique aqui e digite o seu nome</button><!--O atributo "onclick", serve para quando o usuário clicar no botão, executar uma função, dentro dele vai o nome da função feita no Javascript.-->
+
+    <br><hr>
+
+    <p>Esse é o "ondblclick", que só executa a função quando der dois click nele</p>
+
+    <button type="button" class="botao-onclick" ondblclick="doisClick()">Clique aqui duas vezes</button><!--O atributo "ondblclick", só é executada a função quando o usuário clicar duas vezes no botao, executar uma função, dentro dele vai o nome da função feita no Javascript.-->
+
+    <br><hr>
+
+    <p>Esse é o "onmouseup", que só executa a função quando clica e solta o botao, se manter o botão pressionado não executa a função</p>
+
+    <button type="button" class="botao-onclick" onmouseup="soltou()">Clique aqui</button><!--O atributo "onmouseup", só é executada a função quando o usuário clicar e soltar o botão, se manter o botão pressionado não executa a função, dentro dele vai o nome da função feita no Javascript.-->
+
+    <br><hr>
+
+    <p>Esse é o "onmouseover", que só executa a função quando passa o mouse por cima do botão, se não passa o mouse por cima, não executa a função</p>
+
+    <button type="button" class="botao-onclick" onmouseover="mouseHover()">Passe o mouse por cima</button><!--O atributo "onmouseover", só é executada a função quando o usuário passar o mouse por cima do botão, se não passa o mouse por cima não executa a função, dentro dele vai o nome da função feita no Javascript.-->
+
+    <br><hr>
+
+    <p>Esse é o "onmouseout", que só executa a função quando o mouse sai de dentro do botao, coloca o mouse em cima do botão não acontece nada, quando for tirar o mouse de cima do botao, que a função vai ser executada.</p>
+
+    <button type="button" class="botao-onclick" onmouseout="mouseOut()">Passe o mouse por cima</button><!--O atributo "onmouseout", só é executada a função quando o mouse sai de dentro do botao, coloca o mouse em cima do botão não acontece nada, quando for tirar o mouse de cima do botao, que a função vai ser executada., dentro dele vai o nome da função feita no Javascript.-->
+
+    <br><hr>
+
+    <p>Pode ser colocada mais de um atributo de botao em uma mesma tag. O atributo "onclick" e o "onmouseout".</p>
+
+    <button type="button" class="botao-onclick" onclick="acao1()" onmouseout="acao2()">Passe o mouse por cima ou clique</button><!--Quando clicar no botão vai executar a função "acao1", ou quando sai com o mouse de cima do botao, vai executar a função "acao2".-->
+
+
+
+
+
+
+
+    <script>
+        //Função do botão "onclick"
+        function acao(){
+            let nome = prompt('Digite o seu nome')
+            document.write(`O nome digitado foi: ${nome}`)
+        }
+
+        //Função do botão "ondblclick"
+        function doisClick(){
+            alert('Evento ondblclick disparada')
+        }
+
+        //Função do botão "onmouseup"
+        function soltou(){
+            alert('Evento onmouseup disparada')
+        }
+
+        //Função do botão "onmouseover"
+        function mouseHover(){
+            alert('Evento onmouseover disparada')
+        }
+
+        //Função do botão "onmouseout"
+        function mouseOut(){
+            alert('Evento onmouseout disparada')
+        }
+
+        //Dois atributos de botão em uma mesma tag
+        function acao1(){
+            alert('Elemento clicado')
+        }
+        function acao2(){
+            alert('O cursor do mouse deixou a região do elemento')
+        }
+    </script>
+</body>
+</html>
