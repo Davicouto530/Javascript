@@ -14,6 +14,48 @@
         //".getDate()" serve para mostrar o dia.
         //".getMonth()" serve para mostrar o mes, mas como começa a contar do zero, tem que somar ele mais(+) um(1), para ir até o mês 12.
         document.write(data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear())
+
+        document.write('<br>')
+        document.write('<hr>')
+
+
+        //Adicionando e removendo dias do dia atual 
+        document.write('Adicionando e removendo dias') 
+        document.write('<br>')
+
+        //Adicionando e removendo dias do dia atual 
+        document.write(data.toString())
+        data.setDate(data.getDate() + 5)//Adicionanado 5 dias no dia atual
+        document.write('<br>')
+        document.write(data.toString())//Ja formatado
+
+        document.write('<br>')
+        document.write('<hr>')
+
+
+        //Adicionando e removendo meses
+        document.write('Adicionando e removendo meses') 
+        document.write('<br>')
+
+        //Adicionando e removendo meses
+        document.write(data.toString())
+        data.setMonth(data.getMonth() + 1)//Adicionanado 1 mes
+        document.write('<br>')
+        document.write(data.toString())//Ja formatado
+
+        document.write('<br>')
+        document.write('<hr>')
+
+
+        //Adicionando e removendo anos
+        document.write('Adicionando e removendo anos') 
+        document.write('<br>')
+
+        //Adicionando e removendo meses
+        document.write(data.toString())
+        data.setFullYear(data.getFullYear() + 1)//Adicionanado 1 ano
+        document.write('<br>')
+        document.write(data.toString())//Ja formatado
     </script>
 </body>
 </html>

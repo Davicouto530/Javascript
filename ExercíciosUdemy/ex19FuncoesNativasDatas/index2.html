@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções nativas para data - Somando</title>
+</head>
+<body>
+    <h1>Funções nativas para data - Somando</h1>
+
+    <script>
+        //Vendo a diferença de dias de uma data até a outra. Os meses começa do 0(zero), então o 0(zero) é Janeiro.
+
+        //Primeiro coloca o ano, depois o mês, e depois o dia.
+        let data1 = new Date(2025, 0, 15)
+        let data2 = new Date(2025, 1, 23)
+
+        document.write(data1.toString())
+        document.write("<hr>")
+        document.write(data2.toString())
+
+        document.write("<hr>")
+        document.write("<br><br>")
+
+        //convertendo datas para algo que possamos calcular
+        document.write(data1.getTime())
+        document.write('<hr>')
+        document.write(data2.getTime())
+        
+        document.write("<br>")
+        document.write("<hr>")
+
+        //encontrar a quantidade de milissegundos entre data1 e data2
+        let milissegundos_entre_datas = Math.abs(data1.getTime() - data2.getTime())
+        document.write('milissegundos entre as datas acima ' + milissegundos_entre_datas)
+        document.write('<br>')
+
+        //1 dia tem 24 horas, cada hora tem 60 minutos, cada minuto tem 60 segundos e cada segundo tem 1000 milissegundos, então quantos milissegundos existem em um dia?
+        let milissegundos_por_dia = (1*24*60*60*1000)
+        document.write('1 dia tem: ' + milissegundos_por_dia + ' milissegundos')
+        document.write('<br>')
+        document.write(`A DIFERENÇA DE DIAS ENTRE A DATA1: ${data1} E A DATA2: ${data2} é: ` + Math.ceil(milissegundos_entre_datas / milissegundos_por_dia) + ' dias')
+        
+    </script>
+</body>
+</html>

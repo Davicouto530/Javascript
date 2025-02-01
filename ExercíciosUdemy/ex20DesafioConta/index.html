@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça o seu calculo aritimético</title>
+</head>
+<body>
+    <h1>Faça o seu calculo aritimético</h1>
+
+    <script>
+        let operacao = prompt('Digite "soma" para somar, "subtracao" para subtrair, "multiplicacao" para multiplicar, e "divisao" para dividir: ')
+        let num1 = parseFloat(prompt('Digite o primeiro valor: '))
+        let num2 = parseFloat(prompt('Digite o segundo valor: '))
+
+        function soma(num1, num2, operacao){
+            let resultado
+
+            if(operacao == 'soma'){
+                resultado = num1 + num2
+            } else if(operacao == 'subtracao'){
+                resultado = num1 - num2
+            } else if(operacao == 'multiplicacao'){
+                resultado = num1 * num2
+            } else if(operacao == 'divisao'){
+                resultado = num1 / num2
+            }
+
+            return resultado
+        }
+        
+        document.write(`O resultado da ${operacao} entre ${num1} e ${num2} é: ` + soma(num1, num2, operacao))
+    </script>
+</body>
+</html>
