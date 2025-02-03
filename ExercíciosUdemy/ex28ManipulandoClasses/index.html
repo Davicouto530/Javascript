@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Manipulando classe de elementos</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .estilo1 {
+            background: #FF0000;
+            color: #fff;
+        }
+
+        .estilo2 {
+            width: 400px;
+            height: 50px;
+            background: #FF0000;
+            text-align: center;
+            font-size: 25px;
+            color: #fff;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM - Manipulando classe de elementos</h1>
+
+    <!--Ao clicar no botão, vai mudar a class da <div> com modificações diferentes da class atual da <div>.-->
+
+    <div id="mensagem" class="estilo1">Modificando a classe do elemento</div><!--Div que a class será mudada-->
+
+    <hr>
+
+    <!--Quando clicar no botão, vai muda de CLASS dentro da <div>, e as modificações da <div> vai ficar o que ta modificado na segunda class.-->
+    <button type="button" onclick="modificaClasse()">Aplicar outra classe na div</button>
+
+    <script>
+        function modificaClasse(){
+            document.getElementById('mensagem').className = 'estilo2'
+            //Pegando a tag <div> pelo ID "mensagem", e trocando a class dela para "estilo2" no ".className", quando clicar no botão, vai mudar a class atual da <div> que é "estilo1" para "estilo2".
+        }
+    </script>
+</body>
+
+</html>

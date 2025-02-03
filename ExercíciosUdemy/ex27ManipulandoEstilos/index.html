@@ -27,13 +27,13 @@
     <div style="border: 1px solid black; height: 100px; width: 100px;" id="quadrado"></div><!--ID para ser manipulado no JS.-->
 
     <script>
-        //Esse parâmetro dentro da função é para pegar o que foi colocado dentro dos parâmetros de eventos no HTML.
+        //Esses parâmetros dentro da função é para pegar o que foi colocado dentro dos parâmetros de eventos no HTML.
         function modificaEstilos(corDeFundo, largura, altura){
-            document.getElementById('quadrado').style.background = corDeFundo //Pegou a tag do HTML pelo ID "quadrado", e para modificar colocou um ".style" e do lado o que quer modificar, que foi ".background", atribuindo o parâmetro que tem as cores de cada botão.
+            document.getElementById('quadrado').style.background = corDeFundo //Pegou a tag do HTML pelo ID "quadrado", e para modificar colocou um ".style" e do lado o que quer modificar, que foi ".background", atribuindo o parâmetro que tem as cores de cada botão, quando clicar no botão, vai mudar para a cor colocada nos parenteses do botão.
 
             document.getElementById('quadrado').style.width = largura //O que vai ser modificado é a tag div, então pegou o id dela, depois atribuiu os valores que foram passados para os parâmetros da função, que são "largura" e "altura", e quando for clicado no da cor, vai ficar do tamanho que foi passado nos parâmetros de cima.
 
-            document.getElementById('quadrado').style.height = altura ////O que vai ser modificado é a tag div, então pegou o id dela, depois atribuiu os valores que foram passados para os parâmetros da função, que são "largura" e "altura", e quando for clicado no da cor, vai ficar do tamanho que foi passado nos parâmetros de cima.
+            document.getElementById('quadrado').style.height = altura //O que vai ser modificado é a tag div, então pegou o id dela, depois atribuiu os valores que foram passados para os parâmetros da função, que são "largura" e "altura", e quando for clicado no da cor, vai ficar do tamanho que foi passado nos parâmetros de cima.
         }
     </script>
 </body>
