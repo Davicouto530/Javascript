@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Manipulando estilos de elementos</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM - Manipulando estilos de elementos</h1>
+
+    <!--Ao clicar em um desses botões, vai alterar a cor da "div" de acordo com a cor escrita no botão.-->
+
+    <button type="button" onclick="modificaEstilos('#FF0000', '200px')">Vermelho</button>
+    <button type="button" onclick="modificaEstilos('#00FF00', '150px', '20px')">Verde</button>
+    <button type="button" onclick="modificaEstilos('#0000FF', '150px', '200px')">Azul</button><!--Passado como parâmetros para cada função, cada cor, e a altura e a largura, esses valores irão para os parâmetros dentro da função.-->
+
+    <hr>
+    
+    <!--Div que a cor será alterada ao clicar em um dos botões acima.-->
+    <div style="border: 1px solid black; height: 100px; width: 100px;" id="quadrado"></div><!--ID para ser manipulado no JS.-->
+
+    <script>
+        //Esse parâmetro dentro da função é para pegar o que foi colocado dentro dos parâmetros de eventos no HTML.
+        function modificaEstilos(corDeFundo, largura, altura){
+            document.getElementById('quadrado').style.background = corDeFundo //Pegou a tag do HTML pelo ID "quadrado", e para modificar colocou um ".style" e do lado o que quer modificar, que foi ".background", atribuindo o parâmetro que tem as cores de cada botão.
+
+            document.getElementById('quadrado').style.width = largura //O que vai ser modificado é a tag div, então pegou o id dela, depois atribuiu os valores que foram passados para os parâmetros da função, que são "largura" e "altura", e quando for clicado no da cor, vai ficar do tamanho que foi passado nos parâmetros de cima.
+
+            document.getElementById('quadrado').style.height = altura ////O que vai ser modificado é a tag div, então pegou o id dela, depois atribuiu os valores que foram passados para os parâmetros da função, que são "largura" e "altura", e quando for clicado no da cor, vai ficar do tamanho que foi passado nos parâmetros de cima.
+        }
+    </script>
+</body>
+
+</html>
