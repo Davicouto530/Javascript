@@ -43,6 +43,24 @@ node -v (versão do node)
 node arquivos.js (executar o arquivo javascript)
 
 _________________________________________________________________________________________________________________________
+FRAMEWORK
+Um framework é um conjunto de ferramentas, bibliotecas e regras
+que facilite o desenvolvimento de software, fornecendo uma estrutura
+pronta para o programador. O framework define um "esqueleto" do projeto,
+onde você preenche com o seu código, seguindo padrões já estabelecidos.
+Isso economiza tempo, evita a repetição de código e garante boas práticas.
+Um framework é como encontrar um hamburguer em uma rede de fast food.
+Sem um framework, você teria que moer a carne, assar o pão, preparar os
+ingredientes e criar a sua própria receita do zero.
 
+Ex: Bootstrap (framework front-end)
+
+________________________________________________________________________________________________________________________
+Array ou vetor e uma estrutura de dados indexada
+Array e uma alocação de variável, com a diferença que ele pode armazenar vários dados
+O array trabalha com indices, o indice sempre inicia em 0.
+Usos do array:
+    Simplificar o código
+    Estrutura de dados, manipular os dados - bancos de dados
 
 
