@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array - método de pesquisa</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        //Criando o Array para pesquisa
+        let lista_frutas = ['Banana', 'Maçã', 'Uva', 'Morango']
+
+        //O ".indexOf()" serve para fazer uma pesquisa dentro do Array, e dentro dos parenteses coloca o que quer pesquisar, e vai mostrar o número do indicie que o elemento está no Array, se não tiver esse elemento dentro do Array, vai aparecer "-1".
+        let auxiliar = lista_frutas.indexOf('Uva')//Variável que armazena a pesquisa do Array
+
+        if(auxiliar === -1){//Verificando se o elemento existe, se der "-1", é porque não existe
+        
+            console.log('O item não existe')
+        } else { 
+            console.log(`O elemento existe e está na posição: ${auxiliar}`)
+        }//Se não der "-1", é porque existe
+    </script>
+</body>
+</html>
