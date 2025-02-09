@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array - Ordenação de elementos</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        //Ordenando letras de um Array em ordem alfabética
+
+        //Variável Array
+        let lista_frutas = ['Maracuja', 'Morango', 'Banana', 'Uva']
+
+        //O ".sort()" serve para ordernar de acordo com qual letra vem primeiro no alfabeto, NÃO serve para ordenar números.
+        let ordemAlfabeto = lista_frutas.sort()//Variável para armazenar a ordenação
+
+        console.log(ordemAlfabeto)
+
+        //--------------------------------------
+
+        //Ordenando números de um Array e ordem crescente
+
+        //Variável Array
+        let lista_numeros = [19, 27, 20, 3, 7, 15]
+
+        let ordemNum = lista_numeros.sort(ordenaNumeros)//Variável para armazenar a ordenação
+
+        //Função para ordenar números, do menor para o maior
+        function ordenaNumeros(a, b){
+            return a - b
+        }//Vai fazer a conta de "a" menos(-) "b", que são os números de dentro do indicie do Array.
+
+        // < 0 - a ordenado antes de b
+        // > 0 - b ordenado antes de a
+        // a == b - ordem mantida
+        // Se tiver outro tipo sem ser número, vai da erro
+
+        console.log(ordemNum)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array - Desafio</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        1) Crie uma aplicação web contendo um campo para entrada de texto (input text) e dois
+        botões (buttons), sendo um botão com a descrição "Adicionar" e outro com a descrição
+        "Ordenar".
+
+        Após criar os elementos de interação com o usuário acima, crie um Array de nome objetos contendo os seguintes valores:
+        var objetos = Array('Cadeira', 'Impressora', 'Garfo')
+
+        Os próximos passos são:
+        A) Ao clicar no botão "Adicionar" disparar função que irá:
+        • Recuperar o valor contido no campo de texto.
+        • Verificar se o valor está vazio ou preenchido.
+        Se vazio, exibir alert com a mensagem "Informe um valor válido".
+        Se preenchido:
+        ▪ Verificar se o valor informado já existe dentro do Array objetos.
+        ▪ Se existir, exibir alert com a mensagem "Objeto já foi adicionado".
+        ▪ Se não existir:
+        • Incluir o valor preenchido no campo dentro do Array.
+        • Efetuar um console.log do Array para debug (checar se está funcionado).
+        • Limpar o valor contido no campo de entrada de texto.
+        B) Ao clicar no botão "Ordenar" disparar função que irá:
+        • Ordenar de forma alfabética os valores do Array de objetos.
+        • Efetuar um console.log do Array para debug (checar se está funcionado).
+    -->
+
+    <input type="text" id="campo_texto"><!--Input que o valor digitado será recuperado-->
+
+    <button type="button" onclick="recuperaValor(objetos)">Adicionar</button><!--Botão para adicionar o que foi escrito no Input dentro do Array-->
+
+    <button type="button" onclick="ordenarObjetos(objetos)">Ordenar</button><!--Botão para colocar em ordem alfabética o que foi escrito-->
+
+    <script>
+        //Variável do Array que armazenara o que foi escrito no input
+        let objetos = ['Cadeira', 'Impressora', 'Garfo']
+
+        //Função para recuperar o que foi escrito
+        function recuperaValor(objetos){
+            let valor = document.getElementById('campo_texto').value//Recuperando o que foi escrito no input com o ID "campo_texto".
+
+            //Verificando se não foi nada escrito no input, e apertado o botão adicionar
+            if(valor.length == ''){
+                alert('Informe um valor válido')//Irá aparecer essa mensagem
+            }
+
+            //Serve para fazer uma pesquisa dentro do Array, e dentro dos parenteses coloca o que quer pesquisar, e armazenando na variável "auxiliar".
+            let auxiliar = objetos.indexOf(valor)
+
+            //Verificando se o elemento de dentro da variável "auxiliar" existe, se der "-1", é porque não existe
+            if(auxiliar === -1){
+                objetos.push(valor)
+                //Se não existir, vai adicionar o elemento que foi escrito no input dentro do Array
+            }else {
+                alert(`Objeto já foi adicionado e está na posição: ${auxiliar}`)
+                //Se for escrito o que ja tiver dentro do Array, vai aparecer esse "alert"
+            }
+
+            console.log(objetos)
+            //Mostrando o Array já com o elemento adicionado no cosole
+            
+            document.getElementById('campo_texto').value = ''
+            //Limpando o input após ter clicado no botão "Adicionar"
+
+        }
+
+        //função para deixar em ordem alfabética quando clicar no botão "Ordenar" 
+        function ordenarObjetos(objetos){
+            let ordemAlfabeto = objetos.sort()
+            //Ordenando o que está dentro da variável "objetos", que é o Array
+
+            console.log(ordemAlfabeto)
+            //Mostrando o Array já com o elemento adicionado e ordenado no cosole
+        }
+    </script>
+</body>
+</html>

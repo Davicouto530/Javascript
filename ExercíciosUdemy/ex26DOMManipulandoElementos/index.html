@@ -15,16 +15,18 @@
 <body>
     <h1>DOM - Manipulando Elementos</h1>
 
-    <!--Verificando se o caracter digitado dentro desse input, se for digitado número, vai ir pro input de número, se for digitado letra, vai para o input de letra.-->
+    <!--Verificando o caracter digitado dentro desse input, se for digitado número, vai ir pro input de número, se for digitado letra, vai para o input de letra.-->
 
     <input type="text" placeholder="Digite um caractere aqui" onkeyup="distribuiCaractere()"
         id="entrada"><!--Input que o caracter será digitado-->
 
     <hr>
 
+    <!--Input que vira o caracter letra se for digitado-->
     <span>Letras:</span>
     <input type="text" disabled="disabled" id="apenas_letras">
 
+    <!--Input que vira o caracter número se for digitado-->
     <span>Números:</span>
     <input type="text" disabled="disabled" id="apenas_numeros">
 
