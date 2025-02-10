@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de repetição - While</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        let x = 0
+        let num = parseInt(prompt('Digite até que número vai contar: '))
+        let deQuantos = parseInt(prompt('Digite de quantos em quantos números vai contar: '))
+        
+        //Vai executar os códigos de dentro até acabar a condição
+        while(x <= num){
+            //Enquanto o valor de dentro de "x" for menor que o valor de "num", vai executar os comandos.
+
+            document.write(x + "<br>")
+            x += deQuantos
+            //Atribuindo e somando na variável "x" o valor digitado no "deQuantos" até chegar no valor de "num"
+        }
+    </script>
+</body>
+</html>
