@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        //Primeiro laço é para cada tabuada até o 10, então vai pegar o 1 que é o primeiro número, e fazer a tabuada dele, depois quando terminar a tabuada do 1, vai fazer a do 2 e etc, até chegar no 10.
+        for(let y = 1; y <= 10; y++){
+
+            //Aqui vai fazer a tabuada do número do laço de cima multiplicando do 1 até 10 pelo número do "y".
+            for(let x = 1; x <= 10; x++){
+                document.write(`${y} x ${x} = ${y * x} <br>`)
+                //Exibindo a tabuada
+            }
+
+            document.write("<hr>")
+        }
+
+        
+    </script>
+</body>
+</html>

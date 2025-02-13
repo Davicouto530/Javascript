@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha a tabuada</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        //Pedindo pro usuário escolher qual tabuada quer
+        let num = parseInt(prompt('Digite o número de qual tabuada você quer: '))
+
+        //Variável para armazenar o resultado da conta da tabuada
+        let rs
+
+        //Laço de repetição, que vai multiplicar do 1 até o 10 o número que o usuário digitou.
+        for(let n = 1; n <= 10; n++){
+            //Variável que armazena o resultado
+            rs = n * num
+
+            //Exibindo o resultado
+            document.write(`${n} x ${num} = ${rs} <br>`)
+        }
+    </script>
+</body>
+</html>
