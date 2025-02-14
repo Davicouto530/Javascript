@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While - Tabuada</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        //2) Baseado no exemplo da aula "Praticando um pouco - Criando uma tabuada de 1 a 10(laços encadeados)", implemente a mesma solução, porém utilizando o comando while.
+
+        //Criando Array
+        let y = 0
+        
+        while(y < 10){
+            y++
+            let x = 1
+            while(x <= 10){
+                document.write(`${y} x ${x} = ${y * x}<br>`)
+                x++
+            }
+
+            document.write("<hr>")
+
+        }
+    </script>
+</body>
+</html>

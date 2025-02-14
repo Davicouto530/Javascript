@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de repetição - Foreach</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // Criando o Array
+        let listaFuncionarios = ['Viviane', 'Rosângela', 'Miguel', 'Lucas', 'Fernanda']
+
+        console.log(listaFuncionarios);
+        document.write(listaFuncionarios[3]) // Exibindo antes da alteração
+
+        // O "forEach" é um método de arrays que executa uma função para cada elemento.
+        // Ele recebe como argumento uma função de callback, que pode ter até três parâmetros:
+        // - "valor": o elemento atual do array.
+        // - "indice": a posição do elemento no array.
+        // - "array": o próprio array sendo percorrido.
+        listaFuncionarios.forEach(function(valor, indice, array) {
+
+            // Exibe o índice e o valor atual do array
+            console.log(`Índice ${indice} | Valor ${valor}`)
+
+            // Verifica se o valor atual é "Lucas"
+            if (valor == 'Lucas') {
+                array[indice] = 'Um novo valor' // Substitui "Lucas" por "Um novo valor"
+            }
+        });
+
+        console.log(listaFuncionarios);
+        document.write(listaFuncionarios[3]) // Exibindo depois da alteração
+
+        //___________________________________________
+        //Outro jeito de fazer
+
+        //Criando a variável
+        let listaFrutas = ['Banana', 'Maçã', 'Pera', 'Uva']
+
+        //Armazenando a função callback dentro da variável "f", para ser passada no "forEach" só pelo nome da variável.
+        let f = function(valor, indice){
+            console.log(valor,indice)
+        }
+
+        listaFrutas.forEach(f)
+        //Passando a função callback do "forEach" pela variável "f"
+    </script>
+</body>
+</html>
