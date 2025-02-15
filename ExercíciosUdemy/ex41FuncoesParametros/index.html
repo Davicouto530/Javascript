@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Parâmetros Variáveis</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        
+
+        function soma() {
+            //Funções com parâmetros variáveis permitem que uma função receba qualquer quantidade de argumentos sem precisar definir parâmetros dentro da função, porque todo valor vai pro "arguments".
+
+            // Variável para armazenar a soma dos valores dentro de "arguments".
+            let resultado = 0
+
+            // A variável "i" percorre os índices do "arguments".
+            // O "arguments" é uma variável especial disponível dentro de funções.
+            // Ele se comporta como um array e contém todos os valores passados para a função.
+            // Exemplo: console.log(soma(7, 5, 3.2)) → O "arguments" conterá [7, 5, 3.2].
+            // Permite acessar argumentos passados sem definir parâmetros na função.
+            for (let i in arguments) {
+                resultado += arguments[i]
+                // Soma todos os valores armazenados no "arguments".
+            }
+
+            return resultado
+        }
+
+        console.log(soma(7, 5, 3.2))
+        // Chamando a função e passando valores para "arguments", que armazena os argumentos da função.
+
+
+    </script>
+</body>
+</html>
