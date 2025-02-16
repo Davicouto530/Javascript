@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM - Screen</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        //Pega a altura da tela do monitor do usuário e coloca dentro da variável "altura"
+        let altura = window.screen.availHeight
+
+        //Pega a largura da tela do monitor do usuário e coloca dentro da variável "largura"
+        let largura = window.screen.availWidth
+
+        //Exibindo o tamanho da altura da tela do usuário
+        document.write(`A altura do navegador é: ${altura} <br>`)
+
+        //Exibindo o tamanho da largura da tela do usuário
+        document.write(`A largura do navegador é: ${largura} <br>`)
+
+        //Verificando se a tela do usuário for menor que 500, vai exibir essa mensagem falando que é "mobile"
+        if(largura < 500){
+            document.write("Lógica para impressão do menu versão mobile <br>")
+        }else {
+            //Se for maior que 500, vai exibir falando que é web
+            document.write("Lógica para impressão do menu versão web <br>")
+        }
+    </script>
+
+</body>
+</html>
