@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de nomes</title>
+    <link rel="stylesheet" href="style.css">
+    <!--
+    Desafio: Gerenciador de Lista de Nomes
+    Crie uma aplicação web contendo:
+    Um campo de entrada de texto (input text).
+    Dois botões: "Adicionar" e "Remover Último".
+    Uma lista <ul> para exibir os valores adicionados.
+
+    Funcionalidades:
+    1️ - Adicionar um nome à lista:
+    O botão "Adicionar" deve pegar o valor do input e adicionar a um array chamado nomes.
+    Antes de adicionar, o código deve verificar se:
+    O campo está vazio → Exibir alert("Informe um nome válido.").
+    O nome já está na lista → Exibir alert("Este nome já foi adicionado.").
+    Caso contrário, adicionar o nome à lista e exibir na <ul>.
+    
+    2️ - Remover o último nome adicionado:
+    O botão "Remover Último" deve remover o último nome da lista e atualizar a <ul>.
+    Se a lista estiver vazia, exibir alert("Nenhum nome para remover.").
+    Extras (Opcional):
+    Ordene a lista de nomes em ordem alfabética sempre que um novo nome for adicionado.
+    Mostre a lista atualizada no console após cada alteração.
+    -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Adiciona nomes na lista</h1>
+        <div class="caixa">
+            <label for="">Insira um nome: </label>
+            <input type="text" id="texto"><br><!--Input que o nome será digitado e colocado dentro da lista-->
+            <button onclick="AdicionarTexto(nomes)">Adicionar</button><!--Botão para adicionar o que foi escrito no input dentro do Array e da lista-->
+            <button onclick="RemoverPrimeiro(nomes)">Remover primeiro</button><!--Botão para remover o primeiro nome da lista-->
+            <button onclick="RemoverUltimo(nomes)">Remover último</button><br><!--Botão para remover o ultimo nome do Array e da lista -->
+        </div>
+        <div class="caixa2">
+            <h2>Lista de nomes</h2>
+            <ul id="ulLista"></ul>
+        </div>
+    </div>
+
+    <script>
+        //Criando o Array
+        let nomes = []
+
+        //Colocando a tag <ul> em uma variável
+        let lista = document.getElementById('ulLista')
+
+        //Função para adicionar um nome na lista
+        function AdicionarTexto(nomes) {
+
+            //Pegando o valor do input e colocando na variável "PegouNome"
+            let PegouNome = document.getElementById('texto').value
+
+            //Verificando foi escrito alguma coisa no input
+            if (PegouNome.length == '') {
+                alert('Informe um valor válido')
+                //se não foi, vai aparecer esse "alert"
+            }
+
+            //Procurando no Array o que foi escrito no input
+            let auxiliar = nomes.indexOf(PegouNome)
+
+            //Verificando se o que ta dentro do Array existe
+            if (auxiliar === -1) {
+                nomes.push(PegouNome)//Vai adicionar no Array
+                let ordemAlfabeto = nomes.sort()//Ordenando o Array
+                lista.innerHTML = ''//Limpando o Array para refazer após ter ordenado o Array
+                for (let i = 0; i < nomes.length; i++) {
+                    //Laço de repetição para exibir o Array na lista já ordenado
+                    lista.innerHTML += `<li>${nomes[i]}</li>`
+                }
+            } else {
+                alert("Este nome já foi adicionado.")
+                //Se ja estiver no Array, vai da esse alert
+            }
+
+            console.log(nomes)
+
+            //Limpando o input quando clicar no botão "Adicionar"
+            document.getElementById('texto').value = ''
+        }
+
+        function RemoverPrimeiro(nomes){
+            //Verificando se tem nome dentro do Array quando clicar no "remover"
+            if (nomes.length === 0) {
+                //Se não tiver, vai da esse alert
+                alert('Nenhum nome para remover.')
+            } else {//Se tiver
+                nomes.shift()//Vai remover o primeiro do Array
+                lista.innerHTML = ''//Limpando o Array para refazer após ter removido o primeiro nome do Array
+                for (let i = 0; i < nomes.length; i++) {
+                    //Laço de repetição para exibir o Array na lista já sem o primeiro nome que foi removido
+                    lista.innerHTML += `<li>${nomes[i]}</li>`
+                }
+            }
+
+            console.log(nomes)
+        }
+
+        //Função para remover um nome da lista
+        function RemoverUltimo(nomes) {
+
+            //Verificando se tem nome dentro do Array quando clicar no "remover"
+            if (nomes.length === 0) {
+                //Se não tiver, vai da esse alert
+                alert('Nenhum nome para remover.')
+            } else {//Se tiver
+                nomes.pop()//Vai remover o ultimo do Array
+                lista.innerHTML = ''//Limpando o Array para refazer após ter removido o ultimo nome do Array
+                for (let i = 0; i < nomes.length; i++) {
+                    //Laço de repetição para exibir o Array na lista já sem o ultimo que foi removido
+                    lista.innerHTML += `<li>${nomes[i]}</li>`
+                }
+            }
+
+            console.log(nomes)
+        }
+    </script>
+</body>
+
+</html>
