@@ -37,8 +37,8 @@
             <label for="">Insira um nome: </label>
             <input type="text" id="texto"><br><!--Input que o nome será digitado e colocado dentro da lista-->
             <button onclick="AdicionarTexto(nomes)">Adicionar</button><!--Botão para adicionar o que foi escrito no input dentro do Array e da lista-->
-            <button onclick="RemoverPrimeiro(nomes)">Remover primeiro</button><!--Botão para remover o primeiro nome da lista-->
-            <button onclick="RemoverUltimo(nomes)">Remover último</button><br><!--Botão para remover o ultimo nome do Array e da lista -->
+            <button onclick="Delete(nomes)">Delete</button><!--Botão para remover o primeiro nome da lista-->
+            <button onclick="LimparLista(nomes)">Limpar lista</button><br><!--Botão para remover o ultimo nome do Array e da lista -->
         </div>
         <div class="caixa2">
             <h2>Lista de nomes</h2>
@@ -59,7 +59,7 @@
             //Pegando o valor do input e colocando na variável "PegouNome"
             let PegouNome = document.getElementById('texto').value
 
-            //Verificando foi escrito alguma coisa no input
+            //Verificando se foi escrito alguma coisa no input
             if (PegouNome.length == '') {
                 alert('Informe um valor válido')
                 //se não foi, vai aparecer esse "alert"
@@ -88,7 +88,7 @@
             document.getElementById('texto').value = ''
         }
 
-        function RemoverPrimeiro(nomes){
+        function Delete(nomes){
             //Verificando se tem nome dentro do Array quando clicar no "remover"
             if (nomes.length === 0) {
                 //Se não tiver, vai da esse alert
@@ -106,19 +106,14 @@
         }
 
         //Função para remover um nome da lista
-        function RemoverUltimo(nomes) {
+        function LimparLista(nomes) {
 
             //Verificando se tem nome dentro do Array quando clicar no "remover"
             if (nomes.length === 0) {
                 //Se não tiver, vai da esse alert
                 alert('Nenhum nome para remover.')
             } else {//Se tiver
-                nomes.pop()//Vai remover o ultimo do Array
-                lista.innerHTML = ''//Limpando o Array para refazer após ter removido o ultimo nome do Array
-                for (let i = 0; i < nomes.length; i++) {
-                    //Laço de repetição para exibir o Array na lista já sem o ultimo que foi removido
-                    lista.innerHTML += `<li>${nomes[i]}</li>`
-                }
+                lista.innerHTML = ''//Vai limpar a lista toda
             }
 
             console.log(nomes)
