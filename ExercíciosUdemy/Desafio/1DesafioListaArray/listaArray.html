@@ -43,6 +43,12 @@
         <div class="caixa2">
             <h2>Lista de nomes</h2>
             <ul id="ulLista"></ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <p id="contaNum">Quantidade de nomes dentro da lista: </p>
         </div>
     </div>
 
@@ -52,6 +58,9 @@
 
         //Colocando a tag <ul> em uma variável
         let lista = document.getElementById('ulLista')
+
+        let contaNumLista = document.getElementById('contaNum')
+        let contando = 0
 
         //Função para adicionar um nome na lista
         function AdicionarTexto(nomes) {
@@ -82,11 +91,26 @@
                 //Se ja estiver no Array, vai da esse alert
             }
 
+            console.log(nomes.length)
+
+            contando = nomes.length
+
+            contaNumLista.innerHTML += contando
+
+            lista.innerHTML = ''//Limpando o Array para refazer após ter ordenado o Array
+            for (let i = 0; i < nomes.length; i++) {
+                //Laço de repetição para exibir o Array na lista já ordenado
+                lista.innerHTML += `<li>${nomes[i]}</li>`
+            }
+
             console.log(nomes)
 
             //Limpando o input quando clicar no botão "Adicionar"
             document.getElementById('texto').value = ''
         }
+
+        
+
 
         function Delete(nomes){
             //Verificando se tem nome dentro do Array quando clicar no "remover"
@@ -94,7 +118,7 @@
                 //Se não tiver, vai da esse alert
                 alert('Nenhum nome para remover.')
             } else {//Se tiver
-                nomes.shift()//Vai remover o primeiro do Array
+                nomes.pop()//Vai remover o último do Array
                 lista.innerHTML = ''//Limpando o Array para refazer após ter removido o primeiro nome do Array
                 for (let i = 0; i < nomes.length; i++) {
                     //Laço de repetição para exibir o Array na lista já sem o primeiro nome que foi removido
@@ -113,6 +137,7 @@
                 //Se não tiver, vai da esse alert
                 alert('Nenhum nome para remover.')
             } else {//Se tiver
+                nomes.length = 0//Limpando o Array 
                 lista.innerHTML = ''//Vai limpar a lista toda
             }
 
