@@ -35,10 +35,8 @@
         <h1>Adiciona nomes na lista</h1>
         <div class="caixa">
             <label for="">Insira um nome: </label>
-            <input type="text" id="texto"
-                onblur="verifIinput('red')"><br><!--Input que o nome será digitado e colocado dentro da lista-->
-            <button
-                onclick="AdicionarTexto(nomes)">Adicionar</button><!--Botão para adicionar o que foi escrito no input dentro do Array e da lista-->
+            <input type="text" id="texto"><br><!--Input que o nome será digitado e colocado dentro da lista-->
+            <button onclick="AdicionarTexto(nomes)">Adicionar</button><!--Botão para adicionar o que foi escrito no input dentro do Array e da lista-->
             <button onclick="Delete(nomes)">Delete</button><!--Botão para remover o primeiro nome da lista-->
             <button onclick="LimparLista(nomes)">Limpar
                 lista</button><!--Botão para remover o ultimo nome do Array e da lista -->
@@ -83,7 +81,7 @@
             if (auxiliar === -1) {
                 nomes.push(PegouNome)//Vai adicionar no Array
             } else {
-                verifIinput(nomes, mudouCor)
+                verifIinput(nomes)
             }
 
             console.log(nomes.length)
@@ -101,8 +99,8 @@
         }
 
         //Função de quando perde o foco e verifica quantos caracteres foram passados
-        let verifIinput = function perdeuFoco(nomes, mudouCor) {
-               
+        let verifIinput = function verifIinput(nomes, mudouCor) {
+            document.getElementById('texto').style.border = '1px solid red'
         }
 
         //Função para ordernar em ordem alfabética
