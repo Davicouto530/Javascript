@@ -36,9 +36,11 @@
         <div class="caixa">
             <label for="">Insira um nome: </label>
             <input type="text" id="texto"><br><!--Input que o nome será digitado e colocado dentro da lista-->
-            <button onclick="AdicionarTexto(nomes)">Adicionar</button><!--Botão para adicionar o que foi escrito no input dentro do Array e da lista-->
+            <button
+                onclick="AdicionarTexto(nomes)">Adicionar</button><!--Botão para adicionar o que foi escrito no input dentro do Array e da lista-->
             <button onclick="Delete(nomes)">Delete</button><!--Botão para remover o primeiro nome da lista-->
-            <button onclick="LimparLista(nomes)">Limpar lista</button><br><!--Botão para remover o ultimo nome do Array e da lista -->
+            <button onclick="LimparLista(nomes)">Limpar
+                lista</button><br><!--Botão para remover o ultimo nome do Array e da lista -->
         </div>
         <div class="caixa2">
             <h2>Lista de nomes</h2>
@@ -48,7 +50,7 @@
             <hr>
             <br>
 
-            <p id="contaNum">Quantidade de nomes dentro da lista: </p>
+            <p id="contaNum"></p><!--Aonde será exibido a contagem-->
         </div>
     </div>
 
@@ -66,7 +68,7 @@
         function AdicionarTexto(nomes) {
 
             //Pegando o valor do input e colocando na variável "PegouNome"
-            let PegouNome = document.getElementById('texto').value
+            let PegouNome = document.getElementById('texto').value.trim()
 
             //Verificando se foi escrito alguma coisa no input
             if (PegouNome.length == '') {
@@ -80,12 +82,8 @@
             //Verificando se o que ta dentro do Array existe
             if (auxiliar === -1) {
                 nomes.push(PegouNome)//Vai adicionar no Array
-                let ordemAlfabeto = nomes.sort()//Ordenando o Array
-                lista.innerHTML = ''//Limpando o Array para refazer após ter ordenado o Array
-                for (let i = 0; i < nomes.length; i++) {
-                    //Laço de repetição para exibir o Array na lista já ordenado
-                    lista.innerHTML += `<li>${nomes[i]}</li>`
-                }
+                nomes.sort()//Ordenando o Array
+                refazer(nomes)//Chamando a função que refaz a lista
             } else {
                 alert("Este nome já foi adicionado.")
                 //Se ja estiver no Array, vai da esse alert
@@ -93,15 +91,11 @@
 
             console.log(nomes.length)
 
-            contando = nomes.length
+            contando = nomes.length//Contando quantos elementos tem dentro do Array e da lista
 
-            contaNumLista.innerHTML += contando
+            contaNumLista.innerHTML = `Quantidade de nomes dentro da lista: ${contando}`//Exibindo a quantidade de elementos na tag <p>
 
-            lista.innerHTML = ''//Limpando o Array para refazer após ter ordenado o Array
-            for (let i = 0; i < nomes.length; i++) {
-                //Laço de repetição para exibir o Array na lista já ordenado
-                lista.innerHTML += `<li>${nomes[i]}</li>`
-            }
+            refazer(nomes)//Chamando a função que refaz a lista
 
             console.log(nomes)
 
@@ -109,21 +103,14 @@
             document.getElementById('texto').value = ''
         }
 
-        
-
-
-        function Delete(nomes){
+        function Delete(nomes) {
             //Verificando se tem nome dentro do Array quando clicar no "remover"
             if (nomes.length === 0) {
                 //Se não tiver, vai da esse alert
                 alert('Nenhum nome para remover.')
             } else {//Se tiver
                 nomes.pop()//Vai remover o último do Array
-                lista.innerHTML = ''//Limpando o Array para refazer após ter removido o primeiro nome do Array
-                for (let i = 0; i < nomes.length; i++) {
-                    //Laço de repetição para exibir o Array na lista já sem o primeiro nome que foi removido
-                    lista.innerHTML += `<li>${nomes[i]}</li>`
-                }
+                refazer(nomes)//Chamando a função que refaz a lista
             }
 
             console.log(nomes)
@@ -138,10 +125,22 @@
                 alert('Nenhum nome para remover.')
             } else {//Se tiver
                 nomes.length = 0//Limpando o Array 
-                lista.innerHTML = ''//Vai limpar a lista toda
+                refazer(nomes)//Chamando a função que refaz a lista
             }
 
             console.log(nomes)
+        }
+
+        //Função para refazer a lista quando ela for ordenada, ou deletar algum nome e etc
+        let refazer = function RefazerLista(nomes) {
+            lista.innerHTML = ''//Limpando o Array para refazer após ter executado alguma função acima e o Array
+            for (let i = 0; i < nomes.length; i++) {
+                //Laço de repetição para exibir o Array e a lista depois de executar uma função acima
+                lista.innerHTML += `<li>${nomes[i]}</li>`
+            }
+
+            contando = nomes.length//Refazendo a contagem quando clica nos botões
+            contaNumLista.innerHTML = `Quantidade de nomes dentro da lista: ${contando}`//Reexibindo a contagem já atualizada
         }
     </script>
 </body>
