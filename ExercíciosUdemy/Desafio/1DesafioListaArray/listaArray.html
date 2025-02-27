@@ -35,20 +35,20 @@
         <h1>Adiciona nomes na lista</h1>
         <div class="caixa">
             <label for="">Insira um nome: </label>
-            <input type="text" id="texto"><br><!--Input que o nome será digitado e colocado dentro da lista-->
+            <input type="text" id="texto"
+                onblur="verifIinput('red')"><br><!--Input que o nome será digitado e colocado dentro da lista-->
             <button
                 onclick="AdicionarTexto(nomes)">Adicionar</button><!--Botão para adicionar o que foi escrito no input dentro do Array e da lista-->
             <button onclick="Delete(nomes)">Delete</button><!--Botão para remover o primeiro nome da lista-->
             <button onclick="LimparLista(nomes)">Limpar
-                lista</button><br><!--Botão para remover o ultimo nome do Array e da lista -->
+                lista</button><!--Botão para remover o ultimo nome do Array e da lista -->
+            <button onclick="ordenarLista(nomes)">Ordernar</button><br>
         </div>
         <div class="caixa2">
             <h2>Lista de nomes</h2>
             <ul id="ulLista"></ul>
 
-            <br>
             <hr>
-            <br>
 
             <p id="contaNum"></p><!--Aonde será exibido a contagem-->
         </div>
@@ -82,11 +82,8 @@
             //Verificando se o que ta dentro do Array existe
             if (auxiliar === -1) {
                 nomes.push(PegouNome)//Vai adicionar no Array
-                nomes.sort()//Ordenando o Array
-                refazer(nomes)//Chamando a função que refaz a lista
             } else {
-                alert("Este nome já foi adicionado.")
-                //Se ja estiver no Array, vai da esse alert
+                verifIinput(nomes, mudouCor)
             }
 
             console.log(nomes.length)
@@ -101,6 +98,17 @@
 
             //Limpando o input quando clicar no botão "Adicionar"
             document.getElementById('texto').value = ''
+        }
+
+        //Função de quando perde o foco e verifica quantos caracteres foram passados
+        let verifIinput = function perdeuFoco(nomes, mudouCor) {
+               
+        }
+
+        //Função para ordernar em ordem alfabética
+        function ordenarLista(nomes) {
+            nomes.sort()//Ordenando o Array
+            refazer(nomes)//Chamando a função que refaz a lista
         }
 
         function Delete(nomes) {

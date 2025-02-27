@@ -52,3 +52,7 @@ input{
 ul li {
     list-style: none;
 }
+
+hr {
+    margin: 20px 0px 10px 0px;
+}
