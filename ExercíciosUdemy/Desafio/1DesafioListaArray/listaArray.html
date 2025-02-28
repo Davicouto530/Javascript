@@ -80,8 +80,9 @@
             //Verificando se o que ta dentro do Array existe
             if (auxiliar === -1) {
                 nomes.push(PegouNome)//Vai adicionar no Array
+                document.getElementById('texto').style.border = '1px solid black';//Definindo a cor da borda do input se for válido
             } else {
-                verifIinput(nomes)
+                verifIinput(nomes)//Função que se o nome ja estiver na lista, vai deixar o input com a borda vermelha
             }
 
             console.log(nomes.length)
@@ -98,7 +99,7 @@
             document.getElementById('texto').value = ''
         }
 
-        //Função de quando perde o foco e verifica quantos caracteres foram passados
+        //Função que muda a cor da borda do input para vermelho se o nome já estiver na lista
         let verifIinput = function verifIinput(nomes, mudouCor) {
             document.getElementById('texto').style.border = '1px solid red'
         }
