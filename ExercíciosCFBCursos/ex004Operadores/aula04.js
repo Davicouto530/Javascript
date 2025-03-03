@@ -31,7 +31,7 @@ console.log(num2 / num1)//Divisão
 console.log(num2 % num1)//Resto da divisão
 
 console.log(num1)
-num1 += 5 //Atribuindo e incrementando na variável "num1"
+num1 += 5 //Atribuindo e somando na variável "num1"
 console.log(num1)
 
 console.log(num2)

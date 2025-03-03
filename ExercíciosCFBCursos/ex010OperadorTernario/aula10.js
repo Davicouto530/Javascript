@@ -2,7 +2,6 @@
 
 /**
  * Operador ternário
- * 
  */
 
 let num = 11
