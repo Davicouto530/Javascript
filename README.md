@@ -1,2 +1,5 @@
 # javascript
- Curso de JavaScript do CursoemVideo
+Fundamentos de Javascript.
+
+## Autor 
+Davi do couto
