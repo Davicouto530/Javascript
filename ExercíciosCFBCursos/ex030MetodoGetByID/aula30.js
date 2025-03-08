@@ -17,6 +17,7 @@ const dc4 = document.getElementById('c4');
 const dc5 = document.getElementById('c5');
 const dc6 = document.getElementById('c6');
 
+//Não precisa do "spread", porque quando pega pelo id, já pega um de cada vez
 const arrayElementos = [dc1,dc2,dc3,dc4,dc5,dc6];
 //Criando um array dos elementos pegos
 
