@@ -19,7 +19,8 @@ caixa1.addEventListener("click", (event) => {
 });
 
 //Vai percorrer todos os cursos e colocar o ".stopPropagation()" para
-//não pegar o evento que está sendo colocado na div de conatainer
+
+//não pegar o evento que está sendo colocado na div de container
 cursos.map((el) => {
     el.addEventListener("click", (evt) => {
         evt.stopPropagation();
