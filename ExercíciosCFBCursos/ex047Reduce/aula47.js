@@ -5,8 +5,6 @@
  * 
  *  O método reduce percorre um array e reduz seus elementos a um único valor.
  * - Recebe uma função com: acumulador, elemento atual, índice [opcional] e array [opcional].
- * - Pode ter um valor inicial para o acumulador.
- * - Retorna um único valor no final.
  */
 
 // Pegando elementos do HTML pelo ID para manipulação depois.
