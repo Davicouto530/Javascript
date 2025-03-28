@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora básica</title>
+    <link rel="stylesheet" href="calculadora.css">
 </head>
+
 <body>
-    <div id="caixa">
-        <input type="text" id="valor1">
-        <input type="text" id="valor2">
-
-        <button id="somar">Somar</button>
-        <button id="subtrair">Subtrair</button>
-        <button id="multiplicar">Multiplicar</button>
-        <button id="dividir">Dividir</button>
-
-        <p id="resultado"></p>
+    <div id="container">
+        <div id="inputs">
+            <input type="text" id="resultado" value="0">
+            <input type="text" id="valor1">
+            <input type="text" id="valor2">
+        </div>
+        <div id="botoes">
+            <button class="cal" id="somar">+</button>
+            <button class="cal" id="subtrair">-</button>
+            <button class="cal" id="multiplicar">X</button>
+            <button class="cal" id="dividir">/</button>
+            <button id="limpar">Limpar</button>
+        </div>
     </div>
 
     <script src="desafioCalculadora.js"></script>
 </body>
+
 </html>
