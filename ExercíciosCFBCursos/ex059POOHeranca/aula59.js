@@ -43,9 +43,25 @@ class Militar extends Carro{//Classe FILHO
     }
     //Método para atirar 
     atirar(){
-        //Se munição for mais que zero, tira um
+        //Se munição for maior que zero, tira um
         if(this.municao > 0){
             this.municao--;
+        }
+    }
+}
+
+class Esportivo extends Carro{
+    constructor(nome, portas, velMax, turbo){
+        super(nome,portas);
+        this.velMax = velMax;
+        this.turbo = turbo;
+    }
+    ativarTurbo = function(){
+        if(this.turbo == true){
+            this.velMax += 50;
+            console.log(`Turbo ativado! Nova velocidade máxima: ${this.velMax}`);
+        } else {
+            console.log("Este carro não tem turbo.");
         }
     }
 }
@@ -57,6 +73,8 @@ c1.setCor("Preto");
 
 //Criando um objeto na classe filho, com nome, portas, blindagem e munição
 const c2 = new Militar("Lutador",1,100,50);
+
+const c3Turbo = new Esportivo("Carro turbo",2,180,true)
 
 console.log(`Nome: ${c1.nome}`);
 console.log(`Portas: ${c1.portas}`);
@@ -73,3 +91,9 @@ console.log(`Blindagem: ${c2.blindagem}`);
 console.log(`Munição: ${c2.municao}`);
 console.log(`Cor: ${c2.cor}`);
 console.log(`----------------------------------`);
+
+console.log(`Nome: ${c3Turbo.nome}`);
+console.log(`Portas: ${c3Turbo.portas}`);
+console.log(`Velocidade máxima: ${c3Turbo.velMax}`);
+console.log(`Turbo: ${c3Turbo.turbo}`);
+c3Turbo.ativarTurbo()
