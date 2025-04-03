@@ -30,6 +30,7 @@ body {
     padding: 5px;
     border-radius: 5px;
     display: flex;
+    flex-direction: column;
     width: 200px;
 }
 
@@ -52,4 +53,10 @@ body {
     cursor: pointer;
     padding: 5px;
     border-radius: 5px;
+}
+
+.btnRemover {
+    margin-top: 5px;
+    border: 2px solid black;
+    cursor: pointer;
 }

@@ -15,6 +15,12 @@ const btn_addCarro = document.querySelector("#btn_addCarro");
 
 let arrayCarros = [];
 
+const removerCarro = (quem) => {
+    arrayCarros = arrayCarros.filter((el) => {
+        return el.nome != quem;
+    });
+}
+
 f_tipoMilitar.addEventListener("click", (evt) => {
     f_nome.value = "";
     f_portas.value = 0;
@@ -36,13 +42,23 @@ f_tipoNormal.addEventListener("click", (evt) => {
 const gerenciarExibicaoCarros = () => {
     carros.innerHTML = "";
     arrayCarros.forEach((c) => {
+        const btn = document.createElement("button");
+        btn.setAttribute("class", "btnRemover");
+        btn.innerHTML = "Remover"
+        btn.addEventListener("click", (evt) => {
+            const quemRemover = evt.target.parentNode.dataset.nome;
+            removerCarro(quemRemover);
+            gerenciarExibicaoCarros();
+        });
         const div = document.createElement("div");
         div.setAttribute("class", "carro");
+        div.setAttribute("data-nome", c.nome);
         div.innerHTML = `Nome: ${c.nome} </br>`;
         div.innerHTML += `Portas: ${c.portas} </br>`;
         div.innerHTML += `Cor: ${c.cor} </br>`;
         div.innerHTML += `Blindagem: ${c.blindagem} </br>`;
         div.innerHTML += `Munição: ${c.municao} </br>`;
+        div.appendChild(btn);
         carros.appendChild(div);
     });
 };
