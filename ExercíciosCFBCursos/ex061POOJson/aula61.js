@@ -16,7 +16,7 @@ const pessoa = {
     aulas: {
         aula01: "Introdução",
         aula02: "Variáveis",
-        aula03: "Condicional"
+        aula03: "Condicional" 
     }
 };
 
