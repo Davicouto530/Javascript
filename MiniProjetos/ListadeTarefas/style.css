@@ -10,6 +10,7 @@ body {
 
 #container {
     margin: 0 auto;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,4 +86,12 @@ hr {
     cursor: pointer;
     float: right;
     transform: translate(-40%, -90%);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 400px;
 }
