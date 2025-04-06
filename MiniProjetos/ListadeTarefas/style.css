@@ -18,31 +18,65 @@ body {
 }
 
 h1 {
-    background-color: rgb(1, 1, 70);
+    background-color: #059142;
+    font-size: 1.9em;
     color: white;
     padding: 10px;
     border-radius: 10px 10px 0px 0px;
     text-transform: uppercase;
-    width: 400px;
+    width: 500px;
     text-align: center;
 }
 
 .caixa {
-    background-color: rgb(228, 228, 228);
-    width: 400px;
+    border: 2px solid #059142;
+    border-radius: 0px 0px 10px 10px;
+    width: 500px;
     text-align: center;
 }
 
+#inputTarefas {
+    margin: 20px 0px 20px 0px;
+    background-color: rgba(211, 211, 211, 0.644);
+    outline: none;
+    border: none;
+    padding: 11px;
+    border-radius: 25px;
+    font-size: 1em;
+}
+
+#addTarefa{
+    border: none;
+    width: 120px;
+    padding: 11px;
+    border-radius: 25px;
+    font-size: 1em;
+    background-color: #07da63;
+    color: white;
+    cursor: pointer;
+}
+
+hr {
+    margin-bottom: 20px;
+}
+
 .lista {
-    border: 2px solid black;
+    margin: 0 auto;
+    border: 2px solid #059142;
     padding: 10px;
-    width: 400px;
+    width: 450px;
+    background-color: white;
     border-radius: 5px;
-    margin-top: 2px;
+    margin-top: 5px;
     list-style: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
 }
 
 .marcarLista {
+    opacity: 0.5;
+    border: 2px solid red;
     text-decoration: line-through;
 }
 

@@ -12,11 +12,12 @@ btnAddTarefa.addEventListener("click", () => {
         alert("Informe um valor válido");
     } else {
         tarefas.push({ texto: inputTarefas.value, lida: false });
-
         console.log(tarefas);
         inputTarefas.value = '';
+        inputTarefas.focus();
         renderizarTarefas();
     }
+
 });
 
 const renderizarTarefas = () => {
