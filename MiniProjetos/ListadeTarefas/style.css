@@ -25,14 +25,14 @@ h1 {
     padding: 10px;
     border-radius: 10px 10px 0px 0px;
     text-transform: uppercase;
-    width: 500px;
+    width: 380px;
     text-align: center;
 }
 
 .caixa {
     border: 2px solid #059142;
     border-radius: 0px 0px 10px 10px;
-    width: 500px;
+    width: 380px;
     text-align: center;
 }
 
@@ -41,7 +41,7 @@ h1 {
     background-color: rgba(211, 211, 211, 0.644);
     outline: none;
     border: none;
-    padding: 11px;
+    padding: 8px;
     border-radius: 25px;
     font-size: 1em;
 }
@@ -49,7 +49,7 @@ h1 {
 #addTarefa{
     border: none;
     width: 120px;
-    padding: 11px;
+    padding: 8px;
     border-radius: 25px;
     font-size: 1em;
     background-color: #07da63;
@@ -65,7 +65,7 @@ hr {
     margin: 0 auto;
     border: 2px solid #059142;
     padding: 10px;
-    width: 450px;
+    width: 350px;
     background-color: white;
     border-radius: 5px;
     margin-top: 5px;
@@ -94,4 +94,24 @@ footer {
     align-items: center;
     justify-content: center;
     margin-top: 400px;
+}
+
+@media (min-width: 576px){
+    h1 {
+        width: 500px;
+    }
+
+    .caixa {
+        width: 500px;
+    }
+
+    #inputTarefas{
+        padding: 11px;
+    }
+    #addTarefa{
+        padding: 11px;
+    }
+    .lista{
+        width: 450px;
+    }
 }
