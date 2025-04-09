@@ -1,7 +1,6 @@
 "use strict";
 
 /*
- * JSON (JavaScript Object Notation) é um formato usado para armazenar e 
  * Prototype
  */
 
