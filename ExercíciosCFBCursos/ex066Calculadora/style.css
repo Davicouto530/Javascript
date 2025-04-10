@@ -14,12 +14,18 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #eee;
+    border: 3px solid #bbb;
+    width: 230px;
+    border-radius: 5px;
 }
 
+/*Titulo*/
 .divNome {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 220px;
 } 
 
 .divDisplay {
@@ -32,7 +38,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 225px;
+    width: 220px;
     flex-wrap: wrap;
 }
 
@@ -53,4 +59,21 @@ body {
 .teclaOp:hover {
     background-color: #f44 !important;
     border-color: #800 !important;
+}
+
+/*DISPLAY*/
+
+.div_display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+}
+
+.display {
+    width: 220px;
+    background-color: #8a8;
+    text-align: right;
+    padding: 5px;
+    font-size: larger;
 }
