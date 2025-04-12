@@ -5,6 +5,9 @@ const display = document.querySelector(".display");
 const tcpy = document.getElementById("tcpy");
 const tlimpar = document.getElementById("tlimpar");
 const tigual = document.getElementById("tigual");
+const calc_aba = document.getElementById("calc_aba");
+const calc = document.getElementById("calc");
+const img_aba_calc = document.getElementById("img_aba_calc");
 
 let sinal = false;
 let decimal = false;
@@ -62,4 +65,13 @@ tigual.addEventListener("click", (evt) => {
 
 tcpy.addEventListener("click", (evt) => {
     navigator.clipboard.writeText(display.innerHTML)
+});
+
+calc_aba.addEventListener("click", (evt) => {
+    calc.classList.toggle("calc_exibir");
+    if(calc.classList.contains("calc_exibir")){
+        img_aba_calc.setAttribute("src", "setaEsquerda.svg");
+    }else {
+        img_aba_calc.setAttribute("src", "setaDireita.svg");
+    }
 })

@@ -10,33 +10,38 @@
 
 <body>
     <div id="calc" class="calc">
-        <div id="divNome" class="divNome">
-            <p>Calculadora CFB Cursos</p>
+        <div id="calc_principal" class="calc_principal">
+            <div id="divNome" class="divNome">
+                <p>Calculadora CFB Cursos</p>
+            </div>
+            <div id="divDisplay" class="divDisplay">
+                <p id="display" class="display">0</p>
+            </div>
+            <div id="divTeclas" class="divTeclas">
+                <button id="tcpy" class="tecla teclaOp">CPY</button>
+                <button id="tlimpar" class="tecla">CL</button>
+                <button id="t(" class="tecla num">(</button>
+                <button id="t9)" class="tecla num">)</button>
+                <button id="t7" class="tecla num">7</button>
+                <button id="t8" class="tecla num">8</button>
+                <button id="t9" class="tecla num">9</button>
+                <button id="t+" class="tecla teclaOp op">+</button>
+                <button id="t4" class="tecla num">4</button>
+                <button id="t5" class="tecla num">5</button>
+                <button id="t6" class="tecla num">6</button>
+                <button id="t-" class="tecla teclaOp op">-</button>
+                <button id="t1" class="tecla num">1</button>
+                <button id="t2" class="tecla num">2</button>
+                <button id="t3" class="tecla num">3</button>
+                <button id="tx" class="tecla teclaOp op">x</button>
+                <button id="t0" class="tecla num">0</button>
+                <button id="tseparador" class="tecla num">,</button>
+                <button id="tigual" class="tecla teclaOp res">=</button>
+                <button id="td" class="tecla teclaOp op">/</button>
+            </div>
         </div>
-        <div id="divDisplay" class="divDisplay">
-            <p id="display" class="display">0</p>
-        </div>
-        <div id="divTeclas" class="divTeclas">
-            <button id="tcpy" class="tecla teclaOp">CPY</button>
-            <button id="tlimpar" class="tecla">CL</button>
-            <button id="t(" class="tecla num">(</button>
-            <button id="t9)" class="tecla num">)</button>
-            <button id="t7" class="tecla num">7</button>
-            <button id="t8" class="tecla num">8</button>
-            <button id="t9" class="tecla num">9</button>
-            <button id="t+" class="tecla teclaOp op">+</button>
-            <button id="t4" class="tecla num">4</button>
-            <button id="t5" class="tecla num">5</button>
-            <button id="t6" class="tecla num">6</button>
-            <button id="t-" class="tecla teclaOp op">-</button>
-            <button id="t1" class="tecla num">1</button>
-            <button id="t2" class="tecla num">2</button>
-            <button id="t3" class="tecla num">3</button>
-            <button id="tx" class="tecla teclaOp op">x</button>
-            <button id="t0" class="tecla num">0</button>
-            <button id="tseparador" class="tecla num">,</button>
-            <button id="tigual" class="tecla teclaOp res">=</button>
-            <button id="td" class="tecla teclaOp op">/</button>
+        <div id="calc_aba" class="calc_aba">
+            <img id="img_aba_calc" src="setaDireita.svg" alt="">
         </div>
     </div>
 
