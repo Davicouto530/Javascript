@@ -1,6 +1,6 @@
 const valor = document.getElementById("valor");
 const moedaPara = document.getElementById("moedaPara");
-const moedaDe = document.getElementById("moedaDe")
+const moedaDe = document.getElementById("moedaDe");
 const btnConvert = document.getElementById("convert");
 const res = document.getElementById("res");
 
