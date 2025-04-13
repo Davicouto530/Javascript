@@ -5,64 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de moedas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="container">
-        <h1>Conversor de moedas</h1>
 
-        <label for="valor">Insira o valor</label>
+    <div class="container">
+        <h2>Conversor de moedas</h2>
+        <label for="valor">Insira o valor</label><br>
         <input type="number" id="valor">
-
-        <select id="moedaDe">
-            <option value="BRL">Real Brasileiro (BRL)</option>
-            <option value="USD">Dólar Americano (USD)</option>
-            <option value="EUR">Euro (EUR)</option>
-            <option value="GBP">Libra Esterlina (GBP)</option>
-            <option value="JPY">Iene Japonês (JPY)</option>
-            <option value="CHF">Franco Suíço (CHF)</option>
-            <option value="CAD">Dólar Canadense (CAD)</option>
-            <option value="AUD">Dólar Australiano (AUD)</option>
-            <option value="NZD">Dólar Neozelandês (NZD)</option>
-            <option value="CNY">Yuan Chinês (CNY)</option>
-            <option value="ARS">Peso Argentino (ARS)</option>
-            <option value="MXN">Peso Mexicano (MXN)</option>
-            <option value="CLP">Peso Chileno (CLP)</option>
-            <option value="INR">Rúpia Indiana (INR)</option>
-            <option value="RUB">Rublo Russo (RUB)</option>
-            <option value="ZAR">Rand Sul-Africano (ZAR)</option>
-            <option value="SEK">Coroa Sueca (SEK)</option>
-            <option value="NOK">Coroa Norueguesa (NOK)</option>
-            <option value="DKK">Coroa Dinamarquesa (DKK)</option>
-            <option value="KRW">Won Sul-Coreano (KRW)</option>
-        </select>
-
-        <select id="moedaPara">
-            <option value="BRL">Real Brasileiro (BRL)</option>
-            <option value="USD">Dólar Americano (USD)</option>
-            <option value="EUR">Euro (EUR)</option>
-            <option value="GBP">Libra Esterlina (GBP)</option>
-            <option value="JPY">Iene Japonês (JPY)</option>
-            <option value="CHF">Franco Suíço (CHF)</option>
-            <option value="CAD">Dólar Canadense (CAD)</option>
-            <option value="AUD">Dólar Australiano (AUD)</option>
-            <option value="NZD">Dólar Neozelandês (NZD)</option>
-            <option value="CNY">Yuan Chinês (CNY)</option>
-            <option value="ARS">Peso Argentino (ARS)</option>
-            <option value="MXN">Peso Mexicano (MXN)</option>
-            <option value="CLP">Peso Chileno (CLP)</option>
-            <option value="INR">Rúpia Indiana (INR)</option>
-            <option value="RUB">Rublo Russo (RUB)</option>
-            <option value="ZAR">Rand Sul-Africano (ZAR)</option>
-            <option value="SEK">Coroa Sueca (SEK)</option>
-            <option value="NOK">Coroa Norueguesa (NOK)</option>
-            <option value="DKK">Coroa Dinamarquesa (DKK)</option>
-            <option value="KRW">Won Sul-Coreano (KRW)</option>
-        </select>
-
-        <button id="convert"></button>
+        <div class="containerSelect">
+            <div id="caixa1">
+                <p class="pSelect">De</p>
+                <select id="moedaDe">
+                    <option value="BRL">Real Brasileiro (BRL)</option>
+                    <option value="USD">Dólar Americano (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="GBP">Libra Esterlina (GBP)</option>
+                    <option value="JPY">Iene Japonês (JPY)</option>
+                    <option value="CHF">Franco Suíço (CHF)</option>
+                    <option value="CAD">Dólar Canadense (CAD)</option>
+                    <option value="AUD">Dólar Australiano (AUD)</option>
+                    <option value="NZD">Dólar Neozelandês (NZD)</option>
+                    <option value="CNY">Yuan Chinês (CNY)</option>
+                    <option value="ARS">Peso Argentino (ARS)</option>
+                    <option value="MXN">Peso Mexicano (MXN)</option>
+                    <option value="CLP">Peso Chileno (CLP)</option>
+                    <option value="INR">Rúpia Indiana (INR)</option>
+                    <option value="RUB">Rublo Russo (RUB)</option>
+                    <option value="ZAR">Rand Sul-Africano (ZAR)</option>
+                    <option value="SEK">Coroa Sueca (SEK)</option>
+                    <option value="NOK">Coroa Norueguesa (NOK)</option>
+                    <option value="DKK">Coroa Dinamarquesa (DKK)</option>
+                    <option value="KRW">Won Sul-Coreano (KRW)</option>
+                </select>
+            </div>
+            <div id="caixa2">
+                <p class="pSelect">Para</p>
+                <select id="moedaPara">
+                    <option value="BRL">Real Brasileiro (BRL)</option>
+                    <option value="USD">Dólar Americano (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="GBP">Libra Esterlina (GBP)</option>
+                    <option value="JPY">Iene Japonês (JPY)</option>
+                    <option value="CHF">Franco Suíço (CHF)</option>
+                    <option value="CAD">Dólar Canadense (CAD)</option>
+                    <option value="AUD">Dólar Australiano (AUD)</option>
+                    <option value="NZD">Dólar Neozelandês (NZD)</option>
+                    <option value="CNY">Yuan Chinês (CNY)</option>
+                    <option value="ARS">Peso Argentino (ARS)</option>
+                    <option value="MXN">Peso Mexicano (MXN)</option>
+                    <option value="CLP">Peso Chileno (CLP)</option>
+                    <option value="INR">Rúpia Indiana (INR)</option>
+                    <option value="RUB">Rublo Russo (RUB)</option>
+                    <option value="ZAR">Rand Sul-Africano (ZAR)</option>
+                    <option value="SEK">Coroa Sueca (SEK)</option>
+                    <option value="NOK">Coroa Norueguesa (NOK)</option>
+                    <option value="DKK">Coroa Dinamarquesa (DKK)</option>
+                    <option value="KRW">Won Sul-Coreano (KRW)</option>
+                </select>
+            </div>
+        </div>
 
         <p id="res"></p>
+        <button id="convert" class="convert"></button>
+        
     </div>
 
     <script src="script.js"></script>
