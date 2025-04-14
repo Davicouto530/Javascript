@@ -7,10 +7,9 @@
 const divData = document.getElementById("divData");
 const data = new Date();
 
-//Serve para colocar um "0"zero na frente do dia
+//Serve para colocar um "0"zero na frente do numero
 let diaMes = data.getDate();
-diaMes = diaMes<10?"0"+diaMes:diaMes;//se for menor que "10" o dia
-
+diaMes = diaMes<10?"0"+diaMes:diaMes;//se for menor que "10" o dia, coloca o zero na frente
 //Serve para colocar um "0"zero na frente do Mês
 let Mes = data.getMonth()+1;
 Mes = Mes<10?"0"+Mes:Mes;//se for menor que "10" o Mês
