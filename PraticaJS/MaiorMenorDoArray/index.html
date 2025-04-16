@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior e menor número da lista</title>
+</head>
+
+<body>
+    <h1>Maior e menor número da lista</h1>
+
+    <p id="array"></p>
+
+    <p id="maiorNum"></p>
+    <p id="menorNum"></p>
+
+    <script>
+        const p_array = document.getElementById("array");
+        const maiorNum = document.getElementById("maiorNum");
+        const menorNum = document.getElementById("menorNum");
+
+        const maiorNumLista = () => {
+            const num = [3, 17, 21, 9, 34, 7];
+            p_array.innerHTML = "[" + num + "]";
+            let maior = num[0];
+            let menor = num[0];
+
+            for (let numero of num) {
+                if (numero > maior) {
+                    maior = numero;
+                } else if (numero < menor) {
+                    menor = numero;
+                }
+            }
+
+            maiorNum.innerHTML = `Maior número da lista: ${maior}`;
+            menorNum.innerHTML = `Menor número da lista: ${menor}`;
+        }
+
+        maiorNumLista();
+    </script>
+</body>
+
+</html>
