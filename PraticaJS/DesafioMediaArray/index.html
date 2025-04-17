@@ -4,30 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Array</title>
+    <title>Media array</title>
 </head>
 
 <body>
+    <h1>Media da lista de array</h1>
 
+    <label>Digite um número para colocar dentro do array e fazer a media</label><br>
+    <input type="text" placeholder="Digite aqui" id="inputValor">
+
+    <button id="btnAdd">Adicionar</button>
+
+    <p id="array"></p>
+    <p id="res"></p>
 
     <script>
-        let n = [7, 8, 5, 24, 56, 32]
+        const inputValor = document.getElementById("inputValor");
+        const btnAdd = document.getElementById("btnAdd");
+        const pArray = document.getElementById("array");
+        const res = document.getElementById("res");
 
-        function mediaArray(n) {
-            let p = 0
-            let soma = 0
-            let media
+        let numeros = [];
 
-            while (p < n.length) {
-                soma += n[p]
-                media = soma / 6
-                p++
+        btnAdd.addEventListener("click", () => {
+            numeros.push(parseFloat(inputValor.value));
+            console.log(numeros);
+            pArray.innerHTML = "[" + numeros + "]";
+            mediaArray();
+            console.log(mediaArray());
+            inputValor.value = '';
+            inputValor.focus();
+        })
+
+        const mediaArray = () => {
+            let soma = 0;
+            let media = 0;
+
+            for (let n = 0; n < numeros.length; n++) {
+                soma += numeros[n];
+                media = soma / numeros.length;
             }
-
-            return media
+            return res.innerHTML = media.toFixed(1);
         }
 
-        document.write(`A média dos números de dentro da Array são: ${mediaArray(n)}`)
     </script>
 </body>
 
