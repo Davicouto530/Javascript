@@ -16,7 +16,7 @@ body {
     margin: 0 auto;
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 600px;
 }
