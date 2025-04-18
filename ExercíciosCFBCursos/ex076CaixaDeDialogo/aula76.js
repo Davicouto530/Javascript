@@ -22,7 +22,8 @@ btn_confirm.addEventListener("click", () => {
 });
 
 btn_prompt.addEventListener("click", () => {
-    const nome = prompt("Digite o seu nome");
+    //O segundo texto é como se fosse um placeholder
+    const nome = prompt("Digite o seu nome", "Digite o seu nome aqui");
     console.log(nome);
     if(nome == null){
         console.log("Botão CANCELAR pressionado");
