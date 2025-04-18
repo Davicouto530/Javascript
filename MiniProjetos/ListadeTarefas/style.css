@@ -25,14 +25,14 @@ h1 {
     padding: 10px;
     border-radius: 10px 10px 0px 0px;
     text-transform: uppercase;
-    width: 380px;
+    width: 350px;
     text-align: center;
 }
 
 .caixa {
     border: 2px solid #059142;
     border-radius: 0px 0px 10px 10px;
-    width: 380px;
+    width: 350px;
     text-align: center;
 }
 
@@ -41,7 +41,7 @@ h1 {
     background-color: rgba(211, 211, 211, 0.644);
     outline: none;
     border: none;
-    padding: 8px;
+    padding: 6px;
     border-radius: 25px;
     font-size: 1em;
 }
@@ -49,7 +49,7 @@ h1 {
 #addTarefa{
     border: none;
     width: 120px;
-    padding: 8px;
+    padding: 6px;
     border-radius: 25px;
     font-size: 1em;
     background-color: #07da63;
@@ -65,7 +65,7 @@ hr {
     margin: 0 auto;
     border: 2px solid #059142;
     padding: 10px;
-    width: 350px;
+    width: 300px;
     background-color: white;
     border-radius: 5px;
     margin-top: 5px;
@@ -86,14 +86,6 @@ hr {
     cursor: pointer;
     float: right;
     transform: translate(-40%, -90%);
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 400px;
 }
 
 @media (min-width: 576px){
