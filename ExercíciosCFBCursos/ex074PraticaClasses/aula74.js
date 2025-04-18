@@ -128,6 +128,9 @@ btn_add.addEventListener("click", (evt) => {
         //Cria uma nova bola no objeto, e armazena no array 
         bolas.push(new Bola(bolas, palco));
     }
+
+    txt_qtde.value = '';
+    txt_qtde.focus();
 });
 
 btn_remover.addEventListener("click", (evt) => {
@@ -135,6 +138,6 @@ btn_remover.addEventListener("click", (evt) => {
     //armazenadas e remover todas as bolinhas
     bolas.map((b) => {
         //Remover a bolinha
-        b.remove();
+        b.remover();
     })
 });

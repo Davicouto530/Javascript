@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Par Impar</title>
+    <title>Par ou Ímpar</title>
 </head>
 <body>
-    
+    <h1>Verificando se um número é PAR ou ÍMPAR</h1>
+
+    <input type="text" id="valor" placeholder="Digite o número aqui">
+    <button id="btnAdd">Adicionar</button>
+    <p id="res"></p>
+
     <script>
-        let num = parseInt(prompt('Digite o número para saber se ele é PAR ou ÍMPAR: '))
+        const inputValor = document.getElementById("valor");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
 
-        let conta = num % 2
+        btnAdd.addEventListener("click", () => {
+            parOuimpar();
+            inputValor.value = '';
+            inputValor.focus();
+        })
 
-        if(conta == 0){
-            document.write(`O número ${num} é PAR`)
-        } else if(conta == 1){
-            document.write(`O número ${num} é ÍMPAR`)
-        } else {
-            document.write("Valor inválido.")
+        const parOuimpar = () => {
+            let valorConvertido = parseFloat(inputValor.value)
+            if(valorConvertido % 2 == 0){
+                res.innerHTML = `O valor ${valorConvertido} é PAR!`;
+            }else {
+                res.innerHTML = `O valor ${valorConvertido} é ÍMPAR!`;
+            }
         }
     </script>
 </body>
