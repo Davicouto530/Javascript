@@ -1,10 +1,12 @@
-"use strict"; 
+"use strict";
 
 /* 
  *  Objetos literais
  */
 
 const objetos = document.getElementById("objetos");
+const caixa = document.getElementById("caixa");
+const botao = document.getElementById("botao");
 
 //Iniciando o objeto com "{}"
 const computador = {
@@ -12,7 +14,7 @@ const computador = {
     ram: "16gb",
     ssd: "1tb",
     //Criando um método para exibir todas as propriedades
-    info:function(){
+    info: function () {
         console.log(`CPU: ${this.cpu}`);
         console.log(`RAM: ${this.ram}`);
         console.log(`SSD: ${this.ssd}`);
@@ -20,8 +22,8 @@ const computador = {
 }
 
 //Adicionando mais propriedades no objeto
-computador["monitor"]="22pol";
-computador.placaVideo="rtx1650";
+computador["monitor"] = "22pol";
+computador.placaVideo = "rtx1650";
 
 //Mostrando somente o valor de uma propriedade
 console.log(computador["monitor"]);
@@ -52,13 +54,24 @@ const computadores = [
 //Percorrendo o array de objetos e exibindo  
 //todas as suas propriedades
 computadores.forEach((c) => {
-    //Criando uma tag para cada objeto
-    const div = document.createElement("div");
-    //Colocando as suas respectivas informações na tag
-    div.innerHTML = `${c.cpu} </br> ${c.ram} </br> ${c.ssd} </br>`;
-    div.setAttribute("class","computador");
-    objetos.appendChild(div);
+    //Criando uma tag de botao para cada objeto
+    const button = document.createElement("button");
+    button.setAttribute("class", "button");
+    button.innerHTML = "Detalhes";
+
+    //Quando clicar no botao, mostra o objeto
+    button.addEventListener("click", () => {
+        caixa.innerHTML = "";//Limpando a caixa para não mostrar repetido
+        //Criando uma tag para cada objeto
+        const div = document.createElement("div");
+        //Colocando as suas respectivas informações na tag
+        div.innerHTML = `${c.cpu} </br> ${c.ram} </br> ${c.ssd} </br>`;
+        div.setAttribute("class", "computador");
+        caixa.appendChild(div);
+    })
+    botao.appendChild(button);
 })
+
 
 // computador.info();
 

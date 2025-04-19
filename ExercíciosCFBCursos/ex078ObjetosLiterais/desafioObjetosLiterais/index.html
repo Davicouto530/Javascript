@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações da pessoa</title>
+</head>
+<body>
+
+    <input type="text" id="nome" placeholder="Digite o seu nome">
+    <input type="number" id="idade" placeholder="Digite a sua idade">
+    <input type="text" id="profissao" placeholder="Digite a sua profissao">
+    <button id="btnAdd">Adicionar</button>
+    <div id="res"></div>
+    
+    <script>
+        const res = document.getElementById("res");
+        const nome = document.getElementById("nome");
+        const idade = document.getElementById("idade");
+        const profissao = document.getElementById("profissao");
+        const btnAdd = document.getElementById("btnAdd");
+
+        const pessoa = {
+            nome: "",
+            idade: "",
+            profissao: "",
+            info: function(){
+                res.innerHTML = `Nome: ${this.nome} <br> Idade: ${this.idade} <br> Profissão: ${this.profissao}`;
+            }
+        }
+
+        btnAdd.addEventListener("click", () => {
+            pessoa.nome = nome.value;  
+            pessoa.idade = idade.value;
+            pessoa.profissao = profissao.value;
+            pessoa.info();
+        })
+    </script>
+</body>
+</html>

@@ -30,8 +30,8 @@ c1.info();
 
 //criando um novo objeto
 const c2 = Object.create(computador);
-c2.cpu = "i9";//Definindo as propriedades
-c2.ram = "64gb";//do objeto base
+c2.cpu = "i9";//Definindo o que vai dentro das
+c2.ram = "64gb";//propriedades do objeto base
 c2.ssd = "1tb";
 c2.info();
 
