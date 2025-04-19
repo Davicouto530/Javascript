@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantos números pares</title>
 </head>
+
 <body>
     <h1>Quantos números pares tem na lista</h1>
 
@@ -18,35 +20,38 @@
         const btnAdd = document.getElementById("btnAdd");
         const pArray = document.getElementById("array");
         const res = document.getElementById("res");
-        
+
         let num = [];//Array para armazenar os números 
 
         //Botão para adicionar os números do input no array
         btnAdd.addEventListener("click", () => {
-            let valorConvertido = parseFloat(valor.value);
-            num.push(valorConvertido);//Adicionando o valor
-            pArray.innerHTML = "[" + num + "]";
-            qtdPares();//Chamando a função que verifica e soma
 
-            if(valor.value == ''){
+            //verificando se não digitou nada no input
+            if (valor.value == '') {
+                //se nao tiver digitado, da essa alert e nao faz nada
                 alert("Digite um valor válido!");
-                //verificando se não digitou nada no input
+            } else {
+                // se tiver digitado, faz a lógida de chamar a função
+                let valorConvertido = parseFloat(valor.value);
+                num.push(valorConvertido);//Adicionando o valor
+                pArray.innerHTML = "[" + num + "]";
+                qtdPares();//Chamando a função que verifica e soma
             }
 
             valor.value = '';
             valor.focus();
         })
-        
+
         const qtdPares = () => {
             let pares = 0;//Variável que conta quantos pares 
             let numPar = '';//Variável para armazenar só numeros pares
 
             //Percorrendo o array
-            for(let n = 0; n < num.length; n++){
+            for (let n = 0; n < num.length; n++) {
                 //Verificando, se o número do array é diferente de 0
-                if(num[n] % 2 != 0){
+                if (num[n] % 2 != 0) {
                     continue;//se for, pula e continua verificando
-                }else {
+                } else {
                     // se for igual a 0
                     numPar += num[n] + " ";//Guarda esse valor na variável
                     pares++;//e soma mais um em pares
@@ -56,4 +61,5 @@
         }
     </script>
 </body>
+
 </html>
