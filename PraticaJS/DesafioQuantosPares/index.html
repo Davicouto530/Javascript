@@ -19,16 +19,18 @@
         const pArray = document.getElementById("array");
         const res = document.getElementById("res");
         
-        let num = [];
+        let num = [];//Array para armazenar os números 
 
+        //Botão para adicionar os números do input no array
         btnAdd.addEventListener("click", () => {
             let valorConvertido = parseFloat(valor.value);
-            num.push(valorConvertido);
+            num.push(valorConvertido);//Adicionando o valor
             pArray.innerHTML = "[" + num + "]";
-            qtdPares();
+            qtdPares();//Chamando a função que verifica e soma
 
             if(valor.value == ''){
                 alert("Digite um valor válido!");
+                //verificando se não digitou nada no input
             }
 
             valor.value = '';
@@ -36,18 +38,21 @@
         })
         
         const qtdPares = () => {
-            let pares = 0;
-            let par = '';
+            let pares = 0;//Variável que conta quantos pares 
+            let numPar = '';//Variável para armazenar só numeros pares
 
+            //Percorrendo o array
             for(let n = 0; n < num.length; n++){
+                //Verificando, se o número do array é diferente de 0
                 if(num[n] % 2 != 0){
-                    continue;
+                    continue;//se for, pula e continua verificando
                 }else {
-                    par += num[n] + " ";
-                    pares++;
+                    // se for igual a 0
+                    numPar += num[n] + " ";//Guarda esse valor na variável
+                    pares++;//e soma mais um em pares
                 }
             }
-            res.innerHTML = `Tem ${pares} números pares, e são os: ${par}`;
+            res.innerHTML = `Tem ${pares} números pares, e são os: ${numPar}`;
         }
     </script>
 </body>
