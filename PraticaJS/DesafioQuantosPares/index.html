@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantos números pares</title>
+</head>
+<body>
+    <h1>Quantos números pares tem na lista</h1>
+
+    <input type="number" id="valor" placeholder="Digite um número">
+    <button id="btnAdd">Adicionar</button>
+    <p id="array"></p>
+    <p id="res"></p>
+
+    <script>
+        const valor = document.getElementById("valor");
+        const btnAdd = document.getElementById("btnAdd");
+        const pArray = document.getElementById("array");
+        const res = document.getElementById("res");
+        
+        let num = [];
+
+        btnAdd.addEventListener("click", () => {
+            let valorConvertido = parseFloat(valor.value);
+            num.push(valorConvertido);
+            pArray.innerHTML = "[" + num + "]";
+            qtdPares();
+
+            if(valor.value == ''){
+                alert("Digite um valor válido!");
+            }
+
+            valor.value = '';
+            valor.focus();
+        })
+        
+        const qtdPares = () => {
+            let pares = 0;
+            let par = '';
+
+            for(let n = 0; n < num.length; n++){
+                if(num[n] % 2 != 0){
+                    continue;
+                }else {
+                    par += num[n] + " ";
+                    pares++;
+                }
+            }
+            res.innerHTML = `Tem ${pares} números pares, e são os: ${par}`;
+        }
+    </script>
+</body>
+</html>
