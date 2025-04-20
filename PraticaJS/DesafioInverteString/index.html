@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invertendo um string</title>
+</head>
+<body>
+    <h1>Invertendo string</h1>
+    
+    <input type="text" id="inputPalavra" placeholder="Digite uma palavra">
+    <button id="btnAdd">Adicionar</button>
+    <p id="res"></p>
+
+    <script>
+        const inputPalavra = document.getElementById("inputPalavra");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
+
+        btnAdd.addEventListener("click", () => {
+            if(inputPalavra.value == ''){
+                alert("Digite uma palavra");
+            }else {
+                inverteString();
+                inputPalavra.value = '';
+                inputPalavra.focus();
+            }
+        })
+
+        //Função para inverter a string
+        const inverteString = () => {
+            //Pegando a palavra do input
+            let palavra = inputPalavra.value;
+
+            //Variável para armazenar a string
+            let palavraInvertida = '';
+
+            //Vai percorrer a palavra, e o "palavra.length - 1" serve
+            //para começar no último caractere da palavra, e enquanto y
+            //for maior ou igual a zero, vai percorrer tirando um "y--"
+            for(let y = palavra.length - 1; y >= 0; y--){
+                //Vai começar na ultima letra da palavra e ir tirando um
+                palavraInvertida += palavra[y];
+            }
+            res.innerHTML = palavraInvertida;
+        }
+
+        inverteString();
+    </script>
+</body>
+</html>
