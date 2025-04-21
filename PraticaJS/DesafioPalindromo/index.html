@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavra Palíndromo</title>
+</head>
+
+<body>
+    <h1>Verificando se uma palavra é Palíndromo</h1>
+    <p>Um Palíndromo é uma palavra que se lê igual de frente para trás e de trás para frente</p>
+
+    <input type="text" id="inputPalavra" placeholder="Digite uma palavra">
+    <button id="btnAdd">Adicionar</button>
+    <p id="res"></p>
+
+    <script>
+        const inputPalavra = document.getElementById("inputPalavra");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
+
+        btnAdd.addEventListener("click", () => {
+            if(inputPalavra.value == ''){
+                alert("Digite uma palavra!");
+            }else {
+                palavraPalindromo();
+                inputPalavra.value = '';
+                inputPalavra.focus();
+            }
+        })
+
+        const palavraPalindromo = () => {
+            let palavra = inputPalavra.value;//Passando o valor do input
+            let palavraInvertida = '';//Variável que armazena a string
+
+            //Percorrendo a string de trás para frente
+            for (let p = palavra.length - 1; p >= 0; p--) {
+                palavraInvertida += palavra[p];
+                //E armazenando cada letra na variável
+            }          
+
+            //verificando se a palavra do input, é igual a palavra invertida
+            if (palavra == palavraInvertida) {
+                res.innerHTML = `${palavra} é um palíndromo`;
+            } else {
+                res.innerHTML = `${palavra} não é um palíndromo`;
+            }
+        }
+    </script>
+</body>
+
+</html>
