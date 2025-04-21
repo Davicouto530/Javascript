@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificando Array iguais</title>
+</head>
+
+<body>
+    <h1>Verificando se dois arrays são iguais</h1>
+
+    <script>
+        function arraysSaoIguais(arr1, arr2) {
+
+            // Ordena os dois arrays para garantir que a ordem dos elementos não afete a comparação
+            arr1.sort();
+            arr2.sort();
+
+            // Verifica se os tamanhos dos arrays são diferentes
+            if (arr1.length !== arr2.length) {
+                // Se forem diferentes, já sabemos que os arrays não são iguais
+                return false;
+            } else {
+                // Se os tamanhos forem iguais, comparamos elemento por elemento
+                for (let a = 0; a < arr1.length; a++) {
+                    // Se qualquer elemento for diferente, os arrays não são iguais
+                    if (arr1[a] !== arr2[a]) {
+                        return false;
+                    }
+                }
+                // Se todos os elementos forem iguais, os arrays são iguais
+                return true;
+            }
+        }
+
+        // Testa a função com dois arrays que têm os mesmos elementos (em ordem diferente)
+        console.log(arraysSaoIguais([1, 2, 3], [3, 2, 1])); 
+
+        // Testa a função com dois arrays que têm elementos diferentes
+        console.log(arraysSaoIguais([1, 2, 3], [4, 2, 1])); 
+    </script>
+</body>
+
+</html>

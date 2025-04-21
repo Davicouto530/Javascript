@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array iguais</title>
+</head>
+
+<body>
+    <h1>Array iguais</h1>
+    <p>Verificando se dois arrays tem os mesmo números de dentro</p>
+
+    <script>
+        const arraysIguais = () => {
+            // Os dois arrays que serão comparados
+            let num1 = [1, 2, 3];
+            let num2 = [3, 2, 1];
+
+            // Ordenando os arrays para que os elementos fiquem na mesma ordem
+            // Isso permite comparar posição por posição
+            num1.sort();
+            num2.sort();
+
+            console.log(num1);
+            console.log(num2);
+
+            // Primeiro, verifica se os arrays tem o mesmo tamanho
+            if (num1.length !== num2.length) {
+                // Se tiverem tamanhos diferentes, ja sabemos que são diferentes
+                console.log("Os arrays não são iguais");
+            } else {
+                // Se os tamanhos forem iguais, comparamos elemento por elemento
+                for (let i = 0; i < num1.length; i++) {
+                    if (num1[i] !== num2[i]) {
+                        // Se algum elemento for diferente, os arrays não são iguais
+                        console.log("Os arrays não são iguais");
+                        return; // Encerra a função, não precisa continuar verificando
+                    }
+                }
+
+                // Se o loop terminar sem encontrar diferenças, os arrays são iguais
+                console.log(`O array 1: ${num1} é igual ao array 2: ${num2}`);
+            }
+        }
+
+        // Chamada da função para executar a verificação
+        arraysIguais();
+
+    </script>
+</body>
+
+</html>
