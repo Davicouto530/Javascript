@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contando vogais</title>
+</head>
+
+<body>
+    <h1>Quantas vogais tem nas palavras</h1>
+    <p>Verificando quantas vogais tem em uma palavra (a,e,i,o,u)</p>
+
+    <input type="text" id="inputPalavra" placeholder="Digite uma palavra">
+    <button id="btnAdd">Adicionar</button>
+    <p id="res"></p>
+
+    <script>
+        const inputPalavra = document.getElementById("inputPalavra");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
+
+        btnAdd.addEventListener("click", () => {
+            if(inputPalavra.value == ''){
+                alert("Digite uma palavra!");
+            }else {
+                vogais();
+                inputPalavra.value = '';
+                inputPalavra.focus();
+            }
+        })
+
+        //Lógica
+        const vogais = () => {
+            let palavra = inputPalavra.value;//Pega o que foi escrito no input
+            let qtdVogais = 0;//Conta quantas vogais tem
+
+            //Percorre a palavra
+            for (let p = 0; p < palavra.length; p++) {
+                //Percorre a e verifica cada letra da palavra
+                if (palavra[p] == "a" || palavra[p] == "A" || palavra[p] == "e" || palavra[p] == "E" || palavra[p] == "i" || palavra[p] == "I" || palavra[p] == "o" || palavra[p] == "O" || palavra[p] == "u" || palavra[p] == "U") {
+                    qtdVogais++;// se tiver letra de vogal, soma mais 1 na variável "qtdVogais"
+                }
+            }
+
+            //Verificando se tem 0 vogais para exibir a mensagem que não tem vogais
+            if (qtdVogais === 0) {
+                res.innerHTML = `A palavra "${palavra}" não tem vogais`;
+            } else {
+                //Se tiver mais que 0, exibe que tem vogais e a quantidade
+                res.innerHTML = `A palavra "${palavra}" tem ${qtdVogais}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
