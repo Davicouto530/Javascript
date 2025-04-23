@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some de 1 até N</title>
+</head>
+<body>
+    <h1>Some de 1 até N</h1>
+    <p>Dado um número, some de 1 até esse número</p>
+
+    <input type="number" id="inputValor" placeholder="Digite um valor">
+    <button id="btnAdd">Adicionar</button>
+    <p id="res"></p>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
+
+        btnAdd.addEventListener("click", () => {
+            if(inputValor.value == ''){
+                alert("Digite um número");
+            }else {
+                someN();
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        })
+
+        //Lógica
+        const someN = () => {
+            let num = inputValor.value;
+            let soma = 0;
+
+            //Percorre até "n" ser menor que "num"
+            for(let n = 1; n <= num; n++){
+                soma += n;//Enquanto for menor, vai somando e atribuindo
+            }
+
+            res.innerHTML = `A soma do 1 até o número ${num} é: ${soma}`
+        }
+
+    </script>
+</body>
+</html>
