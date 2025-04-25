@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retorna só números positivos</title>
+</head>
+
+<body>
+    <h1>Quantos números positivos tem na lista</h1>
+    <p>Dada uma lista, só irá retornar os números positivos dela</p>
+
+    <input type="number" id="valor" placeholder="Digite um número">
+    <button id="btnAdd">Adicionar</button>
+    <p id="array">Lista vazia</p>
+    <p id="resPosit"></p>
+    <p id="resNegt"></p>
+
+    <script>
+        const valor = document.getElementById("valor");
+        const btnAdd = document.getElementById("btnAdd");
+        const pArray = document.getElementById("array");
+        const resPosit = document.getElementById("resPosit");
+        const resNegt = document.getElementById("resNegt");
+
+        //Função que atualiza a mensagem de lista
+        const atualizarLista = () => {
+            //Se a lista for igual a zero
+            if (lista.length === 0) {
+                pArray.innerHTML = "Lista vazia";//Deixa essa mensagem
+            } else {
+                //Se for maior que zero, mostra os elementos
+                pArray.innerHTML = `Lista: [${lista}]`;
+            }
+        }
+
+        let lista = [];//Array para armazenar os números 
+        atualizarLista();//Chamando a função que já verifica a lista
+
+        btnAdd.addEventListener("click", () => {
+            if (valor.value == '') {
+                alert("Digite um valor!")
+            } else {
+                //Converte o valor do input para número
+                let valorConvertido = parseFloat(valor.value);
+                lista.push(valorConvertido);//E adiciona no array
+                atualizarLista();//Chamando depois que adicionar um número
+                numPositivos();//Função da lógica
+                valor.value = '';
+                valor.focus();
+            }
+        })
+
+        //Lógica
+        const numPositivos = () => {
+            let positivos = 0;//Contagem de números positivos
+            let numPosi = [];//Array para gurdar os números positivos
+            let negativos = 0;
+            let numNegt = [];
+
+            //Percorre o array que está armazenando os números
+            for (let i = 0; i < lista.length; i++) {
+                //Verifica cada número do array
+                if (lista[i] >= 0) {
+                    //Se for maior que zero, é positivo
+                    numPosi.push(lista[i]);//Guarda no array
+                    positivos++;//E soma mais um nos positivos
+                } else {
+                    //Se for negativo
+                    numNegt.push(lista[i]);//Guarda no array
+                    negativos++;//E soma mais um nos positivos
+                }
+            }
+
+            resPosit.innerHTML = `Positivos: Tem ${positivos} número positivo, e são: [${numPosi}]`;
+            resNegt.innerHTML = `Negativos: Tem ${negativos} número negativos, e são: [${numNegt}]`
+        }
+    </script>
+</body>
+
+</html>
