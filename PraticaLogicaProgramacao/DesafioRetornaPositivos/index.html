@@ -17,12 +17,32 @@
     <p id="resPosit"></p>
     <p id="resNegt"></p>
 
+    <label>Muda a cor de fundo: </label>
+    <input type="checkbox" id="fundo">
+
     <script>
+        //Mudando a cor de fundo da página
+        const fundo = document.getElementById("fundo");
+        //Quando clicar no botão
+        fundo.addEventListener("click", () => {
+            //Verifica se checked é verdadeiro
+            if(fundo.checked === true){
+                //Se for, muda a cor para preto e as letras branca
+                document.body.style.background = "black";
+                document.body.style.color = "white";
+            }else {
+                //Se não, deixa o fundo branco e a letra preta
+                document.body.style.background = "white";
+                document.body.style.color = "black"
+            }
+        });
+
         const valor = document.getElementById("valor");
         const btnAdd = document.getElementById("btnAdd");
         const pArray = document.getElementById("array");
         const resPosit = document.getElementById("resPosit");
         const resNegt = document.getElementById("resNegt");
+
 
         //Função que atualiza a mensagem de lista
         const atualizarLista = () => {
