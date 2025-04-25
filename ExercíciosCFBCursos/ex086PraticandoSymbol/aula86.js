@@ -34,7 +34,7 @@ let jogadores = [new Jogador("j1"), new Jogador("j2"), new Jogador("j3"), new Jo
 //     //então não vai retornar os jogadores com o nome "j1"
 // });
 
-let s = [];//Pegando todos os jogadores que tem nome "j1"
+let s = [];//Array que armazena o simbolo dos jogadores 
 
 // Percorrendo o array e filtrando os jogadores
 let s_jogadores = jogadores.filter((j) => {
