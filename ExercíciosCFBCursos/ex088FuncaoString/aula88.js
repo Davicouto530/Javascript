@@ -32,5 +32,23 @@ console.log(nome.indexOf("o"));
 console.log(nome.lastIndexOf("o"));
 
 //O "localeCompare" serve para comparar strings, se forem
-//iguais, ele retorna true, se não, retorna false
+//iguais, ele retorna 0zero, se não, retorna -1
 console.log(nome.localeCompare(nome2));
+
+//O "replace" serve para substitui as letras, primeiro a letra que você quer
+//que seja troca na string, depois a letra que você quer colocar no lugar
+console.log(nome.replace("b", "p"));
+
+//O "search" ele vai pesquisar na string o que foi passado nos parenteses,
+//e vai retornar a posição da primeira letra que ele achar da palavra
+console.log(nome.search("Pinho"));
+
+//O "slice" serve para cortar uma palavra da string, você indica o 
+//indice da onde começa, e o indice da onde termina a palavra, 
+//e só vai retornar a palavra cortada
+console.log(nome.slice(6,11));
+
+//O "split" serve para cortar, e fazer um array do que foi cortado. Aqui vai cortar
+//aonde tem os espaços, e vai retornar cada palavra em cada posição no array
+let arr_nome = nome.split(" ")
+console.log(arr_nome);
