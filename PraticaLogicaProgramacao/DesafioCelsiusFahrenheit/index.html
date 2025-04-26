@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converta temperatura</title>
+</head>
+<body>
+    <h1>Converta temperatura Celsius para Fahrenheit</h1>
+    <p>Dado um valor em Celsius, converta e retorne o valor equivalente em Fahrenheit</p>
+
+    <input type="number" id="inputCels">
+    <button id="btnAdd">Converter</button>
+    <p id="res"></p>
+
+    <script>
+        const inputCels = document.getElementById("inputCels");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
+
+        btnAdd.addEventListener("click", () => {
+            if(inputCels.value == ''){
+                alert("Digite um valor válido!");
+            }else {
+                convertTemperatura();
+                inputCels.value = '';
+                inputCels.focus();
+            }
+        })
+
+        const convertTemperatura = () => {
+            let celsius = inputCels.value;//Valor recebido 
+            let fahrenheit = celsius * 1.8 + 32;//Conta da conversão 
+            res.innerHTML = `O valor de celsius ${celsius} convertido para Fahrenheit ${fahrenheit}`;
+        }
+    </script>
+</body>
+</html>

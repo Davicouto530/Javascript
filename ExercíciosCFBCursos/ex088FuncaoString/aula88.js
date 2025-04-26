@@ -6,6 +6,7 @@
 
 //Instanciando uma classe String com o valor "bruno"
 let nome = new String("Bruno Pinho Campos");
+let nome2 = new String("Bruno Pinho Campos");
 let canal = new String("CFBCursos");
 
 console.log(nome);
@@ -29,3 +30,7 @@ console.log(nome.indexOf("o"));
 //O "lastIndexOf" percorre a string e retorna a posição do ultimo que ele
 //achar do que foi passado nos parenteses, se não tiver, retorna "-1"
 console.log(nome.lastIndexOf("o"));
+
+//O "localeCompare" serve para comparar strings, se forem
+//iguais, ele retorna true, se não, retorna false
+console.log(nome.localeCompare(nome2));
