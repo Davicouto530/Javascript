@@ -50,5 +50,29 @@ console.log(nome.slice(6,11));
 
 //O "split" serve para cortar, e fazer um array do que foi cortado. Aqui vai cortar
 //aonde tem os espaços, e vai retornar cada palavra em cada posição no array
-let arr_nome = nome.split(" ")
+let arr_nome = nome.split(" ");
 console.log(arr_nome);
+
+//O "substring" serve para pegar uma palavra da string, indica a posição inicial,
+//e no final, tem que indicar uma posição a mais para pegar a palavra toda
+let parteString1 = nome.substring(0,5);
+console.log(parteString1);
+
+//O "substr" indica a posição inicial, e a partir da posição inicial indicada
+//me retorne o tanto de caracteres para frente, no caso 5 posição para frente
+let parteString2 = nome.substr(6,11);
+console.log(parteString2);
+
+//Deixa tudo maiúsculo
+console.log(nome.toLocaleUpperCase());
+
+//Deixa tudo minúsculo
+console.log(nome.toLocaleUpperCase());
+
+//Quando está trabalhando com string de classes, o "valueOf" 
+//retorna somente o valor, sem estar dentro de um objeto
+console.log(nome.valueOf());
+
+let num = 10;
+console.log(typeof(num.toString()));
+//O "toString()" converte para um tipo string
