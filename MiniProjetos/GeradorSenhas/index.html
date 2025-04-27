@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de senhas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <main id="container">
+        <h1>Gerador de senhas</h1>
+
+        <span>Tamanho <span id="caracteres"></span> caracteres</span>
+        <input type="range" id="valor" class="valor" min="5" max="25">
+
+        <button id="gerarSenha" class="gerarSenha">Gerar senha</button>
+
+        <p class="pSenha">Sua senha gerada foi:</p>
+        <div id="res" class="res">a</div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
