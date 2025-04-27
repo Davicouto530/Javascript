@@ -4,38 +4,42 @@ const inputValor = document.getElementById("valor");
 const btnGerarSenha = document.getElementById("gerarSenha");
 const pSenha = document.getElementById("pSenha");
 
-
 inputValor.addEventListener("click", () => {
     tamanho.innerHTML = inputValor.value;
+//Quando clicar no input, passando o valor de caracteres pro texto
 })
 
+//Caracteres que serão sorteados para a senha
 let caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+[]{}|;:,.<>?/";
 
 btnGerarSenha.addEventListener("click", () => {
     let valorConvertido = parseInt(inputValor.value);
-    divSenha.innerHTML = '';
+    divSenha.innerHTML = '';//Limpando a div toda vez que gerar 
     // console.log(valorConvertido)
-    let senhaGerada = '';
-    let sorteados = '';
+    let senhaGerada = '';//Variável para a senha gerada
+    let sorteados = '';//Variável para guardar o indice do caractere
+
+//Percorrendo o input, e gerando o tanto de caracteres passado 
     for (let i = 0; i < valorConvertido; i++) {
+//Gerando um indice aleatorio entre 0 e o tamanho da variável caracterer
         sorteados = Math.floor(Math.random() * caracteres.length);
-        // console.log(sorteados)
-        senhaGerada += caracteres[sorteados];
+        senhaGerada += caracteres[sorteados];//Indo no indice sorteado na variável caractere
         console.log(senhaGerada)
     }
 
     const res = document.createElement("div");
     res.setAttribute("class", "res");
-    res.innerHTML = '';
-    pSenha.innerHTML = "Sua senha gerada foi:";
-    res.textContent = senhaGerada;
+    res.innerHTML = '';//Criando a div toda vez que gerar uma nova senha
+    pSenha.innerHTML = "Sua senha gerada foi:";//Exibindo a msg só quando gerar
+    res.textContent = senhaGerada;//Atribuindo a senha inteira na nova div
 
     const copiar = document.createElement("img");
     copiar.setAttribute("src", "copiar.png");
     copiar.setAttribute("class", "copiar");
     copiar.addEventListener("click", (evt) => {
         navigator.clipboard.writeText(res.innerHTML);
-    });
+    });//Criando o botão de copiar a senha toda vez que gerar uma nova senha
+
     divSenha.appendChild(copiar);
     divSenha.appendChild(pSenha);
     divSenha.appendChild(res);
