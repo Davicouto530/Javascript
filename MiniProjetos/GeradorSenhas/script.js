@@ -1,13 +1,21 @@
-const caracteres = document.getElementById("caracteres");
+const tamanho = document.getElementById("tamanho");
 const inputValor = document.getElementById("valor");
 const btnGerarSenha = document.getElementById("gerarSenha");
 const res = document.getElementById("res");
 
-let valorConvertido = inputValor.value;
+inputValor.addEventListener("click", () => {
+    tamanho.innerHTML = inputValor.value;
+})
 
-caracteres.innerHTML = valorConvertido;
+let caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+[]{}|;:,.<>?/";
 
 btnGerarSenha.addEventListener("click", () => {
-    let senhaGerada = Math.floor(Math.random()*valorConvertido)+1;
+    let valorConvertido = parseInt(inputValor.value)
+    let senhaGerada = '';
+    let sorteados = '';
+    for(let i = 0; i < valorConvertido; i++){
+        sorteados = Math.floor(Math.random()*caracteres.length);
+        senhaGerada += caracteres[sorteados];
+    }
     res.innerHTML = senhaGerada;
-})
+});
