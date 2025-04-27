@@ -38,7 +38,11 @@ button.gerarSenha {
     margin: 25px 0px 5px 0px;
 }
 
-div.res {
+.divSenha{
+    text-align: center;
+}
+
+.res {
     padding: 10px;
     width: 400px;
     background-color: darkslategray;
@@ -46,3 +50,10 @@ div.res {
     color: white;
 }
 
+.copiar {
+    width: 20px;
+    margin-top: 62px;
+    margin-right: 5px;
+    float: right;
+    cursor: pointer;
+}
