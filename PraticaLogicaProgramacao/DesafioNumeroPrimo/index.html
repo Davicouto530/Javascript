@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número primo</title>
+</head>
+
+<body>
+    <h1>Verificando se um número é primo</h1>
+    <p>Um número primo é aquele que só é divisível por 1 e por ele mesmo</p>
+
+    <input type="number" id="valor">
+    <button id="btnAdd">Adicionar</button>
+    <p id="res"></p>
+
+    <script>
+        const valor = document.getElementById("valor");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
+
+        btnAdd.addEventListener("click", () => {
+            if (valor.value == '') {
+                alert("Digite um valor válido!");
+            } else {
+                numPrimo();
+                valor.value = '';
+                valor.focus();
+            }
+        })
+
+        // Lógica
+        const numPrimo = () => {
+            let num = valor.value;
+
+            // Aqui começamos contando do zero: quantas vezes o número pode ser dividido certinho.
+            let divisores = 0;
+
+            // Agora vamos testar todos os números de 1 até o número que a pessoa escreveu
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) { // Se o número dividir certinho (sem sobrar),
+                    divisores++; // a gente soma +1 no contador de divisões.
+                }
+            }
+
+            // Depois de testar tudo:
+            if (divisores === 2) { // Se só conseguiu dividir por 1 e por ele mesmo (2 vezes),
+                res.innerHTML = `${num} é primo`; // então o número é PRIMO!
+            } else { // Se deu para dividir mais vezes,
+                res.innerHTML = `${num} não é primo`; // então o número NÃO é primo.
+            }
+        }
+    </script>
+</body>
+
+</html>
