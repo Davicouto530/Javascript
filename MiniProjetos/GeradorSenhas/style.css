@@ -13,15 +13,18 @@ body {
 }
 
 #container {
-    width: 600px;
+    width: 500px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-color: darkgray;
 }
 
 h1{
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .valor{

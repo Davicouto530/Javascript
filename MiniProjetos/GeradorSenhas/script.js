@@ -24,15 +24,30 @@ btnGerarSenha.addEventListener("click", () => {
 //Gerando um indice aleatorio entre 0 e o tamanho da variável caracterer
         sorteados = Math.floor(Math.random() * caracteres.length);
         senhaGerada += caracteres[sorteados];//Indo no indice sorteado na variável caractere
-        console.log(senhaGerada)
+        console.log(senhaGerada);
     }
 
+    mostrandoSenha(senhaGerada);//Chamando a função de mostrar a senha na div 
+
+    btnCopiar(res);//Chamando a função de copiar, e passando o conteúdo do "res"
+
+});
+
+//Função para mostrar a senha quando clicar no botão
+const mostrandoSenha = (senhaGerada) => {
     const res = document.createElement("div");
     res.setAttribute("class", "res");
     res.innerHTML = '';//Criando a div toda vez que gerar uma nova senha
     pSenha.innerHTML = "Sua senha gerada foi:";//Exibindo a msg só quando gerar
     res.textContent = senhaGerada;//Atribuindo a senha inteira na nova div
 
+    btnCopiar(res);
+
+    divSenha.appendChild(pSenha);//Colocando escrito na div
+    divSenha.appendChild(res);//Colocando o res da senha na div 
+}
+
+const btnCopiar = (res) => {//Função para gerar o botão de copiar
     const copiar = document.createElement("img");
     copiar.setAttribute("src", "copiar.png");
     copiar.setAttribute("class", "copiar");
@@ -41,6 +56,4 @@ btnGerarSenha.addEventListener("click", () => {
     });//Criando o botão de copiar a senha toda vez que gerar uma nova senha
 
     divSenha.appendChild(copiar);
-    divSenha.appendChild(pSenha);
-    divSenha.appendChild(res);
-});
+}
