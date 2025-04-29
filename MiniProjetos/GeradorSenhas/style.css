@@ -22,6 +22,7 @@ body {
     background-color: rgb(39, 39, 39);
     border-radius: 10px;
     color: #fff;
+    box-shadow: 3px 3px 8px black;
 }
 
 h1{
@@ -29,9 +30,13 @@ h1{
     margin-bottom: 30px;
 }
 
+.tamanho {
+    font-size: 18px;
+}
+
 .valor{
     width: 400px;
-    margin: 10px 0px;
+    margin-bottom: 15px;
     background: #fff; /* cor da linha */
 }
 
@@ -41,24 +46,26 @@ h1{
     border-radius: 10px;
 }
 
-.valor::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    background: #2ecc71;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-}
-
 button.gerarSenha {
     padding: 10px;
     width: 400px;
     background-color: #ff9800;
     border: none;
     border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button.gerarSenha:hover{
+    transform: scale(1.04);
 }
 
 .pSenha {
     margin: 25px 0px 5px 0px;
+    font-size: 18px;
 }
 
 .divSenha{
@@ -68,15 +75,22 @@ button.gerarSenha {
 .res {
     padding: 10px;
     width: 400px;
-    background-color: darkslategray;
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
     text-align: center;
-    color: white;
+    border-radius: 5px;
 }
 
 .copiar {
-    width: 20px;
-    margin-top: 62px;
+    width: 25px;
+    margin-top: 60px;
     margin-right: 5px;
     float: right;
     cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.copiar:hover{
+    transform: scale(1.04);
 }
