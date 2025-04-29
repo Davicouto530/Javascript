@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatorial</title>
+</head>
+<body>
+    <h1>Fatorial de números</h1>
+    <p>Calcule o fatorial de um número n</p>
+
+    <input type="number" id="inputValor" placeholder="Digite um número">
+    <button id="btnAdd">Adicionar</button>
+    <p id="res"></p>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
+        
+        btnAdd.addEventListener("click", () => {
+            if(inputValor.value == ''){
+                alert("Digite um número!");
+            }else {
+                let num = parseFloat(inputValor.value);//Convertendo o valor do input
+                fatorial(num);//E passando como parametro para a função
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        })
+        
+        //Lógica
+        function fatorial(num){//Passando o valor do input como parametro
+            let fat = 1;//Variável que armazena o resultado
+            let exibirNum = '';//Variável que exibe cada número da fatoração
+
+            //Atribuindo o valor de "num" em "i", e enquanto "i" for maior ou
+            //igual a 1, vai subtraindo, até ser igual a 1
+            for(let i = num;i >= 1; i--){
+                fat *= i;//Toda vez que subtrai, atribui multiplicando na variável cada número
+                exibirNum += `${i} * `;//Exibindo cada número que está sendo subtraido
+            }
+
+            res.innerHTML = `O Fatorial de ${exibirNum} = ${fat}`;
+        }
+    </script>
+</body>
+</html>
