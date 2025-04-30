@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de números pares</title>
+</head>
+<body>
+    <h1>Soma de números pares</h1>
+    <p>Receba um número N e retorne a soma de todos os números pares de 1 até N</p>
+    <input type="number" id="inputValor" placeholder="Digite um número">
+    <button id="btnAdd">Adicionar</button>
+    <p id="res"></p>
+    <p id="numPares"></p>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnAdd = document.getElementById("btnAdd");
+        const res = document.getElementById("res");
+        const numPares = document.getElementById("numPares");
+
+        btnAdd.addEventListener("click", () => {
+            if(inputValor.value == ''){
+                alert("Digite um número");
+            }else {
+                let valorConvertido = parseFloat(inputValor.value);
+                somaPares(valorConvertido);
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        })
+
+        //Lógica 
+        const somaPares = (valorConvertido) => {
+            let pares = [];//Array para armazenar os pares que estão somando
+            let soma = 0;//Variável para armazenar a soma
+
+            //Percorre enquanto "n" for menor ou igual a "valorConvertido" e "n" vai
+            //percorrer todos os números de "valorConvertido", sendo "1,2,3..."
+            for(let n = 1; n <= valorConvertido; n++){
+                //Toda vez que "n" somar mais um, vai verificar se "n" é
+                //divisível por 2 e não sobra nada, se for, é PAR
+                if(n % 2 == 0){
+                    soma += n;//E atribui e soma o valor PAR de "n"
+                    pares.push(n);//A cada soma, atribui o valor ao array
+                }else {
+                    continue;//Se for IMPAR, pula e continua
+                }
+            }
+
+            res.innerHTML = `Soma dos pares: ${soma}`;
+            numPares.innerHTML = `Os números pares somados: ${pares}`;
+        }
+
+    </script>
+</body>
+</html>
