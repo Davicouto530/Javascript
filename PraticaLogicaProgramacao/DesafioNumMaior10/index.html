@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior que 10 na lista</title>
+</head>
+<body>
+    <h1>Quantos números maiores que 10 existem na lista</h1>
+    <p>Dada uma lista de números, conte quantos números são maiores que 10</p>
+    <input type="number" id="inputValor" placeholder="Digite um valor">
+    <button id="btnAdd">Adicionar</button>
+    <p id="pArray"></p>
+    <p id="quantidadeNum"></p>
+    <p id="maiores"></p>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnAdd = document.getElementById("btnAdd");
+        const pArray = document.getElementById("pArray");
+        const quantidadeNum = document.getElementById("quantidadeNum");
+        const maiores = document.getElementById("maiores");
+
+        //Função para quando a lista tiver vazia
+        const atualizarLista = () => {
+            if(lista.length === 0){//Se a lista tiver vazia, exibe "Lista vazia"
+                pArray.innerHTML = `Lista vazia`;
+            }else {
+                pArray.innerHTML = `Lista: ${lista}`;
+            }//Se a lista não tiver vazia, vai mostrando os números que tem nela
+        }
+
+        let lista = [];//Array que vai armazenar a lista
+        atualizarLista();//Chama a função e verifica se tem algum número
+
+        btnAdd.addEventListener("click", () => {
+            if(inputValor.value == ''){
+                alert("Digite um valor!");
+            }else {
+                let valorConvertido = parseFloat(inputValor.value);
+                lista.push(valorConvertido);//Convertendo o valor e colocando no array
+                atualizarLista();//Chama a função e verifica se tem algum número
+                maior10();//Chama a função e verifica se os números é maior que 10
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        })
+
+        //Lógica
+        const maior10 = () => {
+            let numMaior = [];//Array que armazena os valores maior que 10
+            let quantidade = 0;//Vai contar quantos são maior que 10
+
+            //Percorre o array "lista"
+            for(let i = 0; i < lista.length; i++){
+                if(lista[i] > 10){//Verifica se cada número da lista é maior que 10
+                    quantidade++;//Se for, soma mais um na variável "quantidade"
+                    numMaior.push(lista[i]);//E adiciona esse número no array
+                }
+            }
+
+            maiores.innerHTML = `Números maior que 10: ${numMaior}`;
+            quantidadeNum.innerHTML = `Quantidade: ${quantidade}`;
+        }
+    </script>
+</body>
+</html>
