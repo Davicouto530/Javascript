@@ -6,7 +6,6 @@
 
 //Criando String de objeto, mas pode ser string normal em variável
 let nome = new String("Brunooo Pinho Camposssss 1978");
-let email = "bruno@bruno.gmail.com";
 let numeros = "1, 10, 100, 1000";
 
 //Pesquisa o indice da primeira letra da palavra na string, se não achar,
@@ -39,7 +38,7 @@ console.log(nome.match(/\d/ig));
 console.log(nome.match(/\s/ig));
 
 //O "\b" você informa do lado o caracterer que você quer 
-//encontrar na string que ele vai retornar se tem
+//encontrar na string, que ele vai retornar se tem
 console.log(nome.match(/\bP/ig));
 
 //Quantificadores---------------------
