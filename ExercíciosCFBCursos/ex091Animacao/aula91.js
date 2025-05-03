@@ -22,7 +22,7 @@ btn_esquerda.addEventListener("click", () => {
 
 btn_direita.addEventListener("click", () => {
     //Quando clicar no botão da direita, eu olho onde o carro tá, transformo isso
-    //em número inteiro, e somo 10 pra ele ir pra frente (mais pra direita)
+    //em número inteiro, e somo 10 pra ele ir pra frente (mais pra direitaLLLL)
     carro.style.left = parseInt(carro.style.left) + 10 +"px";
 
     //Jeito 2 de fazer---------
