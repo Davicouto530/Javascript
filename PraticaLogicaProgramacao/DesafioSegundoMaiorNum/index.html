@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segundo maior número</title>
+</head>
+
+<body>
+    <h1>Encontre o segundo maior número da lista</h1>
+    <p>Dada uma lista de números, encontre o segundo maior número</p>
+    <input type="number" id="inputValor" placeholder="Digite um número">
+    <button id="btnAdd">Adicionar</button>
+    <p id="pArray"></p>
+    <p id="res"></p>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnAdd = document.getElementById("btnAdd");
+        const pArray = document.getElementById("pArray");
+        const res = document.getElementById("res");
+
+        const atualizarLista = () => {
+            if(lista.length === 0){
+                pArray.innerHTML = "Lista vazia";
+            }else {
+                pArray.innerHTML = `Lista: ${lista}`;
+            }
+        }
+
+        const lista = [];
+        atualizarLista();
+
+        btnAdd.addEventListener("click", () => {
+            if(inputValor.value == ''){
+                alert("Digite um valor!");
+            }else {
+                let valorConvertido = parseFloat(inputValor.value);
+                lista.push(valorConvertido);
+                atualizarLista();
+                segundoMaior(lista);
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        })
+
+        const segundoMaior = (lista) => {
+            // Aqui a gente começa dizendo que o maior número é 0,
+            // e o segundo maior também é 0, só pra ter com quem comparar
+            let maiorNum = [0];
+            let segundoNum = [0];
+
+            // Agora a gente vai olhar número por número da lista
+            for (let numero of lista) {
+                // Se o número que a gente tá vendo agora for maior que o maior de todos
+                if (numero > maiorNum) {
+                    // O maior de antes vira o segundo maior
+                    segundoNum = maiorNum;
+                    // E esse número novo vira o maior de todos
+                    maiorNum = numero;
+                }
+                // Se não for o maior, mas for maior que o segundo maior,
+                // e menor que o maior, ele vira o novo segundo maior
+                else if (numero > segundoNum && numero < maiorNum) {
+                    segundoNum = numero;
+                }
+            }
+
+            res.innerHTML = `Segundo maior número da lista: ${segundoNum}`;
+        }
+    </script>
+</body>
+
+</html>
