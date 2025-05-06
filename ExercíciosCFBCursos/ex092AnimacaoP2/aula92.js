@@ -22,11 +22,17 @@ let anima = null; //Isso aqui é tipo um controle remoto da animação, pra para
 const mover = (dir) => {
     //Pega onde o carro tá, soma ou diminui 10 (depende se vai pra esquerda ou direita)
     carro.style.left = parseInt(carro.style.left) + (10 * dir) + "px";
+
+    //----------Jeito 2 de fazer com o "setTimeout"----------
+    // anima = setTimeout(mover, 20, dir);
 }
 
 btn_parar.addEventListener("click", () => {
     //Se apertar o botão de parar, a gente desliga o carrinho
     clearInterval(anima);
+
+    //----------Jeito 2 de fazer com o "setTimeout"---------
+    // clearTimeout(anima); //Limpa o que tava acontecendo
 });
 
 btn_esquerda.addEventListener("click", () => {
@@ -34,6 +40,10 @@ btn_esquerda.addEventListener("click", () => {
     clearInterval(anima);
     //Agora fala pro carro começar a andar pra esquerda (por isso o -1)
     anima = setInterval(mover, 20, -1);
+
+    //----------Jeito 2 de fazer com o "setTimeout"---------
+    // clearTimeout(anima); //Limpa o que tava acontecendo
+    //mover(-1); //Passando o parametro de "mover" que é pro "dir", e "-1" anda para esquerda
 });
 
 btn_direita.addEventListener("click", () => {
@@ -41,6 +51,10 @@ btn_direita.addEventListener("click", () => {
     clearInterval(anima);
     //Faz o carro andar pra direita (por isso o 1)
     anima = setInterval(mover, 20, 1);
+
+    //----------Jeito 2 de fazer com o "setTimeout"---------
+    // clearTimeout(anima); //Limpa o que tava acontecendo
+    //mover(1); //Passando o parametro de "mover" que é pro "dir", e "1" anda para direita
 });
 
 //Quando a página abrir, já coloca o carro no lugar certinho pra começar a brincadeira
