@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem de negativos</title>
+</head>
+<body>
+    <h1>Conte quantos números negativos existem na lista</h1>
+    <p>Dada uma lista de números, conte quantos números negativos existem</p>
+    <input type="number" id="valor" placeholder="Digite um número">
+    <button id="btnAdd">Adicionar</button>
+    <p id="pArray"></p>
+    <p id="res"></p>
+
+    <script>
+        const valor = document.getElementById("valor");
+        const bntAdd = document.getElementById("btnAdd");
+        const pArray = document.getElementById("pArray");
+        const res = document.getElementById("res");
+
+        //Função que exibe a lista na tela
+        const atualizarLista = () => {
+            if(lista.length === 0){//Se não tiver nada na lista, exibe "Lista vazia"
+                pArray.innerHTML = `Lista vazia`;
+            }else {
+                pArray.innerHTML = `Lista: ${lista}`;
+            }//Se tiver algum número na lista, exibe esse número
+        }
+
+        const lista = [];//Array que armazena os números
+        atualizarLista();
+
+        bntAdd.addEventListener("click", () => {
+            if(valor.value == ''){
+                res.innerHTML = `Digite um valor!`;
+            }else {
+                let valorConvertido = parseFloat(valor.value);//Converte o valor do input
+                lista.push(valorConvertido);//Adiciona o valor ja convertido na lista
+                atualizarLista();//Chama a função e verifica se já tem número
+                contaNegativos(lista);//Chama a função que verifica se tem número negativo
+                valor.value = '';
+                valor.focus();
+            }
+        });
+
+        //Função da lógica
+        const contaNegativos = (lista) => {
+            let numNegat = [];//Array que armazena os números negativos
+            let quantidade = 0;//Variável que conta quantos números negativos tem
+
+            for(let n = 0; n < lista.length; n++){//Percorre a lista
+                if(lista[n] < 0){//Verifica se cada elemento da lista é menor que zero
+                    quantidade++;//Se for, soma mais um nessa variável
+                    numNegat.push(lista[n]);//E adiciona o número negativo nesse array
+                }
+            }    
+
+            //Operador ternário, verifica se a veriável "quantidade" é maior que 1, se for maior
+            //que 1, escreve com "s" no final das duas palavras, se não for, escreve sem "s"
+            let palavraPlural = quantidade > 1 ? `números negativos`:`número negativo`;
+            
+            res.innerHTML = `Existe ${quantidade} ${palavraPlural}, e são: ${numNegat}`;
+        }
+
+    </script>
+</body>
+</html>
