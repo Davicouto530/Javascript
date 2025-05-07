@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invertendo números da lista</title>
+</head>
+<body>
+    <h1>Inverta os elementos de uma lista</h1>
+    <p>Dada uma lista de números, retorne uma nova lista com os elementos invertidos.</p>
+    <input type="number" id="valorLista" placeholder="Digite um número">
+    <button id="btnAdd">Adicionar</button>
+    <p id="pArray"></p>
+    <p id="pArrayInvert"></p>
+
+    <script>
+        const valorLista = document.getElementById("valorLista");
+        const btnAdd = document.getElementById("btnAdd");
+        const pArray = document.getElementById("pArray");
+        const pArrayInvert = document.getElementById("pArrayInvert");
+
+        //Função que atualiza a lista
+        const atualizaLista = () => {
+            if(lista.length === 0){
+                // se não tiver nada na lista, mostra "lista vazia"
+                pArray.innerHTML = "Lista vazia";
+            }else {
+                pArray.innerHTML = `Lista: ${lista}`;
+            }//se tiver, exibe a lista
+        }
+
+        const lista = [];//Array que armazena a lista
+        atualizaLista();//Chama a função e verifica se já tem alguma coisa na lista
+
+        //Botão que adiciona os números na lista
+        btnAdd.addEventListener("click", () => {
+            if(valorLista.value == ''){
+                //Se não digitarem nada no input e clicarem no botão, exibe essa mensagem
+                pArrayInvert.innerHTML = "Digite um valor!";
+            }else {
+                //Se digitarem um número e apartarem no botão
+                let valorConvertido = parseFloat(valorLista.value);//Converte o número do input
+                lista.push(valorConvertido);//Coloca o número convertido na lista
+                atualizaLista();//Chama a função e verifica se já tem alguma coisa na lista
+                listaNumInvert();//Chama a função que faz a lógica de inverter a lista
+                valorLista.value = '';
+                valorLista.focus();
+            }
+        });
+
+        //Função da lógica
+        const listaNumInvert = () => {
+            let listaInvertida = [];//Array que armazena a lista invertida
+
+            //Começa a percorrer a lista de trás para frente, enquanto a lista for maior ou igual a zero
+            for(let i = lista.length - 1; i >= 0; i--){
+                listaInvertida.push(lista[i]);
+                //Adiciona os valores de trás da lista normal como primeiros no array de "listaInvertida"
+            }
+
+            pArrayInvert.innerHTML = `Lista invertida: ${listaInvertida}`;
+        }
+    </script>
+</body>
+</html>
