@@ -19,7 +19,7 @@ class Cursos {
         this.cursos.push[novoCurso];
     }
 
-    //Método para todos os cursos
+    //Método apagar para todos os cursos
     static apagarCursos = () => {
         this.cursos = [];
     }
