@@ -6,7 +6,7 @@ const pSenha = document.getElementById("pSenha");
 
 inputValor.addEventListener("click", () => {
     tamanho.innerHTML = inputValor.value;
-//Quando clicar no input, passando o valor de caracteres pro texto
+    //Quando clicar no input, passando o valor de caracteres pro texto
 })
 
 //Caracteres que serão sorteados para a senha
@@ -19,9 +19,9 @@ btnGerarSenha.addEventListener("click", () => {
     let senhaGerada = '';//Variável para a senha gerada
     let sorteados = '';//Variável para guardar o indice do caractere
 
-//Percorrendo o input, e gerando o tanto de caracteres passado 
+    //Percorrendo o input, e gerando o tanto de caracteres passado 
     for (let i = 0; i < valorConvertido; i++) {
-//Gerando um indice aleatorio entre 0 e o tamanho da variável caracterer
+        //Gerando um indice aleatorio entre 0 e o tamanho da variável caracterer
         sorteados = Math.floor(Math.random() * caracteres.length);
         senhaGerada += caracteres[sorteados];//Indo no indice sorteado na variável caractere
         console.log(senhaGerada);
@@ -52,6 +52,12 @@ const btnCopiar = (res) => {//Função para gerar o botão de copiar
     copiar.setAttribute("src", "copiar.png");
     copiar.setAttribute("class", "copiar");
     copiar.addEventListener("click", (evt) => {
+        const copiado = document.createElement("p");
+        copiado.innerHTML = "Copiado";
+        divSenha.appendChild(copiado);
+        setTimeout(() => {
+            copiado.innerHTML = "";
+        }, 1000);
         navigator.clipboard.writeText(res.innerHTML);
     });//Criando o botão de copiar a senha toda vez que gerar uma nova senha
 
