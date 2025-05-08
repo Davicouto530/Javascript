@@ -4,10 +4,10 @@ const inputValor = document.getElementById("valor");
 const btnGerarSenha = document.getElementById("gerarSenha");
 const pSenha = document.getElementById("pSenha");
 
-inputValor.addEventListener("click", () => {
+inputValor.addEventListener("input", () => {
     tamanho.innerHTML = inputValor.value;
     //Quando clicar no input, passando o valor de caracteres pro texto
-})
+});
 
 //Caracteres que serão sorteados para a senha
 let caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+[]{}|;:,.<>?/";
@@ -49,15 +49,17 @@ const mostrandoSenha = (senhaGerada) => {
 
 const btnCopiar = (res) => {//Função para gerar o botão de copiar
     const copiar = document.createElement("img");
-    copiar.setAttribute("src", "copiar.png");
+    copiar.setAttribute("src", "copiar.png");//Criando o botão de copiar o que ta no "res"
     copiar.setAttribute("class", "copiar");
-    copiar.addEventListener("click", (evt) => {
+    copiar.addEventListener("click", (evt) => {//Quando clicar no botão de copiar
         const copiado = document.createElement("p");
-        copiado.innerHTML = "Copiado";
+        copiado.setAttribute("class","copiado");
+        copiado.innerHTML = "Copiado";// Cria uma tag "p", que diz que foi copiado 
         divSenha.appendChild(copiado);
-        setTimeout(() => {
+        setTimeout(() => {//E espera 2 segundos, depois de 2 segundos, some a mensagem
             copiado.innerHTML = "";
-        }, 1000);
+            copiado.classList.remove("copiado");;//E some a class
+        }, 2000);
         navigator.clipboard.writeText(res.innerHTML);
     });//Criando o botão de copiar a senha toda vez que gerar uma nova senha
 

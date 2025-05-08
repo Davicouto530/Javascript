@@ -14,7 +14,7 @@ body {
 
 #container {
     width: 320px;
-    height: 340px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,14 +97,21 @@ button.gerarSenha:hover{
     transform: scale(1.04);
 }
 
-.pCopiado {
+.copiado {
+    margin: 0 auto;
     color: #fff;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: rgb(1, 88, 1);
+    border-radius: 2px;
+    text-align: center;
+    width: 80px;
 }
 
 @media (min-width: 763px){
     #container {
         width: 500px;
-        height: 600px;
+        height: 430px;
     }
 
     h1{
