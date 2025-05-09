@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validando senhas</title>
 </head>
+
 <body>
     <h1>Valide uma senha</h1>
     <p><strong>Enunciado:</strong></p>
@@ -13,37 +15,65 @@
     <p>Deve conter pelo menos uma letra e um número</p>
     <p>Não pode conter espaços em branco</p>
 
-    <script>
-        const validandoSenha = () => {
-            let senha = "21eto530";
-            let retorno = true;
-            let temNum = "0123456789";
-            let temLetra = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            let achouLetra = false;
-            let achouNumero = false;
-            
-            if(senha.length < 8){
-                retorno = false;
-            }
+    <input type="text" id="senha" placeholder="Digite uma senha">
+    <button id="btnVerifica">Verificar</button>
+    <p id="res"></p>
 
-            for(let i = 0; i < senha.length; i++){
-                if(temLetra.includes(senha[i])){
-                    achouLetra = true;
-                }else if(temNum.includes(senha[i])){
-                    achouNumero = true;
-                }else if(senha[i] === ' '){
-                    retorno = false;
+    <script>
+        const inputSenha = document.getElementById("senha");
+        const bntVerifica = document.getElementById("btnVerifica");
+        const res = document.getElementById("res");
+
+        bntVerifica.addEventListener("click", () => {
+            if (inputSenha.value == '') {
+                res.innerHTML = "Digite uma senha!"
+            } else {
+                let senha = inputSenha.value;
+                validandoSenha(senha);
+                inputSenha.value = "";
+                inputSenha.focus();
+            }
+        })
+
+        // Função que valida uma senha com base em critérios mínimos
+        const validandoSenha = (senha) => {
+            let retorno = true; // Assume que a senha é válida inicialmente
+            let achouLetra = false; // Flag para verificar se há pelo menos uma letra
+            let achouNumero = false; // Flag para verificar se há pelo menos um número
+
+            // Verifica se o tamanho da senha é menor que 8 caracteres
+            if (senha.length < 8) {
+                retorno = false;//Se for menor, "retorno" passa a receber "false"
+            }//já dizendo que a senha não é valida
+
+            // Percorre todos os caracteres da senha
+            for (let i = 0; i < senha.length; i++) {
+                // Verifica se o caractere é uma letra (maiúscula ou minúscula)
+                if ((senha[i] >= 'a' && senha[i] <= 'z') || (senha[i] >= 'A' && senha[i] <= 'Z')) {
+                    achouLetra = true;//Se achar letra na senha, "achouLetra" recebe "true"
+                }
+                // Verifica se tem um número na senha
+                else if (senha[i] >= '0' && senha[i] <= '9') {
+                    achouNumero = true;//Se tiver, "achouNumero" passa a ser "true"
+                }
+                // Se o caractere for espaço, a senha é considerada inválida
+                else if (senha[i] === ' ') {
+                    retorno = false;//Se achar um espaço, "retorno" recebe "false"
                 }
             }
 
-            if(retorno && achouLetra && achouNumero){
-                console.log(`Senha ${senha} válida`);
-            }else {
-                console.log(`Senha inválida`);
+            // A senha será válida se:
+            // - Não tiver espaços
+            // - Tiver pelo menos uma letra
+            // - Tiver pelo menos um número
+            // - Tiver no mínimo 8 caracteres (já verificado anteriormente)
+            if (retorno && achouLetra && achouNumero) {
+                res.innerHTML = `Senha válida`;
+            } else {
+                res.innerHTML = `Senha inválida`;
             }
         }
-
-        validandoSenha();
     </script>
 </body>
+
 </html>
