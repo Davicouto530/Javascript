@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validando senhas</title>
+</head>
+<body>
+    <h1>Valide uma senha</h1>
+    <p><strong>Enunciado:</strong></p>
+    <p>Crie um sistema que valide uma senha de acordo com as seguintes regras:</p>
+    <p>Deve conter pelo menos 8 caracteres</p>
+    <p>Deve conter pelo menos uma letra e um número</p>
+    <p>Não pode conter espaços em branco</p>
+
+    <script>
+        const validandoSenha = () => {
+            let senha = "21eto530";
+            let retorno = true;
+            let temNum = "0123456789";
+            let temLetra = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let achouLetra = false;
+            let achouNumero = false;
+            
+            if(senha.length < 8){
+                retorno = false;
+            }
+
+            for(let i = 0; i < senha.length; i++){
+                if(temLetra.includes(senha[i])){
+                    achouLetra = true;
+                }else if(temNum.includes(senha[i])){
+                    achouNumero = true;
+                }else if(senha[i] === ' '){
+                    retorno = false;
+                }
+            }
+
+            if(retorno && achouLetra && achouNumero){
+                console.log(`Senha ${senha} válida`);
+            }else {
+                console.log(`Senha inválida`);
+            }
+        }
+
+        validandoSenha();
+    </script>
+</body>
+</html>
