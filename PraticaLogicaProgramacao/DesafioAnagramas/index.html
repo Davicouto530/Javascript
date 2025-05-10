@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificando se é Anagramas</title>
+</head>
+
+<body>
+    <h1>Verifique se duas strings são Anagramas</h1>
+    <p>Duas palavras são anagramas se contêm as mesma letras na mesma quantidade, mas em ordem diferente</p>
+
+    <script>
+        const anagramas = () => {
+            // Define duas palavras como arrays de letras
+            let palavra1 = ['a', 'm', 'o', 'r'];
+            let palavra2 = ['r', 'o', 'm', 'a'];
+            let ret = true; // Variável para indicar se são anagramas
+
+            // Ordena as letras de cada palavra em ordem alfabética
+            palavra1.sort();
+            palavra2.sort();
+
+            // Verifica se os comprimentos das palavras são diferentes
+            if (palavra1.length != palavra2.length) {
+                ret = false; //Se forem diferentes, "ret" recebe false
+            }
+
+            //Percorre os array
+            for (let p = 0; p < palavra1.length; p++) {
+                if (palavra1[p] != palavra2[p]) {// Compara cada letra ordenada das duas palavras
+                    //Se tiver uma letra diferente em alguma palavra
+                    ret = false;//"ret" recebe "false", já dizendo não são anagramas
+                }
+            }
+
+            // Se for true, exibe que são anagramas
+            if (ret) {
+                console.log("São anagramas");
+            } else {
+                console.log("Não são anagramas")
+            }
+        }
+
+        anagramas();
+    </script>
+</body>
+
+</html>
