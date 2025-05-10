@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+body{ 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.info{
+    display: flex;
+    justify-content: space-around;
+}
+
+.quadrado {
+    position: absolute;
+    display: flex;
+    width: 100px;
+    height: 100px;
+}
+
+#q1{
+    background-color: #f00;
+    top: 20px;
+    left: 100px;
+}
+
+#q2{
+    background-color: #00f;
+    top: 150px;
+    left: 300px;
+}
