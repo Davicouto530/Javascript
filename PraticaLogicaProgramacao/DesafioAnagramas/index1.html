@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificando se é Anagramas</title>
+</head>
+
+<body>
+    <h1>Verifique se duas strings são Anagramas</h1>
+    <p>Duas palavras são anagramas se contêm as mesma letras na mesma quantidade, mas em ordem diferente</p>
+
+    <input type="text" id="str1" placeholder="Digite uma palavra">
+    <input type="text" id="str2" placeholder="Digite outra palavra">
+    <button id="btnVerif">Verificar</button>
+    <p id="res"></p>
+
+    <script>
+        const str1 = document.getElementById("str1");
+        const str2 = document.getElementById("str2");
+        const btnVerif = document.getElementById("btnVerif");
+        const res = document.getElementById("res");
+
+        btnVerif.addEventListener("click", () => {
+            if (str1.value == '' && str2.value == '') {
+                res.innerHTML = "Digite um valor válido!";
+            } else {
+                anagramas(str1.value, str2.value);
+                str1.value = '';
+                str2.value = '';
+                str1.focus();
+            }
+        });
+
+        // Função que verifica se duas palavras são anagramas
+        const anagramas = (str1, str2) => {
+
+            // Verifica se os tamanhos das duas strings são diferentes, se forem, já sabemos 
+            // que não são anagramas, pois um anagrama precisa ter o mesmo número de letras
+            if (str1.length !== str2.length) {
+                res.innerHTML = "Não são anagramas";
+                return; // Encerra a função aqui mesmo
+            }
+
+            // Cria dois "dicionários" (objetos) para contar quantas vezes cada letra aparece em cada string
+            let contador1 = {};
+            let contador2 = {};
+
+            // Percorre cada letra das strings, ao mesmo tempo (mesmo índice em str1 e str2)
+            for (let i = 0; i < str1.length; i++) {
+                let letra1 = str1[i]; // Pega a letra atual da primeira string
+                let letra2 = str2[i]; // Pega a letra atual da segunda string
+
+                // Verifica se a letra1 já existe no contador1
+                // Se não existir, começa com 1 (primeira vez que aparece)
+                // Se já existir, soma 1 (mais uma ocorrência da letra)
+                if (!contador1[letra1]) contador1[letra1] = 1;
+                else contador1[letra1]++;
+
+                // Faz o mesmo para a letra2 na segunda string
+                if (!contador2[letra2]) contador2[letra2] = 1;
+                else contador2[letra2]++;
+            }
+
+            // Agora vamos comparar os dois contadores para ver se as quantidades de letras são iguais
+            let iguais = true; // Começamos assumindo que são anagramas
+
+            // Para cada letra presente em contador1
+            for (let letra in contador1) {
+                // Compara com o contador2:
+                // Se alguma letra tiver quantidade diferente entre as palavras, então não são anagramas
+                if (contador1[letra] !== contador2[letra]) {
+                    iguais = false; // Marca como falso
+                }
+            }
+
+            // Após a verificação, mostramos o resultado na tela
+            if (iguais) {
+                res.innerHTML = "São anagramas";
+            } else {
+                res.innerHTML = "Não são anagramas";
+            }
+        }
+    </script>
+</body>
+
+</html>
