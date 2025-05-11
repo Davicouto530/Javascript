@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa eletrônico</title>
+</head>
+
+<body>
+    <h1>Simule um caixa eletrônico</h1>
+    <p>Dado um valor a ser sacado, exiba quantas notas de 100, 50, 20, 10, 5 e 2 deve ser entregues.</p>
+
+    <script>
+        const caixaEletronico = () => {
+            let valor = 186;
+            let notas = [100, 50, 20, 10, 5, 2];
+
+            for (let nota of notas) {
+                let qtd = Math.floor(valor / nota);
+                valor = valor % nota;
+                if (qtd > 0) {
+                    console.log(`${qtd} nota de ${nota}`);
+                }
+            }
+        }
+
+        caixaEletronico();
+    </script>
+</body>
+
+</html>
