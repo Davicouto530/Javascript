@@ -10,22 +10,55 @@
 <body>
     <h1>Simule um caixa eletrônico</h1>
     <p>Dado um valor a ser sacado, exiba quantas notas de 100, 50, 20, 10, 5 e 2 deve ser entregues.</p>
+    <input type="number" id="inputValor" placeholder="Digite um valor">
+    <button id="btnSacar">Sacar</button>
+    <div id="res"></div>
 
     <script>
-        const caixaEletronico = () => {
-            let valor = 186;
+        const inputValor = document.getElementById("inputValor");
+        const btnSacar = document.getElementById("btnSacar");
+        const divRes = document.getElementById("res");
+
+        btnSacar.addEventListener("click", () => {
+            if (inputValor.value == '') {
+                alert("Digite um valor!");
+            } else {
+                divRes.innerHTML = '';
+                let valor = Number(inputValor.value);
+                caixaEletronico(valor);
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        })
+
+        const caixaEletronico = (valor) => {
+            // Lista das notas disponíveis, da maior para a menor
             let notas = [100, 50, 20, 10, 5, 2];
 
+            // Percorre o array com as notas
             for (let nota of notas) {
+                // Calcula quantas vezes a nota cabe no valor (divisão inteira)
+                // Ex: se valor = 280 e nota = 100 → Math.floor(280 / 100) = 2
                 let qtd = Math.floor(valor / nota);
+
+                // Atualiza o valor restante com o que sobra da divisão
+                // Ex: 280 % 100 = 80 → sobra para as próximas notas
                 valor = valor % nota;
+
+                // Cria um parágrafo para exibir a quantidade de notas
+                const pRes = document.createElement("p");
+
+                // Se houver pelo menos uma nota desse valor, exibe a mensagem
                 if (qtd > 0) {
-                    console.log(`${qtd} nota de ${nota}`);
+                    // Se "qtd" for maior que 1, escreve no plural
+                    let plural = qtd > 1 ? "notas": "nota";
+                    pRes.innerHTML = `${qtd} ${plural} de ${nota}`;
                 }
+
+                // Adiciona o parágrafo na div 'divRes' que está no HTML
+                divRes.appendChild(pRes);
             }
         }
-
-        caixaEletronico();
     </script>
 </body>
 
