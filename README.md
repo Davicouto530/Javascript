@@ -17,6 +17,7 @@ Repositório com anotações, exercícios e projetos simples voltados para o apr
 - Eventos
 - POO
 - Mini projetos práticos
+- Prática de lógica de programação
 
 ## Objetivo
 
