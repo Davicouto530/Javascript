@@ -58,8 +58,7 @@ const cores = () => {
     return ["laranja", "rosa", "roxo", "branco"];
 }
 // Desestruturação parcial com array: pula o segundo valor usando a vírgula vazia
-let [a3, b3, , c3] = cores();  // 'a3' = "laranja", 'b3' = "rosa", pula o terceiro, 'c3' = "branco
-// "
+let [a3, b3, , c3] = cores();  // 'a3' = "laranja", 'b3' = "rosa", pula o terceiro, 'c3' = "branco"
 
 // Criando uma string
 let texto = "Curso de Javascript"; 
