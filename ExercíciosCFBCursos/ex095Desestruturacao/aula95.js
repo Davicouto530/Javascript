@@ -39,6 +39,30 @@ let y = 20;
 let num = () => {
     return [1, 2, 3, 4];
 }
-
 // Atribuindo os valores retornados pela função nas variáveis k, l, o e t
 let [k, l, o, t] = num();
+
+// Criando um array com números
+let num2 = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+// Temos mais números que variáveis: as três primeiras variáveis recebem os três primeiros valores
+// O operador rest (...) pega os valores restantes e coloca todos no array 'd2'
+let [a2, b2, c2, ...d2] = num2;
+
+// Criando um objeto já com valores definidos
+let obj = { nome: "Bruno", canal: "CFBCursos", curso: "Javascript" };
+// Fazendo desestruturação de objeto: extrai apenas as propriedades 'nome' e 'canal'
+let { nome, canal } = obj;
+
+// Função que retorna um array com três cores
+const cores = () => {
+    return ["laranja", "rosa", "roxo", "branco"];
+}
+// Desestruturação parcial com array: pula o segundo valor usando a vírgula vazia
+let [a3, b3, , c3] = cores();  // 'a3' = "laranja", 'b3' = "rosa", pula o terceiro, 'c3' = "branco
+// "
+
+// Criando uma string
+let texto = "Curso de Javascript"; 
+// Divide a string por espaço, transformando em array ["Curso", "de", "Javascript"]
+// O operador spread (...) espalha cada palavra para dentro do array 'tex'
+let [...tex] = texto.split(" ");
