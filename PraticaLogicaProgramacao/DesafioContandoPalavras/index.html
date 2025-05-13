@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contando palavras</title>
+</head>
+
+<body>
+    <h1>Conte quantas palavras existem em uma frase</h1>
+    <p>Dada uma string/frase, conte quantas palavras existem. Considere que
+        <br>palavras são separadas por espaços e não há espaços duplos
+    </p>
+    <input type="text" id="inputString" placeholder="Digite aqui">
+    <button id="btnVerificar">Verificar</button>
+    <p id="res"></p>
+
+    <script>
+        const inputString = document.getElementById("inputString");
+        const btnVerificar = document.getElementById("btnVerificar");
+        const res = document.getElementById("res");
+
+        btnVerificar.addEventListener("click", () => {
+            if(inputString.value == ''){
+                res.innerHTML = `Digite um valor válido!`;
+            }else {
+                let frase = inputString.value;//variável da frase que vai ser contada
+                contandoPalavras(frase);//Chama a função que conta 
+                inputString.value = '';
+                inputString.focus();
+            }
+        })
+
+        const contandoPalavras = (frase) => {
+            // Inicializa a contagem de palavras com 1, porque uma frase sempre tem pelo menos uma palavra
+            let qtd = 1;
+
+            // Percorre cada caractere da frase
+            for (let p = 0; p < frase.length; p++) {
+
+                // Verifica se o caractere atual é um espaço
+                if (frase[p] === ' ') {
+                    // Quando encontra um espaço, significa que uma nova palavra começou
+                    qtd++; // Então, adiciona 1 à contagem de palavras
+                }
+            }
+
+            // Se tiver mais de uma palavra, exibe no texto "A frase", se tiver uma palavra
+            //exibe nada na frente, só a palavra e a quantidade que tem, que vai ser 1 
+            let trocaPalavra = qtd > 1 ? "A frase: ": " ";
+            // Se tiver mais de uma palavra, escreve no plural, se não, escreve só "palavra"
+            let palavraPlural = qtd > 1 ? "palavras": "palavra";
+            res.innerHTML = `${trocaPalavra} "${frase}" tem ${qtd} ${palavraPlural}`;
+        }
+    </script>
+</body>
+
+</html>
