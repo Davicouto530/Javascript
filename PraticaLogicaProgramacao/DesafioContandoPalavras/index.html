@@ -25,22 +25,22 @@
             if(inputString.value == ''){
                 res.innerHTML = `Digite um valor válido!`;
             }else {
-                let frase = inputString.value;//variável da frase que vai ser contada
-                contandoPalavras(frase);//Chama a função que conta 
+                let palavra = inputString.value;//variável da frase que vai ser contada
+                contandoPalavras(palavra);//Chama a função que conta 
                 inputString.value = '';
                 inputString.focus();
             }
         })
 
-        const contandoPalavras = (frase) => {
+        const contandoPalavras = (palavra) => {
             // Inicializa a contagem de palavras com 1, porque uma frase sempre tem pelo menos uma palavra
             let qtd = 1;
 
             // Percorre cada caractere da frase
-            for (let p = 0; p < frase.length; p++) {
+            for (let p = 0; p < palavra.length; p++) {
 
                 // Verifica se o caractere atual é um espaço
-                if (frase[p] === ' ') {
+                if (palavra[p] === ' ') {
                     // Quando encontra um espaço, significa que uma nova palavra começou
                     qtd++; // Então, adiciona 1 à contagem de palavras
                 }
@@ -51,7 +51,7 @@
             let trocaPalavra = qtd > 1 ? "A frase: ": " ";
             // Se tiver mais de uma palavra, escreve no plural, se não, escreve só "palavra"
             let palavraPlural = qtd > 1 ? "palavras": "palavra";
-            res.innerHTML = `${trocaPalavra} "${frase}" tem ${qtd} ${palavraPlural}`;
+            res.innerHTML = `${trocaPalavra} "${palavra}" tem ${qtd} ${palavraPlural}`;
         }
     </script>
 </body>
