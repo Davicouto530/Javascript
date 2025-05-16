@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número palíndromo</title>
+</head>
+<body>
+    <h1>Verifique se um número é palíndromo</h1>
+    <p>Um número palíndromo é aquele que lido ao contrário é igual ao original</p>
+    <input type="number" id="inputValor" placeholder="Digite um número">
+    <button id="btnVerifica">Verificar</button>
+    <p id="res"></p>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnVerifica = document.getElementById("btnVerifica");
+        const res = document.getElementById("res");
+
+        btnVerifica.addEventListener("click", () => {
+            if(inputValor.value == ""){
+                res.innerHTML = "Digite um valor válido!";
+            }else {
+                let num = inputValor.value;
+                numPalindromo(num);
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        });
+
+        //Lógica
+        const numPalindromo = (num) => {
+            let numero = num.toString();// Convertendo o número que vem do input para string
+            let numInvertido = '';// Variável que armazena o número invertido 
+
+            // Percorre do último até o primeiro, como se fosse string
+            for(let n = numero.length - 1; n >= 0; n--){
+                numInvertido += numero[n];// Vai armazenando os número final até o inicio
+            }
+
+            // Verifica se os número do inicio são iguais ao os do final
+            if(numero == numInvertido){
+                res.innerHTML = `O número ${numero} é palíndromo`;
+            }else {
+                res.innerHTML = `O número ${numero} não é palíndromo`;
+            }
+
+        }
+    </script>
+</body>
+</html>
