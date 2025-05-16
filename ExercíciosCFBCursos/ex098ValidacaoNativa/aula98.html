@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 98 - Validação nativa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form>
+        <label for="">Nome</label>
+        <input type="text" id="f_nome" minlength="4" maxlength="8" required>
+        <label for="">Nota</label>
+        <input type="number" id="f_nota" min="0" max="10" required>
+        <button id="btn_validar">Validar</button>
+        <p id="f_msg"></p>
+    </form>
+
+    <script src="aula98.js"></script>
+</body>
+
+</html>
