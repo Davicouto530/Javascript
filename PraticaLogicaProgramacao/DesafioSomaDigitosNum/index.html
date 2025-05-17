@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma dos dígitos</title>
+</head>
+<body>
+    <h1>Soma dos dígitos de um número</h1>
+    <p>Dado um número inteiro, calcule a soma de todos os seus dígitos.</p>
+    <input type="number" placeholder="Digite um valor" id="inputValor">
+    <button id="btnSomar">Somar</button>
+    <p id="res"></p>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnSomar = document.getElementById("btnSomar");
+        const res = document.getElementById("res");
+
+        btnSomar.addEventListener("click", () => {
+            if(inputValor.value == ''){
+                res.innerHTML = "Digite um valor válido!";
+            }else {
+                let numero = parseInt(inputValor.value);
+                somaDigitos(numero);
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        })
+
+        const somaDigitos = (numero) => {
+            let soma = 0; // Variável que armazena a soma
+            let nStr = numero.toString(); // Convertendo o número para string, para percorrer um por um
+
+            //Percorrendo a string
+            for(let n = 0; n < nStr.length; n++){
+                soma += Number(nStr[n]); // Convertendo a string para número, para poder fazer a soma
+            }
+
+            res.innerHTML = `Soma dos dígitos: ${soma}`;
+        }
+    </script>
+</body>
+</html>

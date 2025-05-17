@@ -27,13 +27,12 @@ document.querySelector("#btn_validar").addEventListener("click", (evt) => {
     f_msg.innerHTML = msg;
     // f_nota.reportValidity(); // Outra forma de mostrar a mensagem, aparece num balãozinho automático
 
-    
     // Impede o formulário de ser enviado ao clicar no botão
     evt.preventDefault();
 });
 
 
-// Segundo jeito de fazer (comentado aí embaixo)
+// Segundo jeito de fazer
 // A diferença é que agora usamos setCustomValidity() para mostrar a nossa própria mensagem no balãozinho do navegador
 /*
 document.querySelector("#btn_validar").addEventListener("click", (evt) => {
