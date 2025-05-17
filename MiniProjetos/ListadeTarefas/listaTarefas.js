@@ -5,23 +5,7 @@ const btnAddTarefa = document.querySelector("#addTarefa");
 let tarefas = [];
 
 let lista = document.createElement("ul");
-
-btnAddTarefa.addEventListener("click", () => {
-
-    //Verificando se tem algo escrito no input
-    if (inputTarefas.value == '') {
-        alert("Informe um valor válido");//Se não tiver, exibe isso
-    } else {
-        //Se tiver, adiciona no array o que foi escrito no input
-        //com a chave "texto", e o valor "lida"
-        tarefas.push({ texto: inputTarefas.value, lida: false });
-        console.log(tarefas);
-        inputTarefas.value = '';
-        inputTarefas.focus();
-        renderizarTarefas();//exibindo a lista depois de adicionar
-    }
-
-});
+caixa.appendChild(lista);
 
 //Função para exibir a lista
 const renderizarTarefas = () => {
@@ -43,6 +27,7 @@ const renderizarTarefas = () => {
         //indicando que já está feita
         li.addEventListener("click", () => {
             evt.lida = !evt.lida;//Invertendo o valor
+            localStorage.setItem("tarefas", JSON.stringify(tarefas));
             renderizarTarefas();
         });
 
@@ -54,6 +39,7 @@ const renderizarTarefas = () => {
             //Verificando aonde foi clicado para remover
             evt.target.parentNode.remove();
             tarefas.splice(ind, 1);
+            localStorage.setItem("tarefas", JSON.stringify(tarefas));
     
             renderizarTarefas();
             console.log(tarefas);
@@ -61,5 +47,27 @@ const renderizarTarefas = () => {
         li.appendChild(btnLixeira);
         lista.appendChild(li);
     });
-    caixa.appendChild(lista);
 }
+
+if (localStorage.getItem("tarefas")) {
+    tarefas = JSON.parse(localStorage.getItem("tarefas"));
+    renderizarTarefas();
+}
+
+btnAddTarefa.addEventListener("click", () => {
+
+    //Verificando se tem algo escrito no input
+    if (inputTarefas.value == '') {
+        alert("Informe um valor válido");//Se não tiver, exibe isso
+    } else {
+        //Se tiver, adiciona no array o que foi escrito no input
+        //com a chave "texto", e o valor "lida"
+        tarefas.push({ texto: inputTarefas.value, lida: false });
+        localStorage.setItem("tarefas", JSON.stringify(tarefas));
+        console.log(tarefas);
+        inputTarefas.value = '';
+        inputTarefas.focus();
+        renderizarTarefas();//exibindo a lista depois de adicionar
+    }
+
+});
