@@ -11,13 +11,15 @@ const f_msg = document.querySelector("#f_msg");
 document.querySelector("#btn_validar").addEventListener("click", (evt) => {
     let msg = null; // Variável para guardar as mensagem que o formulário vai retornar
 
-    if(!f_nota.checkValidity()){
-        msg = f_nota.validationMessage
-    }
+    // Verifica se o campo "f_nota" é inválido usando a validação nativa
+    if (!f_nota.checkValidity()) {
+        // Se o campo for inválido, obtém a mensagem de erro automática gerada pelo navegador
+        msg = f_nota.validationMessage;
+    } 
 
     f_msg.innerHTML = msg; // Colocando o que tem dentro de "msg" na tag do HTML
     // Serve para que o formulário não execute o "submit" toda vez que clicar no botão
-    evt.preventDefault(); 
+    evt.preventDefault();
 });
 
 // Métodos de validação do DOM:
@@ -51,4 +53,3 @@ valueMissing: true, se o campo for obrigatório (required) e estiver vazio.
 
 valid: true, se todos os outros valores forem false, ou seja, o valor é considerado válido.
 */
-
