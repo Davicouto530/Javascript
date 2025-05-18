@@ -2,7 +2,7 @@ const caixa = document.querySelector("#caixa");
 const inputTarefas = document.querySelector("#inputTarefas");
 const btnAddTarefa = document.querySelector("#addTarefa");
 
-let tarefas = [];
+let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
 let lista = document.createElement("ul");
 caixa.appendChild(lista);
@@ -22,36 +22,54 @@ const renderizarTarefas = () => {
         if (evt.lida === true) {
             li.classList.add("marcarLista");//Adiciona essa classe na "li"
         }
-        
+
         //Quando clicar na "li", risca e vira vermelho
         //indicando que já está feita
         li.addEventListener("click", () => {
             evt.lida = !evt.lida;//Invertendo o valor
-            localStorage.setItem("tarefas", JSON.stringify(tarefas));
+            saveTarefa();
             renderizarTarefas();
         });
 
-        //Criando a img da lixeira
-        const btnLixeira = document.createElement("img");
-        btnLixeira.setAttribute("src", "./lixeira.png");
-        btnLixeira.setAttribute("class", "btn_lixeira");
-        btnLixeira.addEventListener("click", (evt) => {
-            //Verificando aonde foi clicado para remover
-            evt.target.parentNode.remove();
-            tarefas.splice(ind, 1);
-            localStorage.setItem("tarefas", JSON.stringify(tarefas));
-    
-            renderizarTarefas();
-            console.log(tarefas);
-        });
-        li.appendChild(btnLixeira);
+        deleteTarefa(li, ind);
+        editTarefa(li, ind);
         lista.appendChild(li);
     });
 }
 
-if (localStorage.getItem("tarefas")) {
-    tarefas = JSON.parse(localStorage.getItem("tarefas"));
-    renderizarTarefas();
+function deleteTarefa(li, ind) {
+    //Criando a img da lixeira
+    const btnLixeira = document.createElement("img");
+    btnLixeira.setAttribute("src", "./lixeira.png");
+    btnLixeira.setAttribute("class", "btns");
+    btnLixeira.addEventListener("click", (evt) => {
+        //Verificando aonde foi clicado para remover
+        evt.target.parentNode.remove();
+        tarefas.splice(ind, 1);
+        saveTarefa();
+
+        renderizarTarefas();
+        console.log(tarefas);
+    });
+    li.appendChild(btnLixeira);
+}
+
+function editTarefa(li, ind) {
+    const btnEdit = document.createElement("img");
+    btnEdit.setAttribute("src", "./edit.png");
+    btnEdit.setAttribute("class", "btns");
+    btnEdit.addEventListener("click", (evt) => {
+        const novaTarefa = prompt('Editar tarefa: ', tarefas[evt]);
+        if(novaTarefa !== null){
+            tarefas[ind] = novaTarefa.trim();
+            renderizarTarefas();
+        }
+    });
+    li.appendChild(btnEdit);
+}
+
+function saveTarefa() {
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
 
 btnAddTarefa.addEventListener("click", () => {
@@ -63,7 +81,7 @@ btnAddTarefa.addEventListener("click", () => {
         //Se tiver, adiciona no array o que foi escrito no input
         //com a chave "texto", e o valor "lida"
         tarefas.push({ texto: inputTarefas.value, lida: false });
-        localStorage.setItem("tarefas", JSON.stringify(tarefas));
+        saveTarefa();
         console.log(tarefas);
         inputTarefas.value = '';
         inputTarefas.focus();

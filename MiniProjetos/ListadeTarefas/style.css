@@ -85,11 +85,12 @@ hr {
     text-decoration: line-through;
 }
 
-.btn_lixeira {
+.btns {
     width: 25px;
     cursor: pointer;
     float: right;
-    transform: translate(-40%, -90%);
+    margin-right: 10px;
+    transform: translate(40%, -90%);
 }
 
 @media (min-width: 576px){
