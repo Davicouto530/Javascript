@@ -1,11 +1,8 @@
-const caixa = document.querySelector("#caixa");
 const inputTarefas = document.querySelector("#inputTarefas");
 const btnAddTarefa = document.querySelector("#addTarefa");
+const lista = document.querySelector("#lista");
 
-let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
-
-let lista = document.createElement("ul");
-caixa.appendChild(lista);
+let tarefas = [];
 
 //Função para exibir a lista
 const renderizarTarefas = () => {
@@ -15,7 +12,7 @@ const renderizarTarefas = () => {
     tarefas.map((evt, ind) => {
         let li = document.createElement("li");
         li.setAttribute("class", "lista");
-        li.innerHTML += `${evt.texto} </br>`;
+        li.innerHTML += `${evt.texto}`;
         //Adicionando o conteúdo do array na tag "li"
 
         //Se o elemento do array tiver o valor de lida igual a true
@@ -59,9 +56,12 @@ function editTarefa(li, ind) {
     btnEdit.setAttribute("src", "./edit.png");
     btnEdit.setAttribute("class", "btns");
     btnEdit.addEventListener("click", (evt) => {
-        const novaTarefa = prompt('Editar tarefa: ', tarefas[evt]);
-        if(novaTarefa !== null){
-            tarefas[ind] = novaTarefa.trim();
+        evt.stopPropagation(); // Impede o clique de subir até o <li>
+        const novaTarefa = prompt('Editar tarefa: ', 'Digite a tarefa');
+        console.log(novaTarefa)
+        if (novaTarefa !== '') {
+            tarefas[ind].texto = novaTarefa; // Atualiza o array!
+            saveTarefa();
             renderizarTarefas();
         }
     });
@@ -87,5 +87,4 @@ btnAddTarefa.addEventListener("click", () => {
         inputTarefas.focus();
         renderizarTarefas();//exibindo a lista depois de adicionar
     }
-
 });

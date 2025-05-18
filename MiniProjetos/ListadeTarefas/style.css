@@ -90,7 +90,7 @@ hr {
     cursor: pointer;
     float: right;
     margin-right: 10px;
-    transform: translate(40%, -90%);
+    transform: translate(40%, -10%);
 }
 
 @media (min-width: 576px){
