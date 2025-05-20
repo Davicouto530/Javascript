@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada completa</title>
+</head>
+
+<body>
+    <h1>Tabuada completa de 1 a 10</h1>
+    <p>Exiba todas as tabuadas de 1 a 10. Cada número deve exibir a multiplicação de 1 até 10.</p>
+    <div id="res"></div>
+
+    <script>
+        // Função que gera e exibe as tabuadas de 1 a 10
+        const tabuada = () => {
+
+            // Pega a <div> com id "res", onde o conteúdo será inserido
+            const divRes = document.getElementById("res");
+
+            // Loop externo: vai de 1 até 10, ou seja, para cada número que terá sua tabuada gerada
+            for (let i = 1; i <= 10; i++) {
+
+                // Cria um parágrafo <p> para armazenar o conteúdo da tabuada atual
+                const pRes = document.createElement("p");
+
+                // Começa o conteúdo com o título da tabuada, em negrito
+                let conteudo = `<strong>Tabuada do ${i}</strong><br>`;
+
+                // Loop interno: multiplica o número atual (i) por 1 até 10
+                for (let n = 1; n <= 10; n++) {
+                    // Vai somando cada linha da multiplicação ao conteúdo
+                    conteudo += `${i} x ${n} = ${i * n}<br>`;
+                }
+
+                // Insere todo o conteúdo gerado no parágrafo
+                pRes.innerHTML = conteudo;
+
+                // Adiciona o parágrafo dentro da div na página (exibe na tela)
+                divRes.appendChild(pRes);
+            }
+        }
+
+        tabuada();
+    </script>
+</body>
+
+</html>
