@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz simétrica</title>
+</head>
+
+<body>
+    <h1>Verifique se uma matriz 3x3 é simétrica.</h1>
+    <p>Dada uma matriz 3x3, diga se ela é simétrica em relação a diagonal principal.</p>
+
+    <script>
+        const matrizSimetrica = () => {
+            // Cria uma matriz 3x3
+            let mat = [
+                [1, 2, 3],
+                [2, 4, 5],
+                [3, 5, 6]
+            ];
+
+            // Variável com o valor "true", será usada pra verificar se é simétrica a matriz
+            let simetrica = true;
+
+            // Percorre todas as linhas da matriz
+            for (let i = 0; i < mat.length; i++) {
+                // Percorre todas as colunas da matriz
+                for (let j = 0; j < mat.length; j++) {
+                    // Verifica se o elemento na posição [i][j] é diferente do elemento na posição [j][i]
+                    if (mat[i][j] != mat[j][i]) {
+                        // Se for diferente, não é simétrica, altera a variável para "false"
+                        simetrica = false;
+                        return;// Encerra a função
+                    }
+                }
+            }
+
+            // Verifica se a variável "simétrica" é "true" ou "false"
+            if (simetrica) {
+                console.log("É simétrica");
+            } else {
+                console.log("Não é simétrica");
+            }
+        }
+
+        matrizSimetrica();
+    </script>
+</body>
+
+</html>
