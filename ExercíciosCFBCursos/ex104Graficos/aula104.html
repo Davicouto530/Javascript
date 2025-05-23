@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 104 - Gráficos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--Link da biblioteca para criar gráficos-->
+</head>
+
+<body>
+    <!-- Cria uma área onde o gráfico será desenhado -->
+    <div style="width: 500px;height: 500px;">
+        <canvas id="grafico1"></canvas> <!-- Elemento canvas onde o gráfico aparece -->
+    </div>
+
+    <p>Cria um gráfico de barras usando a biblioteca Chart.js, que serve para exibir visualmente dados de
+        forma simples e organizada.</p>
+
+    <script>
+        // Pega o elemento canvas pelo ID, onde o gráfico será exibido
+        const ctx = document.getElementById('grafico1');
+
+        // Define os rótulos que ficam no eixo X
+        let labelsX = ["Brasil", "USA", "África", "Japão"];
+
+        // Define os valores de cada rótulo
+        let valores = [10, 20, 30, 40];
+
+        // Cria um novo gráfico
+        new Chart(ctx, {
+            type: 'bar', // Define o tipo do gráfico (barra)
+            data: {
+                labels: labelsX, // Define os rótulos do eixo X
+                datasets: [{
+                    label: "valoresX", // Nome da legenda do gráfico
+                    data: valores, // Dados que vão gerar as barras
+                    borderWidth: 1 // Espessura da borda das barras
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true // Faz o eixo Y começar do zero
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

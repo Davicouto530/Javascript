@@ -1,5 +1,5 @@
 /*
- * Fetch para APIs
+ * Gráficos com CHARTJS
  */
 
 const p_temp = document.getElementById("p_temp");
