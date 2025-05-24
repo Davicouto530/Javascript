@@ -4,21 +4,37 @@
 
 const timer = document.getElementById("timer");
 
-// Pegando o timestamp e colocando na variável "tmpIni"
-const tmpIni = Date.now(); 
+const tmpIni = Date.now(); // pega o timestamp do momento que começou
 console.log(tmpIni);
 
 const contador = () => {
-    // Vai chamar um timestamp diferente quando chamar essa função
-    const tmpAtual = Date.now(); 
+    const tmpAtual = Date.now(); // pega o timestamp atual
 
-    // Vai fazer a conta do tempo atual menos o tempo inicial
-    let contagem = tmpAtual - tmpIni; 
+    let contagem = tmpAtual - tmpIni; // calcula quanto tempo passou em milissegundos
 
-    // Obtendo o tempo em segundos invés de milisegundos, para não ter atraso
-    let seg = Math.floor((tmpAtual - tmpIni) / 1000);
-    
-    console.log(seg);
+    let seg = Math.floor((tmpAtual - tmpIni) / 1000); // converte pra segundos (tira os milissegundos)
+    timer.innerHTML = converter(seg); // atualiza o HTML com o tempo formatado
+    console.log(seg); // mostra os segundos no console
 }
 
-setInterval(contador, 1000);
+// função que converte segundos pra horas:minutos:segundos
+const converter = (seg) => {
+    // divide os segundos por 3600 (1 hora tem 3600 segundos) e pega só a parte inteira (horas)
+    const hora = Math.floor(seg / 3600); 
+
+    // pega o resto da divisão por 3600, que são os segundos que não formaram uma hora
+    const resto = seg % 3600; 
+
+    // divide esse resto por 60 (1 minuto tem 60 segundos) e pega só a parte inteira (minutos)
+    const minuto = Math.floor(resto / 60); 
+
+    // pega o resto da divisão por 60, que são os segundos que sobraram depois de tirar as horas e os minutos
+    const segundo = Math.floor(resto % 60); 
+
+    // formata pra ficar no padrão 00:00:00
+    const formatado = `${hora < 10 ? "0" + hora : hora}:${minuto < 10 ? "0" + minuto : minuto}:${segundo < 10 ? "0" + segundo : segundo}`;
+
+    return formatado; // retorna o tempo formatado
+}
+
+setInterval(contador, 1000); // executa a função contador a cada 1 segundo
