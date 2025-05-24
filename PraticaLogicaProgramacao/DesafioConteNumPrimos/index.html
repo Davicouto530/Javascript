@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conte números primos</title>
+</head>
+
+<body>
+    <h1>Conte quantos números primos existem entre 1 e N.</h1>
+    <p>Dado um número N, conte quantos números primos existem entre 1 e N.</p>
+    <input type="number" id="inputValor" placeholder="Digite um número">
+    <button id="btnContar">Contagem</button>
+    <p id="numPrimos"></p>
+    <p id="qtdPrimos"></p>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnContar = document.getElementById("btnContar");
+        const numPrimos = document.getElementById("numPrimos");
+        const qtdPrimos = document.getElementById("qtdPrimos");
+
+        btnContar.addEventListener("click", () => {
+            if(inputValor.value == ''){
+                numPrimos.innerHTML = "Digite um valor válido!";
+            }else {
+                let n = Number(inputValor.value);
+                contePrimos(n);
+                inputValor.value = '';
+                inputValor.focus();
+            }
+        })
+
+        const contePrimos = (n) => {
+            let quantidade = 0; // contador de primos
+            let primosArray = []; // Array que armazena os números que são primos
+
+            // começa do 2 porque 1 não é primo (número primo tem que ter 2 divisores: 1 e ele mesmo)
+            for (let i = 2; i <= n; i++) { // percorre de 2 até "n"
+                let primo = true; // considera que é primo de inicio
+
+                // verifica se tem algum divisor além de 1 e ele mesmo
+                for (let j = 2; j < i; j++) {
+                    if (i % j === 0) { // se achar divisor
+                        primo = false; // não é primo
+                    }
+                }
+
+                if (primo) { // se for primo
+                    quantidade++; // soma no contador
+                    primosArray.push(i); // a cada número primo, adiciona no array
+                }
+            }
+
+            // Operador ternário para escrever em plural se for mais de um número primo
+            let plurarl = primosArray.length > 1 ? `Os números: ${primosArray} são primos` : `O número ${primosArray} é primo`
+            numPrimos.innerHTML = plurarl; // Mostra uma das duas mensagens acima, dependendo se for plural
+            qtdPrimos.innerHTML = `Quantidade de números primos: ${quantidade}`;
+        }
+
+    </script>
+</body>
+
+</html>
