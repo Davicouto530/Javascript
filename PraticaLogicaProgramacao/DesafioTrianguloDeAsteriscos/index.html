@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triângulo de asteriscos</title>
+</head>
+
+<body>
+    <h1>Gere um padrão em formato de triângulo</h1>
+    <p>Dado um número N, exiba um triângulo de asteriscos com N linhas.</p>
+    <input type="number" id="inputValor" placeholder="Digite um valor">
+    <button id="btnGerar">Gerar</button>
+    <div id="res"></div>
+
+    <script>
+        const inputValor = document.getElementById("inputValor");
+        const btnGerar = document.getElementById("btnGerar");
+        const divRes = document.getElementById("res");
+
+        // Evento de clique no botão "Gerar"
+        btnGerar.addEventListener("click", () => {
+            // Verifica se o campo está vazio
+            if (inputValor.value == '') {
+                divRes.innerHTML = "Digite um valor válido!"; // Mostra mensagem de erro se estiver vazio
+            } else {
+                let num = Number(inputValor.value); // Converte o valor do input para número
+                triangulo(num); // Chama a função para gerar o triângulo
+                inputValor.value = ''; // Limpa o campo input
+                inputValor.focus(); // Coloca o cursor de volta no input
+            }
+        });
+
+        // Função que gera o triângulo de asteriscos
+        const triangulo = (num) => {
+            divRes.innerHTML = ''; // Limpa o conteúdo anterior da div
+
+            let resultado = ''; // Variável que armazena os asteriscos
+
+            // Laço que percorre de 0 até o número digitado
+            for (let i = 0; i < num; i++) {
+                const div = document.createElement("div"); // Cria uma nova div para cada linha
+                resultado += "*"; // Adiciona um asterisco a cada repetição
+                div.innerHTML = `${resultado} <br>`; // Adiciona o texto e a quebra de linha
+                divRes.appendChild(div); // Insere a div criada dentro da div principal (res)
+            }
+        };
+    </script>
+</body>
+
+</html>
