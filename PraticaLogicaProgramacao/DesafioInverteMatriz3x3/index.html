@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverta uma matriz</title>
+</head>
+
+<body>
+    <h1>Inverta os elementos de uma matriz 3x3</h1>
+    <p>Dada uma matriz 3x3, retorne outra matriz com os elementos invertidos (espelhado horizontal)</p>
+
+    <script>
+        // Função que inverte os elementos de uma matriz 3x3 na horizontal
+        const invertMatriz = () => {
+            // Matriz original
+            let mat = [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]
+            ];
+
+            // Matriz que vai armazenar o resultado invertido
+            let matInvert = [];
+
+            // Percorre cada linha da matriz original
+            for (let i = 0; i < mat.length; i++) {
+                let arrayTemp = []; // Cria um array temporário para armazenar a linha invertida
+
+                // Percorre a linha de trás pra frente
+                for (let j = mat.length - 1; j >= 0; j--) {
+                    arrayTemp.push(mat[i][j]); // Adiciona os elementos invertidos na linha temporária
+                }
+
+                matInvert.push(arrayTemp); // Adiciona a linha invertida na matriz final
+            }
+
+            console.log(matInvert);
+        }
+
+        invertMatriz();
+    </script>
+</body>
+
+</html>
