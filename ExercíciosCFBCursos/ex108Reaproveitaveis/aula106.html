@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 106 - Gráficos com chartjs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--Link da biblioteca para criar gráficos-->
+</head>
+
+<body>
+    <!-- Cria uma área onde o gráfico será desenhado -->
+    <div style="width: 500px;height: 500px;">
+        <canvas id="grafico1"></canvas> <!-- Elemento canvas onde o gráfico aparece -->
+    </div>
+
+    <script>
+        // Pega o elemento canvas pelo ID, onde o gráfico será exibido
+        const ctx = document.getElementById('grafico1');
+
+        // Define os rótulos que ficam no eixo X
+        let labelsX = ["Disponibilidade", "Qualidade", "Performance"];
+
+        // Define os valores de cada rótulo
+        let valores = [0, 0, 0];
+
+        // Cria um novo gráfico
+        let grafico1 = new Chart(ctx, {
+            type: 'bar', // Define o tipo do gráfico (barra)
+            data: {
+                labels: labelsX, // Define os rótulos do eixo X
+                datasets: [{
+                    label: "valoresX", // Nome da legenda do gráfico
+                    data: valores, // Dados que vão gerar as barras
+                    borderWidth: 1 // Espessura da borda das barras
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true // Faz o eixo Y começar do zero
+                    }
+                }
+            }
+        });
+
+        // Função que obtém os dados da API (Colocou dentro de uma função para poder colocar no setInterval)
+        const obterDados = () => {
+            // Consumindo a API que vai gerar números aleatórios 
+            const endpoint = "https://eb250761-f2a7-4755-bb4e-a5541d3e7e49-00-39xrdq5ca9acf.riker.replit.dev/";
+
+            // faz a requisição para o endpoint da API
+            fetch(endpoint)
+                .then(res => res.json()) // converte a resposta para JSON
+                .then(res => {
+
+                    // Teste para saber se os valores da API estão chegando
+                    console.log(res.disponibilidade)
+                    console.log(res.qualidade)
+                    console.log(res.performance)
+
+                    // coloca os valores que vieram da API no array que passa os valores para o gráfico
+                    valores[0] = res.disponibilidade;
+                    valores[1] = res.qualidade;
+                    valores[2] = res.performance;
+
+                    grafico1.update() // atualiza o gráfico com os novos dados
+                })
+                .catch(erro => { // se der erro na requisição
+                    console.log("ERRO: " + erro) // mostra o erro no console
+                })
+        }
+
+        // Vai obter os dados e colocar no gráfico a cada 5 segundos
+        let intervalo = setInterval(obterDados, 5000);
+    </script>
+
+    <script src="aula106.js"></script>
+</body>
+
+</html>
