@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média com Matriz</title>
+</head>
+
+<body>
+    <h1>Calcule a média de alunos com as notas armazenadas em matriz</h1>
+    <p>Dada uma matriz onde cada linha representa as notas de um aluno, <br>
+        calcule a média individual de cada aluno e exiba no console</p>
+
+    <script>
+        const mediaMatriz = () => {
+
+            // Matriz que armazena as notas, cada linha é um aluno
+            let nota = [
+                [7, 8, 6], // Notas do aluno 1
+                [5, 9, 10], // Notas do aluno 2
+                [6, 6, 7] // Notas do aluno 3
+            ];
+
+            // Percorre cada linha da matriz
+            for (let i = 0; i < nota.length; i++) {
+
+                let soma = 0; // Variável que armazena a soma
+
+                // Percorre as colunas de cada linha
+                for (let j = 0; j < nota[i].length; j++) {
+                    soma += nota[i][j]; // Soma as notas do aluno
+                }
+
+                // Calcula a média dividindo a soma pelo total de notas
+                let media = soma / nota[i].length;
+
+                console.log(`Média do aluno ${i + 1}: ${media.toFixed(2)}`);
+            }
+        }
+
+        mediaMatriz();
+    </script>
+</body>
+
+</html>
