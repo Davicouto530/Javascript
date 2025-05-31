@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulando estacionamento</title>
+</head>
+
+<body>
+    <h1>Simulador de estacionamento</h1>
+    <p>Simule um sistema de estacionamento com 5 vagas. Cada vez que um carro chega, ele ocupa a primeira <br>
+        vaga livre. Quando um carro sai, a vaga é liberada. Você deve controlar a entrada e saída dos carros <br>
+        usando uma lista de 5 elementos. Zeros representam vagas vazias.</p>
+
+    <script>
+        let vagas = ["", "", "", "", ""];
+
+        const entrada = (placa) => {
+            let vagaEncontrada = false;
+
+            for(let i = 0; i < vagas.length; i++){
+                if(vagas[i] == ""){
+                    vagas[i] = placa;
+                    vagaEncontrada = true;
+                    break;
+                }
+            }
+
+            if(vagaEncontrada == false){
+                console.log("Estacionamento cheio!");
+            }
+
+            console.log(vagas);
+        }
+
+        const saida = (placa) => {
+            let carroEncontrado = false;
+
+            for (let j = 0; j < vagas.length; j++) {
+                if (vagas[j] == placa) {
+                    vagas[j] = "";
+                    carroEncontrado = true;
+                }
+            }
+
+            if(carroEncontrado == false){
+                console.log("Carro não encontrado no estacionamento.");
+            }
+
+            console.log(vagas)
+
+        }
+
+        entrada("ABC1234");
+        entrada("XYZ9999");
+        saida("ABC1234");
+    </script>
+</body>
+
+</html>
