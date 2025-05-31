@@ -13,48 +13,94 @@
         vaga livre. Quando um carro sai, a vaga é liberada. Você deve controlar a entrada e saída dos carros <br>
         usando uma lista de 5 elementos. Zeros representam vagas vazias.</p>
 
+    <input type="text" required maxlength="7" id="placa" placeholder="Digite a sua placa">
+    <button id="btnAdd">Adicionar</button>
+    <button id="btnRemover">Tirar carro</button>
+    <p id="res"></p>
+
     <script>
+        const placa = document.getElementById("placa");
+        const btnAdd = document.getElementById("btnAdd");
+        const btnRemover = document.getElementById("btnRemover");
+        const pRes = document.getElementById("res");
+
+        // Evento de clique no botão "Adicionar"
+        btnAdd.addEventListener("click", () => {
+            // Verifica se o campo de placa está vazio
+            if (placa.value == '') {
+                pRes.innerHTML = "Digite uma placa válida!"; // Mensagem de erro
+            } else {
+                // Chama a função de entrada passando a placa em maiúsculas
+                entrada(placa.value.toUpperCase());
+                // Limpa o campo da placa
+                placa.value = '';
+                // Coloca o foco de volta no campo
+                placa.focus();
+            }
+        });
+
+        // Evento de clique no botão "Remover"
+        btnRemover.addEventListener("click", () => {
+            // Verifica se o campo de placa está vazio
+            if (placa.value == '') {
+                pRes.innerHTML = "Digite uma placa válida!"; // Mensagem de erro
+            } else {
+                // Chama a função de saída passando a placa em maiúsculas
+                saida(placa.value.toUpperCase());
+                // Limpa o campo da placa
+                placa.value = '';
+                // Coloca o foco de volta no campo
+                placa.focus();
+            }
+        });
+
+        // Cria um array representando as vagas do estacionamento (5 vagas)
         let vagas = ["", "", "", "", ""];
 
+        // Função para adicionar um carro no estacionamento
         const entrada = (placa) => {
-            let vagaEncontrada = false;
+            let vagaEncontrada = false; // Variável de controle para saber se achou uma vaga
 
-            for(let i = 0; i < vagas.length; i++){
-                if(vagas[i] == ""){
-                    vagas[i] = placa;
-                    vagaEncontrada = true;
-                    break;
+            // Percorre todas as vagas
+            for (let i = 0; i < vagas.length; i++) {
+                // Se a vaga estiver vazia
+                if (vagas[i] == "") {
+                    vagas[i] = placa; // Coloca a placa na vaga
+                    vagaEncontrada = true; // Marca que achou vaga
+                    break; // Sai do loop, não precisa procurar mais
                 }
             }
 
-            if(vagaEncontrada == false){
-                console.log("Estacionamento cheio!");
+            // Se não encontrou nenhuma vaga livre
+            if (!vagaEncontrada) {
+                pRes.innerHTML = "Estacionamento cheio!";
             }
 
-            console.log(vagas);
+            // Mostra o estado atual do estacionamento
+            pRes.innerHTML = vagas;
         }
 
+        // Função para remover um carro do estacionamento
         const saida = (placa) => {
-            let carroEncontrado = false;
+            let carroEncontrado = false; // Variável de controle para saber se encontrou o carro
 
+            // Percorre todas as vagas
             for (let j = 0; j < vagas.length; j++) {
+                // Se encontrou a placa na vaga
                 if (vagas[j] == placa) {
-                    vagas[j] = "";
-                    carroEncontrado = true;
+                    vagas[j] = ""; // Libera a vaga
+                    carroEncontrado = true; // Marca que encontrou
                 }
             }
 
-            if(carroEncontrado == false){
-                console.log("Carro não encontrado no estacionamento.");
+            // Se não encontrou a placa no estacionamento
+            if (!carroEncontrado) {
+                pRes.innerHTML = "Carro não encontrado no estacionamento.";
             }
 
-            console.log(vagas)
-
+            // Mostra o estado atual do estacionamento
+            pRes.innerHTML = vagas;
         }
-
-        entrada("ABC1234");
-        entrada("XYZ9999");
-        saida("ABC1234");
     </script>
 </body>
 
