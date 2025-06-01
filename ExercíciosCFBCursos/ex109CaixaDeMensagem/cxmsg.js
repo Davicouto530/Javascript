@@ -1,18 +1,18 @@
 // Classe que vai criar a caixa de mensagem
 class Cxmsg {
     // Propriedades da classe
-    cor = null; // Cor da caixa
-    destino = null; // Onde a caixa vai ser exibida na página 
-    divmsg = null; // Elemento da caixa 
+    static cor = "#888"; // Cor da caixa
+    static destino = null; // Onde a caixa vai ser exibida na página 
+    static divmsg = null; // Elemento da caixa 
 
     // Método construtor, que pega as configurações do objeto literal
-    constructor(config) {
+    static config = (config) => {
         this.cor = config.cor; // Recebe a cor passada no config
-        this.destino = document.body; // Define que o destino é o body da página
     }
-
+    
     // Método para exibir a caixa de mensagem
-    mostrar = (titulo, texto) => {
+    static mostrar = (titulo, texto) => {
+        this.destino = document.body; // Define que o destino é o body da página
         this.titulo = titulo; 
         this.texto = texto; 
         this.divmsg = document.createElement("div");
@@ -98,7 +98,9 @@ class Cxmsg {
     }
 
     // Método para ocultar a caixa (ainda vazio)
-    ocultar = () => {
+    static ocultar = () => {
         this.divmsg.remove()
     }
 }
+
+export {Cxmsg}

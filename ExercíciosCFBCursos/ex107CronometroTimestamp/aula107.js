@@ -2,6 +2,14 @@
  * Cronômetro com Timestamp
  */
 
+import { Cxmsg } from "../ex109CaixaDeMensagem/cxmsg.js";
+
+// Objeto de configuração da caixa de mensagem
+const config = {
+    cor: "#080" // Cor da caixa
+}
+Cxmsg.config(config)
+
 const timer = document.getElementById("timer");
 const btn_iniciar = document.getElementById("btn_iniciar");
 const btn_parar = document.getElementById("btn_parar");
@@ -67,4 +75,6 @@ btn_zerar.addEventListener("click", () => {
     timer.innerHTML = "00:00:00"; // Reseta o visor do cronômetro
     clearInterval(intervalo); // Para qualquer contagem que esteja rodando
     parciaisRegistradas.innerHTML = ''; // Limpa as parciais registradas
+
+    Cxmsg.mostrar("Cronômetro", "O cronômetro foi zerado")
 });
