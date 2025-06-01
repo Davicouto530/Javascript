@@ -1,22 +1,20 @@
 // Classe que vai criar a caixa de mensagem
 class Cxmsg {
     // Propriedades da classe
-    titulo = null; // Título da caixa
-    texto = null; // Texto que vai ser exibido
     cor = null; // Cor da caixa
     destino = null; // Onde a caixa vai ser exibida na página 
     divmsg = null; // Elemento da caixa 
 
     // Método construtor, que pega as configurações do objeto literal
     constructor(config) {
-        this.titulo = config.titulo; // Recebe o título passado no config
-        this.texto = config.texto; // Recebe o texto passado no config
         this.cor = config.cor; // Recebe a cor passada no config
         this.destino = document.body; // Define que o destino é o body da página
     }
 
     // Método para exibir a caixa de mensagem
-    mostrar = () => {
+    mostrar = (titulo, texto) => {
+        this.titulo = titulo; 
+        this.texto = texto; 
         this.divmsg = document.createElement("div");
         const estilo_divmsg =
             "display: flex;" +
@@ -55,10 +53,52 @@ class Cxmsg {
         tituloCxmsg.setAttribute("style", estilo_tituloCxmsg)
         tituloCxmsg.innerHTML = this.titulo
         areaCxmsg.appendChild(tituloCxmsg)
+
+        const estilo_corpoCxmsg =
+            "display: flex;" +
+            "justify-content: flex-start;" +
+            "align-items: center;" +
+            "width: 100%;" +
+            "background-color: #eee;"+
+            "color: #000;"+
+            "padding: 30px 5px;"
+        const corpoCxmsg = document.createElement("div");
+        corpoCxmsg.setAttribute("style", estilo_corpoCxmsg)
+        corpoCxmsg.innerHTML = this.texto
+        areaCxmsg.appendChild(corpoCxmsg)
+
+        const estilo_rodapeCxmsg =
+            "display: flex;" +
+            "justify-content: space-around;" +
+            "align-items: center;" +
+            "width: 100%;" +
+            "background-color: #ccc;"+
+            "color: #000;"+
+            "padding: 5px;"+
+            "border-radius: 0px 0px 5px 5px"
+        const rodapeCxmsg = document.createElement("div");
+        rodapeCxmsg.setAttribute("style", estilo_rodapeCxmsg)
+        areaCxmsg.appendChild(rodapeCxmsg)
+
+        const estilo_botaoCxmsg =
+            "background-color:"+this.cor+";"+
+            "color: #fff;"+
+            "padding: 10px 50px;"+
+            "border-radius: 5px"+
+            "cursor: pointer;"+
+            "text-transform: uppercase;"
+        const btn_ok = document.createElement("button");
+        btn_ok.setAttribute("style", estilo_botaoCxmsg)
+        btn_ok.innerHTML = "ok"
+        btn_ok.addEventListener("click", (evt) => {
+            this.ocultar()
+        })
+        rodapeCxmsg.appendChild(btn_ok)
+
     }
 
     // Método para ocultar a caixa (ainda vazio)
     ocultar = () => {
-        // Código para remover ou esconder a caixa será colocado aqui futuramente
+        this.divmsg.remove()
     }
 }
