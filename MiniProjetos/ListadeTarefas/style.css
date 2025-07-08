@@ -81,7 +81,7 @@ hr {
 
 .marcarLista {
     opacity: 0.5;
-    border: 2px solid red;
+    border: 2px solid #ccc;
     text-decoration: line-through;
 }
 
