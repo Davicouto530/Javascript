@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis ES6</title>
+</head>
+
+<body>
+
+    <script>
+        // 3 escopos: global, função e bloco
+
+        // EXEMPLO COM "CONST"
+        const futebol = 'Brasil'; // A variável "const" não permite atribuir outro valor e segue o mesmo conceito de escopo do "let".
+
+        console.log(`Fora da função ${futebol}`);
+
+        function y() {
+            const futebol = 'Argentina';
+            console.log(`Dentro da função ${futebol}`)
+        }
+
+        y();
+
+        // EXEMPLO COM "LET"
+        if (true) {
+            let serie = 'Friends'; // O "let" preserva o escopo aonde foi criado, então se tentar chamar essa variável "serie" fora do "if", vai da um erro.
+            console.log(serie);
+        }
+
+        console.log(serie);
+        
+        // EXEMPLO COM "VAR"
+        // var serie = 'Friends'; // Variável global: está disponível em todas as partes do código.
+
+        // function x() {
+        //     var serie = 'Game Of Thrones';
+
+        //     console.log(`Função ${serie}`);
+
+        //     if (true) {
+        //         console.log(`Bloco dentro da função ${serie}`);
+        //     }
+        // }
+
+        // x();
+
+        // if (true) {
+        //     console.log(`Global ${serie}`);
+        // }
+    </script>
+</body>
+
+</html>
