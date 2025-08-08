@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parâmetros default</title>
+</head>
+<body>
+    
+    <script>
+        // Passando os valores para as variáveis dentro da função, caso não seja passado nenhum parâmetro na chamada da função, vai ficar como padrão os valores que estão sendo passadas dentro dos parenteses.
+        function contarUmaHistoria(personagem = 'Fubá', atividade = 'Correr no parque', nome_dono = 'João') {
+            document.write(`Era uma vez um cachorro chamado ${personagem}, ele adorava ${atividade}, seu dono era o ${nome_dono} e eles viveram felizes para sempre!`);
+        }
+
+        // Se passar parâmetros aqui na chamada da função, os valores que estão sendo passado dentro da função não serão usados.
+        contarUmaHistoria(undefined, 'Enterrar ossos', 'Pedro');
+        // Se colocar algum "undefined" como parâmetro, quer dizer que quer que use os valores passados como padrão na função.
+    </script>
+</body>
+</html>
