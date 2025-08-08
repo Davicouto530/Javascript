@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function</title>
+</head>
+<body>
+    
+    <script>
+        // let quadrado = function(x = 5){
+        //     return x * x;
+        // }
+
+        // Arrow function com parenteses
+        let quadrado = (x) => {
+            return x * x;
+        }
+
+        // Arrow function quando ta recebendo só um parâmetro
+        let quadrado2 = x => x * x; // return implícito
+
+        document.write(quadrado(3));
+
+        // Arrow function recebendo só um parâmetro com um if ternário.
+        let parOuImpar = numero => numero % 2 === 0 ? '</br> par' : '</br> impar';
+
+        document.write(parOuImpar(7))
+    </script>
+</body>
+</html>
