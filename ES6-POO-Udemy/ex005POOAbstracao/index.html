@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO Abstração</title>
+</head>
+<body>
+    
+    <script>
+        // Modelo do objeto
+        class ContaBancaria {
+            constructor(){
+                this.agencia = 1075
+                this.numeroConta = 8351125
+                this.saldo = 50
+                this.limite = 450 // Atributos pré definidos.
+            }
+
+            // Métodos de conta bancaria
+            depositar(valorDeposito) {
+                this.saldo += valorDeposito
+                // Pegando o valor de "valorDeposito" e somando e atribuindo em "saldo".
+            }
+
+            sacar(valorSaque) {
+                this.saldo -= valorSaque
+                // Pegando o valor de "valorSaque" e decrementando e atribuindo em "saldo".
+            }
+
+            consultarSaldo() {
+                return this.saldo
+                // Retornando o valor do saldo.
+            }
+        }
+
+        // Instanciando a classe
+        const conta = new ContaBancaria();
+
+        // Instanciando os métodos
+        console.log(conta.consultarSaldo());
+        conta.depositar(450);
+        console.log(conta.consultarSaldo());
+        conta.sacar(200);
+        console.log(conta.consultarSaldo());
+    </script>
+</body>
+</html>
