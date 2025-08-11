@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilar de Herança</title>
+</head>
+<body>
+    
+    <script>
+        // Classe pai que fara a herança que conterá os atributos que são comuns entre os dois obj e irá ser passados para os obj de animal.
+        class Animal {
+            constructor(){
+                // Criando os atributos que são em comuns.
+                this.cor = ''
+                this.tamanho = null
+            }
+
+            // Método em comum das classe que fará a henraça
+            dormir() {
+                console.log('Dormir')
+            }
+        }
+
+        // Criando o obj cachorro que ta herdando com o "extends" da classe "Animal".
+        class Cachorro extends Animal {
+            constructor(){
+                super()
+                this.orelhas = 'Grandes e caídas'
+                // Criando um atributo específico para a classe Cachorro
+            }
+
+            // Métodos do obj
+
+            correr() {
+                console.log('Correr');
+            }
+
+            rosnar() {
+                console.log('Rosnar');
+            }
+        }
+
+        // Criando o obj passáro que ta herdando com o "extends" da classe "Animal".
+        class Passaro extends Animal {
+            constructor(){
+                super()
+                this.bico = 'Curto'
+                // Criando um atributo específico para a classe Passaro
+            }
+
+            // Métodos do obj
+            voar() {
+                console.log('Voar');
+            }
+        }
+
+        // Criando o obj papagaio que ta herdando com o "extends" da classe "Passaro", que está pegando os atributos e métodos da classe "Passaro", mas também da classe "Animal", porque "Passaro" herda de "Animal", então é um passando para o outro.
+        class Papagaio extends Passaro {
+            constructor() {
+                super()
+                this.sabeFalar = true
+                // Criando os atributos específicos para a classe Passaro
+            }
+
+            falar() {
+                console.log('Falar')
+            }
+        }
+
+        // Instanciando as classes.
+        let cachorro = new Cachorro();
+        let passaro = new Passaro();
+        let papagaio = new Papagaio();
+
+        cachorro.dormir();
+        passaro.dormir();
+        papagaio.falar();
+        papagaio.dormir();
+        papagaio.voar();
+    </script>
+</body>
+</html>
