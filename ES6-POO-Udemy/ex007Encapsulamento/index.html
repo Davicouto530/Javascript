@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilar encapsulamento</title>
+</head>
+<body>
+    
+    <script>
+        class Tv {
+            constructor(){
+                // O "_" no inicio dos atributos, simboliza que aquele atributo é privado, mesmo não mudando nada o "_", dando a entender para os programadores que não é para mexer naquele atributo, mesmo que aquele atributo estaja normal.
+                this._relacaoCanais = [2, 4, 5, 7, 10]
+                this._canalAtivo = 5
+                this._volume = 5
+            }
+
+            // Métodos "get" e "set"
+
+            // O método "get" ele serve para retornar um atributo
+            get canalAtivo() {
+                return this._canalAtivo
+                // Retornando o atributo "privado" por meio do método "get".
+            }
+
+            // O método "set" ele serve para atribuir um novo valor ao atributo por meio do parâmetro passado nos parenteses.
+            set canalAtivo(canal) {
+
+                // O "indexOf" vai pesquisar no array "_relacaoCanais" o valor que está sendo passado para dentro do parâmetro "canal", se já ouver um lá, vai retornar o indice da onde o valor está no array, se não ouver, vai retornar "-1". O "if" vai verificar se é diferente de "-1", se for diferente, modifica o canal, se não for diferente de "-1", não faz nada.
+                if(this._relacaoCanais.indexOf(canal) !== -1){
+                    this._canalAtivo = canal
+                    // Atribuindo um novo valor para o atributo "_canalAtivo".
+                }
+
+            }
+        }
+
+        let tv = new Tv();
+
+        tv.canalAtivo = 10; // Passando o valor que vai para o parâmtero de dentro da função "set", que vai atribuir um novo valor para o atributo "_canalAtivo".
+
+        console.log(tv.canalAtivo); // Aqui vai acessar por meio do método "get", não diretamente no atributo.
+    </script>
+</body>
+</html>
