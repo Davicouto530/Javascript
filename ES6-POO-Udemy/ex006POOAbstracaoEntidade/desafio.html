@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio POO sofá</title>
+</head>
+<body>
+    
+    <script>
+        class Sofa {
+            constructor(qtd_lugares, reclinavel, cor){
+                this.qtd_lugares = qtd_lugares
+                this.reclinavel = reclinavel
+                this.cor = cor
+            }
+
+            reclinandoSofa() {
+                if(this.reclinavel === true){
+                    console.log('Sofá reclinado!');
+                }else {
+                    console.log('Sofá não reclinado!');
+                }
+            }
+        }
+
+        const sofas = [];
+
+        sofas.push(new Sofa(2, true, 'vermelho'));
+        sofas.push(new Sofa(4, false, 'marrom'));
+
+        console.log(sofas);
+
+        sofas[0].reclinandoSofa();
+    </script>
+</body>
+</html>

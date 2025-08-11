@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO Abstração entidade</title>
+</head>
+
+<body>
+
+    <script>
+        // Software de marcenaria
+
+        // Paradigma procedural: Exemplo sem POO
+
+        //cadeira
+        // let qtd_pernas = 1;
+        // let giratoria = true;
+        // let cor = 'azul';
+
+        // //array de cadeiras
+        // let cadeiras = [];
+
+        // cadeiras[0] = [];
+        // cadeiras[0]['qtd_pernas'] = 4;
+        // cadeiras[0]['giratoria'] = false;
+        // cadeiras[0]['cor'] = 'azul';
+
+        // cadeiras[1] = [];
+        // cadeiras[1]['qtd_pernas'] = 1;
+        // cadeiras[1]['giratoria'] = true;
+        // cadeiras[1]['cor'] = 'vermelha';
+
+        // function girar_cadeira(indice) {
+        //     if (cadeiras[indice]['giratoria'] === true) {
+        //         console.log('Girou!');
+        //     } else {
+        //         console.log('Cadeira não é giratoria!');
+        //     }
+        // }
+
+        // function adicionar_cadeira(qtd_pernas, giratoria, cor){
+        //     let cadeira = Array();
+
+        //     cadeira['qtd_pernas'] = qtd_pernas;
+        //     cadeira['giratoria'] = giratoria;
+        //     cadeira['cor'] = cor;
+
+        //     cadeiras.push(cadeira);
+        // }
+
+        // adicionar_cadeira(3, false, 'verde');
+
+        // console.log(cadeiras)
+
+        // girar_cadeira(0);
+        //---------------------------------
+
+        // Paradigma de OO: Exemplo com POO
+
+        class Cadeira {
+            constructor(qtd_pernas, giratoria, cor){
+                // Atributos do obj
+                this.qtd_pernas = qtd_pernas
+                this.giratoria = giratoria
+                this.cor = cor
+            }
+
+            // Método que v~e se a cadeira é giratoria.
+            girarCadeira() {
+                // Se "giratoria" for "true", é por que a cadeira é giratoria, se não, não é.
+                if(this.giratoria === true){
+                    console.log("Girou!");
+                }else {
+                    console.log("Cadeira não é giratoria!");
+                }
+            }
+        }
+
+        // Criando um array que irá armazenar as as instancias das novas cadeiras.
+        let cadeiras = [];
+
+        // Adicionando no array as novas cadeiras, instanciando o OO de "Cadeira" em cada indice.
+        cadeiras.push(new Cadeira(4, false, 'azul'));
+        cadeiras.push(new Cadeira(1, true, 'vermelha'));
+
+        console.log(cadeiras);
+
+        // Chamando o método que verifica se a cadeira é giratoria.
+        cadeiras[0].girarCadeira();
+
+    </script>
+</body>
+
+</html>
