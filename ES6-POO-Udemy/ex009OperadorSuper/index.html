@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Super</title>
+</head>
+<body>
+    
+    <script>
+        // Classe pai que far a herança que conterá os atributos que são comuns entre os dois obj e irá ser passados para os obj de animal.
+        class Animal {
+            constructor(cor, tamanho, peso){ // Recebendo os parãmetro do "super" na classe "Passaro".
+
+                // Criando os atributos que são em comuns.
+                this.cor = cor
+                this.tamanho = tamanho
+                this.peso = peso
+            }
+
+            // Método em comum das classe que fará a henraça
+            dormir() {
+                console.log('Dormir')
+            }
+        }
+
+        // Criando o obj passáro que ta herdando com o "extends" da classe "Animal".
+        class Passaro extends Animal {
+            constructor(bico, cor, tamanho, peso){ // Recebendo os parãmetro do "super" na classe "Papagaio".
+
+                super(cor, tamanho, peso) // Passando valores para os parâmetros que estão dentro da classe que o "Passaro" está herdando, que é a "Animal"
+
+                this.bico = bico
+                // Criando um atributo específico para a classe Passaro
+            }
+
+            // Métodos do obj
+            voar() {
+                console.log('Voar');
+            }
+        }
+
+        // Criando o obj papagaio que ta herdando com o "extends" da classe "Passaro", que está pegando os atributos e métodos da classe "Passaro", mas também da classe "Animal", porque "Passaro" herda de "Animal", então é um passando para o outro.
+        class Papagaio extends Passaro {
+            constructor(sabeFalar, cor, tamanho, peso) {// Recebendo os parâmetros de quando está instanciando a classe.
+
+                super('Médio', cor, tamanho, peso) // Passando um valor e os parâmetros para o parâmetro que está dentro da classe que o "Papagaio" está herdando, que é a "Passaro"
+
+                this.sabeFalar = sabeFalar
+                // Criando os atributos específicos para a classe Passaro
+            }
+
+            falar() {
+                console.log('Falar')
+            }
+        }
+
+        let papagaio = new Papagaio(true, 'Verde', 25, 350); // Passando os parâmetros para a classe "Papagaio", que vai passando para as outras classes via "super" até chegar na classe Pai, que é a classe "Animal".
+        console.log(papagaio);
+
+        let papagaio2 = new Papagaio(false, 'Branco', 10, 80);
+        console.log(papagaio2);
+    </script>
+</body>
+</html>
