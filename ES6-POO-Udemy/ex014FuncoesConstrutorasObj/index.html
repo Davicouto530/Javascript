@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções construtoras objetos</title>
+</head>
+
+<body>
+
+    <script>
+        // Aqui a gente está criando uma "receita" para fazer um carro
+        let Carro = function () {
+            // A cor do carro é amarela
+            this.cor = 'Amarelo'
+
+            // O modelo do carro é um Chevette (um carro antigo!)
+            this.modelo = 'Chevette'
+
+            // O carro começa parado, com velocidade 0
+            this.velocidadeAtual = 0
+
+            // Ele só consegue ir até 180 por hora
+            this.velocidadeMaxima = 180
+
+            // Função para acelerar o carro
+            this.acelerar = function () {
+                // Pega a velocidade que ele está agora e soma mais 10
+                let velocidade = this.getVelocidadeAtual() + 10
+                // Atualiza a velocidade para esse novo valor
+                this.setVelocidadeAtual(velocidade)
+            }
+
+            // Função para saber qual a velocidade do carro agora
+            this.getVelocidadeAtual = function () {
+                return this.velocidadeAtual
+            }
+
+            // Função para mudar a velocidade do carro para um valor novo
+            this.setVelocidadeAtual = function (velocidadeAtual) {
+                this.velocidadeAtual = velocidadeAtual
+            }
+        }
+
+        // Aqui a gente está usando a "receita" para criar um carro de verdade
+        let carro = new Carro();
+
+        // Mostra na tela a velocidade que ele está agora (no começo é 0)
+        console.log(`A velocidade atual é: ${carro.getVelocidadeAtual()}`);
+
+        // Faz o carro acelerar 3 vezes
+        carro.acelerar();
+        carro.acelerar();
+        carro.acelerar();
+
+        // Mostra na tela a velocidade nova do carro
+        console.log(`A velocidade atual é: ${carro.getVelocidadeAtual()}`);
+
+    </script>
+</body>
+
+</html>
