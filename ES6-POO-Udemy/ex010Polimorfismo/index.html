@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operador Super</title>
+    <title>Pilar Polimorfismo</title>
 </head>
 <body>
     
     <script>
         // Classe pai que fará a herança que conterá os atributos que são comuns entre os dois obj e irá ser passados para os obj de animal.
         class Animal {
-            constructor(cor, tamanho, peso){ // Recebendo os parâmetro do "super" na classe "Passaro".
+            constructor(cor, tamanho, peso){ // Recebendo os parãmetro do "super" na classe "Passaro".
 
                 // Criando os atributos que são em comuns.
                 this.cor = cor
@@ -26,7 +26,7 @@
 
         // Criando o obj passáro que ta herdando com o "extends" da classe "Animal".
         class Passaro extends Animal {
-            constructor(bico, cor, tamanho, peso){ // Recebendo os parãmetro do "super" na classe "Papagaio".
+            constructor(bico, cor, tamanho, peso){ // Recebendo os parâmetro do "super" na classe "Papagaio".
 
                 super(cor, tamanho, peso) // Passando valores para os parâmetros que estão dentro da classe que o "Passaro" está herdando, que é a "Animal"
 
@@ -55,11 +55,33 @@
             }
         }
 
+        // Criando a classe avestruz, que herda os atributos e métodos de passaro, e passaro herda de animal.
+        class Avestruz extends Passaro {
+            constructor() {
+                super('Grande', 'Branco e preto', 250, 15000) // Passando os parâmetros fixos via "super" para a classe passaro.
+            }
+
+            // Criando os métodos específicos da classe avestruz.
+            enterrarCabeca() {
+                console.log('Enterrar a cabeça!');
+            }
+
+            // Usando o método de polimorfismo para não deixar a classe do avestruz pegar o método "voar", por que até então avestruz não voa.
+            voar() {
+                console.log('Não sabe voar!!');
+            } // Agora se chamar o método voar na classe avestruz, vai exibir esse console.log.
+        }
+
         let papagaio = new Papagaio(true, 'Verde', 25, 350); // Passando os parâmetros para a classe "Papagaio", que vai passando para as outras classes via "super" até chegar na classe Pai, que é a classe "Animal".
         console.log(papagaio);
+        papagaio.voar();
 
-        let papagaio2 = new Papagaio(false, 'Branco', 10, 80);
-        console.log(papagaio2);
+        // Instanciando a classe avestruz.
+        let avestruz = new Avestruz();
+        avestruz.enterrarCabeca(); // Executando o método da classe avestruz.
+
+        avestruz.voar(); // Executando o método que está usando o polimorfismo.
+
     </script>
 </body>
 </html>
