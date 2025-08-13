@@ -38,7 +38,7 @@
         let objeto2 = {
             // Deixando só o nome e omitindo o valor, por que o JS vai entender que o nome e o valor vai ser o mesmo.
             // nome = nome variável / valor = valor da variável.
-            nome, 
+            nome,
             idade,
             sexo,
             profissao,
@@ -49,6 +49,23 @@
 
         console.log(objeto2);
         objeto.exibirResumo(); // Chamando a função do obj.
+
+        // ----- Modificando valores -----
+
+        // Criando o obj literal
+        let pessoa = {
+            nome: 'José', 
+            idade: 45
+        }
+
+        console.log(pessoa.nome);
+
+        // Atribuindo novos valores para o obj.
+        pessoa.nome = "Davi";
+        pessoa.idade = 32;
+
+        console.log(pessoa);
+
     </script>
 </body>
 
