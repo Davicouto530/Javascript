@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos literais</title>
+</head>
+<body>
+    
+    <script>
+
+        // Classe de Produto
+        class Produto {
+            constructor(descricao, preco){
+                // Criando os atributos do obj
+                this.descricao = descricao
+                this.preco = preco
+            }
+
+            // Método que exibe a descricao com o preco.
+            verDescricao() {
+                console.log(`${this.descricao} por apenas ${this.preco}`);
+            }
+        }
+
+        // Instanciando o obj
+        let produto = new Produto('Notebook', 2200);
+        produto.verDescricao(); // Exibindo o método
+
+        // ------------------------------------
+
+        // Objeto literal
+        let produtoLiteral = {
+            // Criando os atributos estáticos
+            descricao: 'Geladeira',
+            preco: 1800,
+            verDescricao: function(){
+                console.log(`${this.descricao} por apenas ${this.preco}`);
+                // Função que exibe as informações.
+            }
+        }
+
+        // Chamando a função que está dentro do obj.
+        produtoLiteral.verDescricao();
+    </script>
+</body>
+</html>
