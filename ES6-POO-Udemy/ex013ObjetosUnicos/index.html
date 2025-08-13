@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos únicos</title>
+</head>
+
+<body>
+
+    <script>
+        // Criando um objeto 
+        let assinatura = {
+            idCliente: 1000,
+            descricao: 'Acesso a internet', 
+            status() {
+                console.log('Ativo!');
+            }
+        }
+
+        console.log(assinatura.descricao);
+
+        // A variável "y" está sendo associada ao objeto "assinatura" só com uma referência de acesso, mas não está recebendo o objeto literal.
+        let y = assinatura;
+
+        console.log(y.descricao);
+
+        // Modificando a descricao do obj por meio da variável "y".
+        y.descricao = 'Internet + TV + telefone';
+
+        console.log(assinatura.descricao);
+        console.log(y.descricao);
+    </script>
+</body>
+
+</html>
