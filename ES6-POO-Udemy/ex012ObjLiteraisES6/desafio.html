@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Objetos literais ES6</title>
+</head>
+
+<body>
+
+    <form> <!-- Formulário que passa os dados pro JS -->
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <input type="number" id="idade" placeholder="Digite sua idade">
+        <input type="text" id="sexo" placeholder="Digite seu sexo">
+        <input type="text" id="profissao" placeholder="Digite sua profissão">
+    </form>
+
+    <!--Botão que envia os dados para a função-->
+    <button onclick="enviar()">Enviar</button>
+
+    <script>
+
+        function enviar() {
+            // Pegando os valores dos inputs do HTML
+            let nome = document.getElementById('nome').value;
+            let idade = document.getElementById('idade').value;
+            let sexo = document.getElementById('sexo').value;
+            let profissao = document.getElementById('profissao').value;
+
+            // Obj que armazena os dados dos inputs
+            let objeto = {
+                nome: nome,
+                idade: idade,
+                sexo: sexo,
+                profissao: profissao,
+                exibirResumo() {
+                    console.log(`${this.nome}, ${idade} anos, ${this.sexo} é ${this.profissao}`);
+                } // Função que exibe os dados no console.
+            }
+
+            console.log(objeto);
+            objeto.exibirResumo(); // Chamando a função do obj.
+        }
+    </script>
+</body>
+
+</html>
