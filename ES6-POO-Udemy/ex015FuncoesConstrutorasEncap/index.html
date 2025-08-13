@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções construtoras encapsulamento</title>
+</head>
+
+<body>
+
+    <script>
+        // Aqui a gente cria a "receita" para fazer um carro (Carro 1)
+        let Carro = function () {
+            // Cor do carro
+            this.cor = 'Amarelo'
+
+            // Modelo do carro
+            this.modelo = 'Chevette'
+
+            // Começa parado (velocidade 0)
+            this.velocidadeAtual = 0
+
+            // Velocidade máxima que ele consegue
+            this.velocidadeMaxima = 180
+
+            // Função para acelerar o carro
+            this.acelerar = function () {
+                // Pega a velocidade de agora e soma 50
+                let velocidade = this.getVelocidadeAtual() + 50
+
+                // Se passar da velocidade máxima, segura no máximo
+                if (velocidade > this.velocidadeMaxima) {
+                    velocidade = this.velocidadeMaxima
+                }
+
+                // Atualiza a velocidade do carro
+                this.setVelocidadeAtual(velocidade)
+            }
+
+            // Função para ver a velocidade de agora
+            this.getVelocidadeAtual = function () {
+                return this.velocidadeAtual
+            }
+
+            // Função para mudar a velocidade para um novo valor
+            this.setVelocidadeAtual = function (velocidadeAtual) {
+                this.velocidadeAtual = velocidadeAtual
+            }
+        }
+
+        // Criamos um carro de verdade usando a receita
+        let carro = new Carro();
+
+        // Mostrando a velocidade do carro e acelerando várias vezes
+        console.log(carro.velocidadeAtual); // começa parado
+        carro.acelerar();
+        console.log(carro.velocidadeAtual);
+        carro.acelerar();
+        console.log(carro.velocidadeAtual);
+        carro.acelerar();
+        console.log(carro.velocidadeAtual);
+        carro.acelerar();
+        console.log(carro.velocidadeAtual);
+
+
+
+        // ------------------------------
+        // Aqui é outro carro (Carro 2) mas com SEGREDOS escondidos
+        let Carro2 = function () {
+            // Velocidade máxima escondida (ninguém de fora vê)
+            var velocidadeMaxima = 180
+
+            // Quilômetros rodados também é segredo
+            var quilometrosRodados = 0
+
+            // Cor do carro
+            this.cor = 'Amarelo'
+
+            // Modelo do carro
+            this.modelo = 'Chevette'
+
+            // Começa parado
+            this.velocidadeAtual = 0
+
+            // Função para acelerar
+            this.acelerar = function () {
+                // Pega a velocidade de agora e soma 50
+                let velocidade = this.getVelocidadeAtual() + 50
+
+                // Não deixa passar do máximo
+                if (velocidade > velocidadeMaxima) {
+                    velocidade = velocidadeMaxima
+                }
+
+                // Atualiza a velocidade
+                this.setVelocidadeAtual(velocidade)
+
+                // Aumenta os quilômetros rodados (segredo)
+                setQuilometrosRodados(0.07)
+                console.log(quilometrosRodados) // mostra quantos km já rodou
+            }
+
+            // Ver velocidade atual
+            this.getVelocidadeAtual = function () {
+                return this.velocidadeAtual
+            }
+
+            // Mudar a velocidade
+            this.setVelocidadeAtual = function (velocidadeAtual) {
+                this.velocidadeAtual = velocidadeAtual
+            }
+
+            // Função secreta para aumentar a quilometragem
+            var setQuilometrosRodados = function (q) {
+                quilometrosRodados += q
+            }
+        }
+
+        // Criando um carro 2
+        let carro2 = new Carro2();
+
+        // Mostrando e acelerando várias vezes
+        console.log(carro2.velocidadeAtual);
+        carro2.acelerar();
+        console.log(carro2.velocidadeAtual);
+        carro2.acelerar();
+        console.log(carro2.velocidadeAtual);
+        carro2.acelerar();
+        console.log(carro2.velocidadeAtual);
+        carro2.acelerar();
+        console.log(carro2.velocidadeAtual);
+
+        // Mostra como os objetos estão por dentro
+        console.log(carro);
+        console.log(carro2);
+
+    </script>
+</body>
+
+</html>
