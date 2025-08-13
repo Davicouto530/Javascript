@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos literais ES6</title>
+</head>
+
+<body>
+
+    <script>
+        // ------------- Jeito 1 ---------------
+
+        // Variáveis que tem valores que serão passados para dentro do obj
+        let nome = 'Jorge';
+        let idade = 29;
+        let sexo = 'Masculino';
+        let profissao = 'Programador';
+
+        // Obj que armazena os dados das variáveis.
+        let objeto = {
+            nome: nome,
+            idade: idade,
+            sexo: sexo,
+            profissao: profissao,
+            exibirResumo: function () {
+                console.log(`${this.nome}, ${idade} anos, ${this.sexo} é ${this.profissao}`);
+            } // Função que exibe os dados no console.
+        }
+
+        console.log(objeto);
+        objeto.exibirResumo(); // Chamando a função do obj.
+
+        // ------------- Jeito 2 ---------------
+
+        // Obj que armazena os dados das variáveis.
+        let objeto2 = {
+            // Deixando só o nome e omitindo o valor, por que o JS vai entender que o nome e o valor vai ser o mesmo.
+            // nome = nome variável / valor = valor da variável.
+            nome, 
+            idade,
+            sexo,
+            profissao,
+            exibirResumo() { // Deixando sem a parte da "function" que não é mais necessária.
+                console.log(`${this.nome}, ${idade} anos, ${this.sexo} é ${this.profissao}`);
+            } // Função que exibe os dados no console.
+        }
+
+        console.log(objeto2);
+        objeto.exibirResumo(); // Chamando a função do obj.
+    </script>
+</body>
+
+</html>
