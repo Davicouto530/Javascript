@@ -66,6 +66,26 @@
 
         console.log(pessoa);
 
+        // ----- Inclusão de atributos em obj -----
+
+        // Criando o obj literal
+        let pessoa2 = {
+            nome: 'Maria', 
+            idade: 25
+        }
+
+        console.log(pessoa2.nome);
+
+        // Incluindo novos atributos para o obj.
+        pessoa2.sexo = 'Feminino';
+
+        console.log(pessoa2);
+
+        // Incluindo novas funções no obj.
+        pessoa2.dizerOi = () => console.log('Olá, tudo bem?');
+
+        pessoa2.dizerOi();
+
     </script>
 </body>
 
