@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Polimorfismo</title>
+</head>
+
+<body>
+
+    <script>
+        // Classe pai
+        class Animal {
+            constructor(nome, idade) {
+                this.nome = nome
+                this.idade = idade
+            }
+
+            fazerSom() {
+                console.log('Som do animal');
+            }
+        }
+
+        // Classe Cachorro que herda de animal
+        class Cachorro extends Animal {
+            constructor(nome, idade) {
+                super(nome, idade)
+            }
+
+            // Método do polimorfismo
+            fazerSom() {
+                console.log('Au au!');
+            }
+
+            // Método do animal
+            abanarRabo() {
+                console.log('Abanando rabo');
+            }
+        }
+
+        // Classe Gato que herda de animal
+        class Gato extends Animal {
+            constructor(nome, idade) {
+                super(nome, idade)
+            }
+
+            // Método do polimorfismo
+            fazerSom() {
+                console.log("Miau!");
+            }
+
+            // Método do animal
+            arranhar() {
+                console.log('Arranhando');
+            }
+        }
+
+        // Classe Leão que herda de animal
+        class Leao extends Animal {
+            constructor(nome, idade) {
+                super(nome, idade)
+            }
+
+            // Método do polimorfismo
+            fazerSom() {
+                console.log('Rugido!')
+            }
+
+            // Método do animal
+            cacar() {
+                console.log('Cacando');
+            }
+        }
+
+        // Criando um array que irá armazenar as instancias dos objs.
+        const animais = [];
+
+        // Instanciando os objs e colocando no array.
+        animais.push(new Cachorro('Alfredo', 11));
+        animais.push(new Gato('Cleber', 8));
+        animais.push(new Leao('José', 23));
+
+        console.log(animais);
+
+        // Função que exibe os métodos de fazer som de cada animal.
+        function ouvirAnimais(animais) {
+            // Percorrendo todos os objs do array e fazer emitir o som de cada animal.
+            for (let i = 0; i < animais.length; i++) {
+                animais[i].fazerSom(); // Emitindo o som de cada animal.
+
+                // Verificando se existe dentro do obj o método que está dentro do bloco do "if"
+                if (animais[i] instanceof Cachorro) {
+                    // Vai na classe "Cachorro" e verifica se tem esse método.
+                    animais[i].abanarRabo();
+                }
+                if (animais[i] instanceof Gato) {
+                    // Vai na classe "Gato" e verifica se tem esse método.
+                    animais[i].arranhar();
+                }
+                if (animais[i] instanceof Leao) {
+                    // Vai na classe "Leão" e verifica se tem esse método.
+                    animais[i].cacar();
+                }
+            }
+        }
+
+        ouvirAnimais(animais);
+    </script>
+</body>
+
+</html>
