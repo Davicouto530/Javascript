@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desestruturação</title>
+</head>
+
+<body>
+
+    <script>
+        // ----- Exemplo 1 -----
+        // Array que vai ser desestruturado
+        let frutas = ['Abacaxi', 'Uva', 'Pera', 'Mamão'];
+
+        // Extraindo valores sem desestruturação
+        // let a = frutas[0];
+
+        // Vai pegar os dados do array frutas e o valor contido no indice 0 vai ser atribuido para a variável "a", e o do indice 1 para a variável "b".
+        // Para pular um indice e pegar o valor da frente, é só colocar um valor em branco entre as virgulas ", ,"
+        let [a, b, , c] = frutas;
+
+        // Exibindo os valores que estão no array, mas dentro das variáveis de desestruturação
+        console.log(a, b, c);
+
+        // ----- Exemplo 2 -----
+        // Atribuindo um valor padrão caso não exista a posição dentro do array, mas o que sempre virá primeiro é o valor do array caso exista.
+        let [x, y = 'Abacate', z, o, i = 'Banana'] = frutas;
+        console.log(x, y, z, o, i);
+
+        // ----- Exemplo 3 -----
+        // Criando um array, e dois arrays dentro do primeiro.
+        let coisas = [['Abacaxi', 'Uva', 'Pera', 'Mamão'], ['José', 'Maria']];
+
+        // Extraindo o nome do array
+        // Entrando no primeiro array e pulando ele com "[,]", depois coloca mais um colchete indicando que quer o segundo array, e dentro pula o primeiro indice com "[,]" e do lado coloca a variável que vai receber o valor do array que é "Maria".
+        let [, [, n2]] = coisas;
+
+        console.log(n2);
+
+        // Extraindo o valor do primeiro array de dentro
+        let [[,,n3],] = coisas;
+
+        console.log(n3)
+    </script>
+</body>
+
+</html>
