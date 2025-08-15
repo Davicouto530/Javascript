@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Rest</title>
+</head>
+
+<body>
+
+    <script>
+        // Rest: serve para juntar estrutura de dados
+
+        // ----- Operador Rest -----
+
+        // O operador rest é feito com os "...", ele está dentro dos parenteses da função, que vai juntar todos os valores que estão sendo passados na chamada da função dentro desse "...param" que vai virar um array
+        function soma(...param) {
+            let resultado = 0;
+
+            console.log(param);
+
+            // Aqui está percorrendo o parâmetro com rest que virou array, e todos os valores está dentro dele
+            param.forEach(v => {
+                resultado += v; // Estamos somando e atribuindo todos os valores que estão dentro de "param" para a variável "resultado"
+            })
+
+            return resultado;
+        }
+
+        // Aqui pode colocar quantos valores quiser, que vai tudo para o parâmetro que está dentro dos parenteses da função.
+        console.log(soma(3, 8, 5, 7, -9, 44, -8));
+
+        //---------------------------
+
+        // Dois parâmetros dentro dos parenteses, um recebe só um valor, e o outro recebe todos os outros valores com o rest
+        function multiplicacao(m, ...p) {
+
+            let resultado = 0;
+
+            // Percorrendo o array rest que está nos parenteses
+            p.forEach(v => {
+                resultado += m * v;
+                // Está pegando o "m" que é o multiplicador, então cada número que está dentro do array vai ser multiplicado por 5 que é o multiplicador, e vai somando e atribuindo a variável "resultado".
+            }) 
+
+            return resultado;
+        }
+
+        // O primeiro parâmetro aqui, vai para o primeiro parâmetro da função, o resto dos parâmetros vai tudo para o parâmetro com o rest que vai fazer um array
+        console.log(multiplicacao(5, 7, 12, 3, 49));
+    </script>
+</body>
+
+</html>
