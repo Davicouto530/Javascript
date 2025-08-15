@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Rest Spread</title>
+</head>
+
+<body>
+
+    <script>
+        // Rest: serve para juntar estrutura de dados
+        // Spread: serve para espalhar estrutura de dados
+
+        // ----- Operador Spread -----
+
+        // string
+        let tituloArtigo = 'Como utilizar o operador rest/spread';
+
+        console.log(tituloArtigo);
+        console.log(...tituloArtigo); // O operador "spread" é usado assim "...", ele aqui vai separar cada letra da frase, ele espalhou a frase em cada letra individual
+
+        console.log([...tituloArtigo]); // Usando o spread dentro de um array, sendo assim cada letra da frase que vai ser espalhada, vai ficar em um indice dentro do array.
+
+        // arrays
+        let listaCursos1 = ['NodeJS e MongoDB', 'ES6, Typescript e Angular 4'];
+        let listaCursos2 = ['Multiplataforma Android/IOS', 'Introdução ao GNU/Linux'];
+        // Criando dois arrays com cursos dentro
+
+        let listaCursosCompleto = ['Web completo', 'Android completo', ...listaCursos1, ...listaCursos2]; // Criando um array aonde vai mostrar todos os cursos de todos os arrays, usando o spread nos dois arrays de cima, aonde os contéudos dos arrays de cima serão espalhados dentro desse array completo
+
+        console.log(listaCursosCompleto);
+
+        // objetos
+        let pessoa = { nome: 'João', idade: 27 } //Criando um obj pessoa
+
+        let clone = { endereco: 'Rua abc', ...pessoa } // Criando um segundo objeto, aonde o obj pessoa vai ser espalhado, todos os atributos do obj pessoa vai vim pra dentro do obj "clone"
+
+        console.log(clone);
+    </script>
+</body>
+
+</html>
