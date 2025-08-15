@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+
+<body>
+
+    <script>
+        // Objeto literal
+        let a1 = {
+            // Atributos do objeto
+            cor: 'Branco',
+            modelo: 'Airbus a380',
+            levantarVoo: function() { console.log('Levantar voo!') } // Método do objeto
+        }
+
+        // objeto com função construtora
+        let AviaoF = function() {
+            // Atributos do objeto
+            this.cor = 'Azul',
+            this.modelo = 'Boeing 787',
+            this.levantarVoo = function() { console.log('Levantar voo!') } // Método do objeto
+        }
+
+        // Instanciando o objeto da função
+        let a2 = new AviaoF();
+
+        // Classe 
+        class AviaoC {
+            constructor() {
+                // Atributos do objeto
+                this.cor = 'Vermelho',
+                this.modelo = 'Embraer E-Jets'
+            }
+
+            levantarVoo() {
+                console.log('Levantar voo!')
+            } // Método do objeto
+        }
+
+        // Instanciando o objeto da classe
+        let a3 = new AviaoC();
+
+        console.log(a1);
+        console.log(a2);
+        console.log(a3);
+    </script>
+</body>
+
+</html>
