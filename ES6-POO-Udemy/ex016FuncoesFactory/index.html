@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Factory</title>
+</head>
+
+<body>
+
+    <script>
+        // Aqui a gente está criando uma bicicleta do zero
+        let Bicicleta1 = {
+            cor: 'Branca', // A cor da bicicleta é branca
+            marcha: 'única', // Ela tem só uma marcha
+            aro: 12, // O tamanho da roda é 12
+            pedalar() { // Isso é como ensinar a bicicleta a "andar"
+                console.log('Método pedalar executado!') // Quando ela pedalar, fala isso no console
+            }
+        }
+
+        // Criando outra bicicleta manualmente
+        let Bicicleta2 = {
+            cor: 'Vermelha', // Agora a cor é vermelha
+            marcha: '18', // Tem 18 marchas
+            aro: 26, // Roda maior, tamanho 26
+            pedalar() {
+                console.log('Método pedalar executado!')
+            }
+        }
+
+        // Mostrando as duas bicicletas na tela do computador (console)
+        console.log(Bicicleta1);
+        console.log(Bicicleta2);
+
+        //--------------------------------
+
+        // Função fábrica (Factory)
+        // É como uma receita mágica que cria bicicletas sem precisar escrever tudo de novo
+        let BicicletaFactory = function (cor, marcha, aro) {
+            return {
+                cor: cor, // A cor que a gente passar vai ser a cor da bicicleta
+                marcha: marcha, // O número de marchas que a gente passar
+                aro: aro, // O tamanho da roda que a gente passar
+                pedalar() {
+                    console.log('Método pedalar executado!')
+                }
+            }
+        }
+
+        // Criando bicicletas usando a "receita"
+        let Bicicleta3 = BicicletaFactory('Vermelha', '18', 26);
+        console.log(Bicicleta3);
+
+        let Bicicleta4 = BicicletaFactory('Preta', '21', 29);
+        console.log(Bicicleta4);
+
+        // Aqui embaixo (comentado) a gente poderia pegar a cor da bicicleta ou mandar ela pedalar
+        // console.log(Bicicleta3.cor);
+        // Bicicleta3.pedalar();
+    </script>
+</body>
+
+</html>
