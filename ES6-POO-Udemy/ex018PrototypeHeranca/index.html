@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Herança</title>
+</head>
+
+<body>
+
+    <script>
+        // CUIDADO: Esse obj prototype será global, todo obj terá o atributo "attr50"
+        Object.prototype.attr50 = 'Z';
+
+        // Obj Pai
+        let animal = { attr1: 'a' }
+
+        let vertebrado = { __proto__: animal,  attr2: 'b' } // Herdando os atributos de "animal" para o obj "vertebrado", e de "vertebrado" vai para o obj "ave".
+
+        let ave = { __proto__: vertebrado, attr3: 'c', attr2: 'x' } // O "__proto__" serve para que atráves do obj "ave", a gente possa acessar os atributos do obj "vertebrado"
+
+        // Acessando os atributos de todos os objs por meio do obj "ave"
+        console.log(ave.attr3, ave.attr2, ave.attr1, ave.attr50);
+    </script>
+</body>
+
+</html>
