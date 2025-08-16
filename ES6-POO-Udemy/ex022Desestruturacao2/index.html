@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desestruturação</title>
+</head>
+
+<body>
+
+    <script>
+        // ----- Desestruturação objs -----
+        
+        // ----- Exemplo 1 -----
+        // Criando um obj literal
+        let produto = {
+            descricao: 'Notebook',
+            preco: 1800,
+            detalhes: { // Composição: Criando um obj dentro do obj
+                fabricante: 'abc',
+                modelo: 'xyz'
+            }
+        }
+
+        // token para desestruturar
+        // array => []
+        // objeto => {}
+
+        // Extraindo do obj via Desestruturação
+        // Extraindo o valores que estão dentro de "descricao" e "preco" do obj e colocando nas variáveis "d" e "p", mas tem que indicar que "descricao" vai receber ":" a variável "d" ficando -> "descricao: d".
+        // Atribuindo um valor padrão caso não exista o atributo dentro do obj, mas o que sempre virá primeiro é o valor do obj caso exista, ficando: "preco: p = 1000" como valor padrão.
+        let { descricao: d, preco: p = 1000, desconto = 5 } = produto;
+        console.log(d, p, desconto);
+
+        // Extraindo os atributos do obj que está dentro do obj principal.
+        // E colocando os atributos em variáveis e definindo valores padrão igual acima.
+        let { detalhes: { fabricante: f, modelo = 'Não informado!' } } = produto;
+        console.log(f, modelo);
+    </script>
+</body>
+
+</html>
