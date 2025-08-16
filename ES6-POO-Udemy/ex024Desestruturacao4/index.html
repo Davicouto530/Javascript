@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desestruturação</title>
+</head>
+
+<body>
+
+    <script>
+        // ----- Desestruturação em conjunto com o operador rest -----
+
+        // ----- Exemplo 1 com rest em arrays -----
+        // Array de valores
+        let arr = [10, 20, 30, 40];
+
+        // Desestruturação do array
+        // Desestruturando com o rest, na primeira variável é para o primeiro valor do array, na segunda variável aonde que vai todos os outros valores do array por que está com o "..."
+        let [ a, ...resto ] = arr;
+
+        console.log(a);
+        console.log(resto); // Vai voltar como array a variável "resto".
+
+        // ----- Exemplo 2 com rest em objs -----
+        
+        // Objeto literal
+        let obj = {
+            // Atributos do obj
+            a: 10, b: 20, c: 30, d: 40
+        }
+
+        // Desestruturação do obj
+        // Desestruturando com o rest, na primeira variável é para o primeiro atributo do obj, na segunda variável aonde que vai todos os outros valores do obj por que está com o "..."
+        let { a: h, ...z } = obj;
+
+        console.log(h, z); // O primeiro valor do obj está na variável "h", e o resto dos valores está na variável "z"
+    </script>
+</body>
+
+</html>
