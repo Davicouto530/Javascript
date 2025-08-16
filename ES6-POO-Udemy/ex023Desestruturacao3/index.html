@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desestruturação</title>
+</head>
+
+<body>
+
+    <script>
+        // ----- Desestruturação funções -----
+
+        // ----- Exemplo 1 com funções e arrays -----
+        // Array que armazena os valores
+        let arr = [10, 20, 30, 40];
+
+        // Função de teste para a desestruturação
+        // Desestruturando o array dentro dos parenteses da função, então o valor do indice 0 vai para a variável "a", e o valor do indice 1 vai para a variável "b". Também tem como pular indice com o ", ," e também colocar valores padrão "d = 50" caso não exista no array
+        function teste([a, b, , c, d = 50]) {
+            console.log('Teste array ' + a, b, c, d);
+            // Exibindo os valores
+        }
+
+        // Passando para a função o array que vai ser desestruturado dentro dos parenteses
+        teste(arr);
+
+        // ----- Exemplo 2 com funções e objs -----
+
+        // Objeto literal
+        let obj = {
+            // Atributos do obj
+            a: 10,
+            b: 20,
+            c: 30,
+            d: 40
+        }
+
+        // Função de teste para a desestruturação
+        // Desestruturando o obj dentro dos parenteses da função, então o valor do atributo "a" vai para a variável "x", e o valor do atributo "b" não foi definida uma variável para ele. Também tem como colocar valores padrão "z = 50" caso não exista no obj
+        function testeObj({ a: x, b, d, z = 50 }) {
+            console.log('Teste obj ' + x, b, d, z);
+        }
+
+        testeObj(obj);
+    </script>
+</body>
+
+</html>
