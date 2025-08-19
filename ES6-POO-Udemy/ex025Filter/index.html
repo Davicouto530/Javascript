@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+</head>
+
+<body>
+
+    <script>
+        // Criando um array que armazena os objetos literais
+        let funcionarios = [ 
+            {nome: 'Fernanda', cargo: 'Analista de RH', salario: 3100, status: 'ativo'},
+            {nome: 'Miguel', cargo: 'Assistente adm', salario: 1700, status: 'ativo'},
+            {nome: 'Rosa', cargo: 'Auxiliar de contabilidade', salario: 1600, status: 'inativo'},
+            {nome: 'Roberto', cargo: 'Programador PHP', salario: 4500, status: 'ativo'},
+            {nome: 'Maria', cargo: 'Engenheira Mecânica', salario: 7500, status: 'ativo'} 
+        ];
+
+        console.log(funcionarios);
+
+        // O método "filter" percorre todo o array, e o parâmetro "f" serve para ser cada indice do array
+        // estamos indo em cada objeto e vendo o atributo "salario", e verificando se o atributo "salario" é menor que 2000, se o atributo "salario" de algum objeto for menor que 2000, vai retornar "true", se for maior que 2000, vai retornar "false"
+        funcionarios.filter((f) => { return console.log(f.salario < 2000) }).filter((f) => { return f.status == 'ativo' });
+        // Fazendo um segundo filtro dentro do array "funcionarios" para os que são true no primeiro filtro de "< 2000", verificando se o atributo "status" dos objs que são menores que 2000 são ativos, se for "ativo" vai retornar "true", se não, vai retornar "false"
+    </script>
+</body>
+
+</html>
